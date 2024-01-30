@@ -1,0 +1,36 @@
+{
+  "conversation_name": "borrower_previous_residence_conversation_7",
+  "assistant_id": "01HKPTPQMFF4JN3Q7ZM4HZ8CQ5",
+  "prompts": [
+    "I resided at Apt 549, 4713 Macejkovic Neck, New Sheldon, UT 61425. I lived there for the two years and I owned the property."
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordApplicantPastResidenceDetails",
+      "arguments": {
+        "data": {
+          "address_line_1": "4713 Macejkovic Neck",
+          "city_name": "New Sheldon",
+          "unit_identifier": "Apt 549",
+          "postal_code": "61425",
+          "country_name": "US",
+          "state_code": "UT",
+          "residency_basis_type": "Own",
+          "residency_duration_months_count": 0,
+          "residency_duration_years_count": 2
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

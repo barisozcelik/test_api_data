@@ -1,0 +1,129 @@
+{
+  "conversation_name": "mortgage_details_0",
+  "assistant_id": "01HKCYYTX533NFAGP4KXCHMF1Y",
+  "prompts": [
+    "Applied Loan:\n\nLoan Details:\n\nBase Loan Amount: $250,000\nLoan Purpose: Purchase\nProperty:\n\nAddress:\nStreet: 789 Hilltop Lane\nCity: Flagstaff\nState: Arizona\nZip Code: 86001\nNumber of Units: 1\nProperty Value: $320,000\nIntended Occupancy: Primary Residence\nFHA Secondary Residence: No\nMixed-Use Property: Yes (Planning to set aside a space for a home office)\nManufactured Home: No"
+  ],
+  "init_collection": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ]
+  },
+  "expected_v3": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ],
+    "leads": [
+      {
+        "@id": "01HKKZ77VKJKB0XNA9PZR9CK5T",
+        "@type": "lead",
+        "has_property": "01HKKYWF88WAB9QTZ6ZJTXX3CM",
+        "has_loan": "01HKKYVNHW67R39873M8AEN4MC",
+        "has_finance_relation": "01HMGMQJAZXPXHGABCC3RCZVJS"
+      }
+    ],
+    "properties": [
+      {
+        "@id": "01HKKYWF88WAB9QTZ6ZJTXX3CM",
+        "@type": "property",
+        "has_address": "01HKKZ88Y0563MGWSV945J406B",
+        "accessory_unit_count": 1,
+        "property_estimated_value_amount": 320000,
+        "property_current_usage_type": "PrimaryResidence",
+        "fha_secondary_residence_indicator": false,
+        "property_mixed_usage_indicator": true,
+        "manufactured_home_indicator": false,
+        "has_finance_relation": "01HMGMQJAZXPXHGABCC3RCZVJS"
+      }
+    ],
+    "loans": [
+      {
+        "@id": "01HKKYVNHW67R39873M8AEN4MC",
+        "@type": "loan",
+        "base_loan_amount": 250000,
+        "loan_purpose_type": "Purchase",
+        "has_finance_relation": "01HMGMQJAZXPXHGABCC3RCZVJS"
+      }
+    ],
+    "addresses": [
+      {
+        "@id": "01HKKZ88Y0563MGWSV945J406B",
+        "@type": "address",
+        "address_line_1": "789 Hilltop Lane",
+        "city_name": "Flagstaff",
+        "country_name": "US",
+        "postal_code": "86001",
+        "state_code": "AZ"
+      }
+    ]
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "has_person",
+    "has_credit",
+    "has_property",
+    "has_loan",
+    "has_property",
+    "has_finance_relation",
+    "has_ownership",
+    "owned_property",
+    "owned_by",
+    "has_address",
+
+
+    
+    "unit_identifier"
+  ]
+}

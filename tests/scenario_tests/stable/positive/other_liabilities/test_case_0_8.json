@@ -1,0 +1,38 @@
+{
+  "conversation_name": "other_liabilities_0_8",
+  "assistant_id": "01HKYH693DNND2Z29G883WDEYQ",
+  "prompts": [
+ 
+    "* Alimony, $350\n* Child Support, Variable, typically around $200"
+  ],
+  "expected_function_calls": [
+      {
+        "name": "recordOtherLiabilitiesData",
+        "arguments": {
+          "data":{
+            "other_liabilities": [
+                {
+                  "liability_monthly_payment_amount":350,
+                  "liability_type":"Alimony"
+                },
+                {
+                  "liability_monthly_payment_amount":200,
+                  "liability_type":"ChildSupport"
+                }
+            ]}}
+      },
+      {
+          "name": "switchToNextAssistant",
+          "arguments": {}
+      }
+    ],
+
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant_id",
+    "assistant",
+    "role"
+  ]
+}

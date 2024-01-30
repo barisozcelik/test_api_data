@@ -1,0 +1,31 @@
+conversation_name: borrower_previous_income_conversation_4
+assistant_id: 01HKPTP38QWTRYGJ50MV58TJ2H
+prompts:
+  - |-
+    I've been a Professional Event Planner, operating under my business name 'Elegant Occasions', from my residence at 350 Celebration Ave, Miami, FL 33133, United States since 2015-07-01. 
+    I ended my employment on 2021-12-31.
+    My average monthly income from this venture is approximately $6700.
+expected_function_calls:
+  - name: recordPreviousEmploymentDetails
+    arguments:
+      data:
+        associated_incomes:
+          - monthly_income_amount: 6700
+            income_type: Base
+        employment_start_date: "2015-07-01"
+        employment_end_date: "2021-12-31"
+        employer_address_address_line_1: 350 Celebration Ave
+        employer_address_state_code: "FL"
+        employer_address_city_name: "Miami"
+        employer_address_postal_code: "33133"
+        employer_address_country_name: "United States"
+        company_name: ""
+        position_title: "Professional Event Planner"
+        self_employment_indicator: true
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

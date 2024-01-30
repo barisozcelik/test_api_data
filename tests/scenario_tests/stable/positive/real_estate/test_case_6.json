@@ -1,0 +1,50 @@
+{
+  "conversation_name": "real_estate_6",
+  "assistant_id": "01HJZH0S5D3X6GE8SEXRJVBQ1P",
+  "prompts": [
+    "I have a primary residence:\nAddress:\n  Street: 789 Pine Lane\n  City: Seattle\n  State: WA\n  Zip Code: 98101\n Country: US\n  Property Value: $950,000\n  Status: Retained\nIntended Occupancy: Primary Residence\nMonthly Maintenance Expenses: $600\nMonthly Rental Income: N/A\nMortgage Loan Details:\n  Lender Name: Pacific Trust\n  Monthly Payment: $4,200\n  Unpaid Balance: $700,000\n  Loan Type: Conventional"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordRealEstateInformation",
+      "arguments": {
+        "data": {
+          "property_details": [
+            {
+              "address_line_1": "789 Pine Lane",
+              "city_name": "Seattle",
+              "country_name": "US",
+              "postal_code": "98101",
+              "state_code": "WA",
+              "property_estimated_value_amount": 950000,
+              "property_current_usage_type": "PrimaryResidence",
+              "owned_property_maintenance_expense_amount": 600,
+              "owned_property_disposition_status_type": "Retain",
+              "owned_property_rental_income_gross_amount": 0,
+              "lender_name": "Pacific Trust",
+              "unpaid_balance_amount": 700000,
+              "monthly_payment": 4200,
+              "loan_type": "Conventional"
+            }
+          ]
+        },
+        "transaction_id": "12345",
+        "assistant": "borrower_real_estate"
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+        "transaction_id": "12345",
+        "main_thread_id": "abcde",
+        "assistant_id_to_exclude": "borrower_real_estate"
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

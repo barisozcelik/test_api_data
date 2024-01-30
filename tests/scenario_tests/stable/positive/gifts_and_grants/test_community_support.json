@@ -1,0 +1,35 @@
+{
+    "conversation_name": "property_equity_and_community_support",
+    "assistant_id": "01HMY0BXTV18AJTV17GYDA6X7G",
+    "prompts": [
+        "I received property equity worth $250,000 from a community non-profit organization. The equity is already deposited."
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordGiftGrant",
+            "arguments": {
+                "data": {
+                    "assets": [
+                        {
+                            "asset_type": "GiftOfPropertyEquity",
+                            "asset_liquidity_indicator": true,
+                            "source": "CommunityNonProfit",
+                            "asset_cash_or_market_value_amount": 250000
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id"
+    ]
+}

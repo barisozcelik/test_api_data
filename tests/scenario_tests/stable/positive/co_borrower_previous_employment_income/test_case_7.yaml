@@ -1,0 +1,31 @@
+conversation_name: co_borrower_previous_income_conversation_7
+assistant_id: 01HME9BGX8X7ANW1EKSEGH3K2T
+prompts:
+    - |-
+        I have been working as a graphic designer from my home office at 258 Artisan Way, Portland, OR 97209, United States, since 2012-04-10 up until 2021-12-31. 
+        I manage my own business and earn an average of $7800 per month.
+
+expected_function_calls:
+  - name: recordPreviousEmploymentDetails
+    arguments:
+      data:
+        associated_incomes:
+          - monthly_income_amount: 7800
+            income_type: Base
+        employment_start_date: "2012-04-10"
+        employment_end_date: "2021-12-31"
+        position_title: Graphic Designer
+        self_employment_indicator: true
+        company_name: ""
+        employer_address_address_line_1: 258 Artisan Way
+        employer_address_state_code: "OR"
+        employer_address_city_name: "Portland"
+        employer_address_postal_code: "97209"
+        employer_address_country_name: "United States"
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

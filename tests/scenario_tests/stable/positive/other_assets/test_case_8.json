@@ -1,0 +1,37 @@
+{
+  "conversation_name": "other_asset_conversation_8",
+  "assistant_id": "01HKYH6ET3DP83P8R6W5XNV8YA",
+  "prompts": [
+    "I've placed a $5,000 earnest money deposit for a land purchase I'm interested in. Also, I've secured an unsecured personal loan to help with some home renovations. The loan amount is $30,000."
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordOtherAssets",
+      "arguments": {
+        "data": {
+          "assets": [
+            {
+              "asset_cash_or_market_value_amount": 5000,
+              "asset_type": "EarnestMoneyCashDepositTowardPurchase"
+            },
+            {
+              "asset_cash_or_market_value_amount": 30000,
+              "asset_type": "ProceedsFromUnsecuredLoan"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant",
+    "assistant_id"
+  ]
+}

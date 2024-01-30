@@ -1,0 +1,43 @@
+conversation_name: mortgage_details_information_missing_conversation_3
+assistant_id: 01HMXZ4NN8S61KZS8CKAWMAXW1
+prompts:
+  - |-
+    Loan Details:
+        Base Loan Amount: $200,000
+        Loan Purpose: Other (Construction)
+  - |-
+    Property:
+        Address:
+            Street: 987 Pine Road
+            City: Austin
+            State: Texas
+            Zip Code: 78701
+        Number of Units: 3
+        Property Value: $280,000
+        Intended Occupancy: Primary Residence
+        FHA Secondary Residence: Yes
+        Mixed-Use Property: No
+        Manufactured Home: Yes
+expected_function_calls:
+  - name: recordMortageDetailsInformation
+    arguments:
+      data:
+        base_loan_amount: 200000
+        loan_purpose_type: Other
+        address_line_1: 987 Pine Road
+        city_name: Austin
+        postal_code: '78701'
+        state_code: TX
+        accessory_unit_count: 3
+        property_estimated_value_amount: 280000
+        property_current_usage_type: PrimaryResidence
+        fha_secondary_residence_indicator: true
+        property_mixed_usage_indicator: false
+        manufactured_home_indicator: true
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

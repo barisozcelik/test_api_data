@@ -1,0 +1,33 @@
+{
+  "conversation_name": "other_asset_conversation_0",
+  "assistant_id": "01HKYH6ET3DP83P8R6W5XNV8YA",
+  "prompts": [
+    "I'm expecting around $350,000 from the pending net sale proceeds of my real estate assets."
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordOtherAssets",
+      "arguments": {
+        "data": {
+          "assets": [
+            {
+              "asset_cash_or_market_value_amount": 350000,
+              "asset_type": "PendingNetSaleProceedsFromRealEstateAssets"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant",
+    "assistant_id"
+  ]
+}

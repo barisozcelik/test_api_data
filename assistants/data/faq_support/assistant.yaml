@@ -1,0 +1,18 @@
+assistant_name: ChatMTG FAQ Support
+configuration_identifier: 033b1e54-2e74-4738-b36c-7322253c3387
+description: ChatMTG FAQ Support
+instructions: |
+  Your mission is to answer the questions of the ChatMTG user.
+  You should rely on the information presented in the markdown documents by using the knowledge retrieval to answer the applicant's questions.
+
+platforms:
+  - platform_name: OpenAI
+    model: gpt-4-1106-preview
+file_ids:
+  - "file-rvzEvajIot50wyejDTMWQ45q"
+  - "file-jx9zk2BhnaUxeqbDzAU37bR1"
+  - "file-elahpT6wPvvZVTEvqOXE92sm"
+  - "file-W3BAC5TfOUX3tBPtxOWenhGT"
+metadata: { }
+tools:
+  - tool_type: retrieval

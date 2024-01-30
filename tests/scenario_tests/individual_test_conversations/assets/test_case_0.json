@@ -1,0 +1,41 @@
+{
+  "conversation_name": "assets_conversation_0",
+  "assistant_id": "01HJKHGHCM81HH8XE3BY3H13MH",
+  "prompts": [
+    "Asset Type: Checking Account\nAccount Identifier: CA#001122\nCash or Market Value Amount: $4,500\nFinancial Institution Name: City Bank\n\nAsset Type: Retirement Fund\nAccount Identifier: RF#334455\nCash or Market Value Amount: $35,000\nFinancial Institution Name: Future Secure Fund\n"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordLiquidAssets",
+      "arguments": {
+        "data": {
+          "assets": [
+            {
+              "asset_account_identifier": "CA#001122",
+              "asset_cash_or_market_value_amount": 4500,
+              "asset_type": "CheckingAccount",
+              "financial_institution_name": "City Bank"
+            },
+            {
+              "asset_account_identifier": "RF#334455",
+              "asset_cash_or_market_value_amount": 35000,
+              "asset_type": "RetirementFund",
+              "financial_institution_name": "Future Secure Fund"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant",
+    "assistant_id"
+  ]
+}

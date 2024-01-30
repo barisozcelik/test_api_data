@@ -1,0 +1,51 @@
+{
+  "conversation_name": "real_estate_negative_7",
+  "assistant_id": "01HJZH0S5D3X6GE8SEXRJVBQ1P",
+  "prompts": [
+    "I'm white",
+    "I own a mountain cabin:\nAddress:\n  Street: 789 Pinecrest Road\n  City: Aspen\n  State: CO\n  Zip Code: 81611\n Country: US\n  Property Value: $1,200,000\n  Status: Retained\nIntended Occupancy: Second Home\nMonthly Maintenance Expenses: $600\nMonthly Rental Income: $3000\nMortgage Loan Details:\n  Lender Name: Rocky Mountain Savings\n  Monthly Payment: $5,500\n  Unpaid Balance: $900,000\n  Loan Type: Conventional"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordRealEstateInformation",
+      "arguments": {
+        "data": {
+          "property_details": [
+            {
+              "address_line_1": "789 Pinecrest Road",
+              "city_name": "Aspen",
+              "country_name": "US",
+              "postal_code": "81611",
+              "state_code": "CO",
+              "property_estimated_value_amount": 1200000,
+              "property_current_usage_type": "SecondHome",
+              "owned_property_maintenance_expense_amount": 600,
+              "owned_property_disposition_status_type": "Retain",
+              "owned_property_rental_income_gross_amount": 3000,
+              "lender_name": "Rocky Mountain Savings",
+              "unpaid_balance_amount": 900000,
+              "monthly_payment": 5500,
+              "loan_type": "Conventional"
+            }
+          ]
+        },
+        "transaction_id": "12345",
+        "assistant": "borrower_real_estate"
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+        "transaction_id": "12345",
+        "main_thread_id": "abcde",
+        "assistant_id_to_exclude": "borrower_real_estate"
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

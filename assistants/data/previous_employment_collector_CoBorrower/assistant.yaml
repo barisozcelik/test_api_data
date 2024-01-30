@@ -1,0 +1,176 @@
+assistant_name: CoBorrower Previous Employment Collector
+configuration_identifier: 2b188f78-4225-4a7d-b6d4-265c35490718
+description: CoBorrower Previous Employment Collector
+instructions: >-
+  You are collecting previous employment and income information of a user. These are instructions.
+
+  Step 1) Your primary objective is to collect previous employment information. Gather the following details from user input. If any data is missing, specifically ask for that missing piece of data only. Do not make assumptions or ask for confirmations about the completeness of employment data.
+      - Job title they had
+      - Employment Start Date (YYYY-MM-DD)
+      - Employment End Date (YYYY-MM-DD)
+      - Employer Details:
+        - Name
+        - Address (Address line 1, Unit [optional], City, State, Postal Code, Country [assume USA if not provided])
+      - Monthly Income (If annual income is provided, divide by 12 to calculate the monthly income):
+        - Income Amount
+      - Self Employment Status:
+        - Automatically set to 'No' if employer data is provided. Only ask "Are you self-employed?" if no employer data is given.
+
+  If the user is self-employed, then leave the company name empty and derive the position title.
+
+  IMPORTANT: Do not ask the user to confirm the completeness of their employment data or if they have additional employments.
+  IMPORTANT: Do not ask the user to do calculations. If annual income is provided, divide by 12 to calculate the monthly income.
+  IMPORTANT: If any optional field is not provided, do not ask for it. For example, if the user does not provide the unit number, do not ask for it.
+
+  Step 2) Once all required information is collected, invoke 'recordPreviousEmploymentDetails' function with the collected data. In case of a validation error, identify the specific error, request the correct data from the user, and attempt to resend.
+
+  Step 3) After successfully recording the employment details, invoke 'switchToNextAssistant' to proceed.
+platforms:
+- platform_name: OpenAI
+#  model: gpt-3.5-turbo
+  model: gpt-4-1106-preview
+file_ids: []
+metadata: {}
+tools:
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/graph
+    function:
+      name: recordPreviousEmploymentDetails
+      description: Activates when the collection of previous employment information is complete. Do not activate this function until all the required information has been collected. If you got any validation error, try to fix it and resend.
+      parameters:
+        type: object
+        required:
+        - data
+        - assistant
+        - transaction_id
+        properties:
+          data:
+            type: object
+            required:
+            - associated_incomes
+            - employment_end_date
+            - employment_start_date
+            - company_name
+            - position_title
+            - self_employment_indicator
+            properties:
+              associated_incomes:
+                type: array
+                items:
+                  type: object
+                  required:
+                  - monthly_income_amount
+                  - income_type
+                  properties:
+                    monthly_income_amount:
+                      type: integer
+                      description: Income amount refers to the amount of money that an individual receives during a month.
+                    income_type:
+                      type: string
+                      description: Categorizes the nature of the income. Possible choices are Base, Bonuses, Commissions, MilitaryBasePay, Overtime and Other. Do not use any other category.
+                      const: Base
+                  description: Income is money that a person earns or receives on a regular basis from various sources. Income typically comes from wages or salaries earned from employment, as well as from investments, rental properties, or other sources of passive income.
+              employment_end_date:
+                type: string
+                description: The date the borrower left the position with the
+                  employer.
+                format: date
+              employment_start_date:
+                type: string
+                description: The date that the borrower started the employment
+                  position with the employer. If you get invalid iso format error
+                  or if day is not provided put 01 as default.
+                format: date
+              employer_address_address_line_1:
+                type: string
+                description: Address line 1 is the first line of the address
+                  where the primary information for locating a specific
+                  location or recipient is provided.
+              employer_address_city_name:
+                type: string
+                description: City name refers to the name of the city
+                  in which the address is located.
+              employer_address_country_name:
+                type: string
+                description: Country name refers to the name of the country
+                  in which the address is located.
+              employer_address_postal_code:
+                type: string
+                description: A postal code, also known as a ZIP code (in
+                  the United States) or postcode (in many other countries),
+                  is a numerical code used by postal services to identify
+                  specific geographic areas for efficient mail sorting
+                  and delivery.
+              employer_address_state_code:
+                type: string
+                description: State code is a code that represents the
+                  state in which the address is located.
+              employer_address_unit_identifier:
+                type: string
+                description: A unit identifier is a reference to the specific
+                  unit, suite, apartment, or other secondary identifier
+                  associated with an address. It is used to differentiate
+                  individual units within a larger building or complex.
+              company_name:
+                type: string
+                description: A company name is a word or set of words that
+                  is used to identify a business entity. It is the primary
+                  way in which a company is recognized and distinguished from
+                  other entities.
+              position_title:
+                type: string
+                description: "position title refers to a specific job title or
+                  role within an organization that describes the nature of the
+                  employee's work and responsibilities. \n\nThis title is typically
+                  assigned by the company and reflects the employee's rank, level
+                  of responsibility, and type of work performed.\n\nThe position
+                  title is used for HR and payroll purposes, such as determining
+                  the employee's eligibility for certain benefits, compensation,
+                  and other employment-related policies. It also helps to manage
+                  and track employees within the organization and can be used
+                  for reporting and performance evaluations. The specific titles
+                  and definitions of positions can vary by company and jurisdiction."
+              self_employment_indicator:
+                type: boolean
+                description: Refers to a binary (yes/no) field that indicates
+                  whether an individual is self-employed. If a company name specified
+                  then `self_employment_indicator` should be false.
+          assistant:
+            type: string
+            description: Personal Identity Collector Assistant ID, always put 'borrower_employment_income'
+            const: co_borrower_previous_employment_income
+          transaction_id:
+            type: string
+            const: TEST123456789
+            description: Response of createTransaction function
+
+  - tool_type: function
+    http_method: POST
+    path: chatbot/orchestrator
+    function:
+      name: switchToNextAssistant
+      description: This function switches to next assistant
+      examples:
+        - transaction_id: "123456789"
+          main_thread_id: "01HJWVE3NH07W3DA3ZPDV6X61S"
+          assistant_name_to_exclude: "CoBorrower Previous Employment Collector"
+      parameters:
+        type: object
+        required:
+          - transaction_id
+          - main_thread_id
+          - assistant_name_to_exclude
+        properties:
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          main_thread_id:
+            type: string
+            description: send your thread id to main thread
+            const: TEST123456789
+          assistant_name_to_exclude:
+            type: string
+            description: CoBorrower Employment assistant ID, always put '01HME9BGX8X7ANW1EKSEGH3K2T'
+            const: CoBorrower Previous Employment Collector

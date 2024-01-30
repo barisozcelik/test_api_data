@@ -1,0 +1,38 @@
+conversation_name: personal_identity_collector_missing_conversation_6
+assistant_id: 01HK7K7FXV7VHYWZ4M24F9AE6C
+prompts:
+  - |-
+    My first name is Lucas. 
+    My first middle is William. 
+    My first last name is Brown. 
+    I don't have any alias. 
+    My SSN is 123-45-6789. 
+    I am a U.S. citizen. 
+    I have no dependents. 
+    Individual
+  - |-
+    I was born on 15th of July, 1985. 
+    My marital status is married.
+expected_function_calls:
+  - name: recordPersonalInformation
+    arguments:
+      data:
+        credit_request_type: Individual
+        birth_day: "15"
+        birth_month: "07"
+        birth_year: "1985"
+        first_name: Lucas
+        middle_name: William
+        last_name: Brown
+        ssn: "123456789"
+        marital_status_type: Married
+        us_citizenship_status: USCitizen
+        aliases: []
+        dependent_ages: []
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

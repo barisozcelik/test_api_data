@@ -1,0 +1,42 @@
+name: Integration Testing
+
+on:
+  pull_request:
+    types: [ 'opened', 'edited', 'reopened', 'synchronize' ]
+
+jobs:
+  Pipeline:
+    name: Run Pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitHub Action Repo
+        uses: actions/checkout@v2
+        with:
+          repository: StaircaseAPI/ci_action_v2
+          ref: master
+          token: ${{ secrets.STAIRCASE_GITHUB_TOKEN }}
+          path: action
+
+      - name: Staircase Devops Pipeline
+        uses: ./action
+        id: pipeline
+        with:
+          asana_product_name: "lexicon-contract-mortgage"
+          asana_token: ${{ secrets.ASANA_TOKEN }}
+          service_api_key: ${{ secrets.BUSHNELL_API_KEY }}
+          marketplace_api_key: ${{ secrets.MARKETPLACE_API_KEY }}
+          devops_products_env: "bushnell-dev.staircaseapi.com"
+          github_account: "StaircaseAPI"
+          github_token: ${{ secrets.STAIRCASE_GITHUB_TOKEN }}
+          slack_notification_channel_url: ${{ secrets.SLACK_NOTIFICATION_CHANNEL_URL }}
+          is_data_bundle: true
+          parallel_deployment: true
+      - name: Get the output
+        run: |
+            echo "Bundle Id: '${{ steps.pipeline.outputs.bundle_id }}'"
+            echo "Assessment Id: '${{ steps.pipeline.outputs.assessment_id }}'"
+            echo "Build Id: '${{ steps.pipeline.outputs.build_id }}'"
+            echo "Test Id: '${{ steps.pipeline.outputs.test_id }}'"
+            echo "Source Url: '${{ steps.pipeline.outputs.source_url }}'"
+            echo "Assess Source Url: '${{ steps.pipeline.outputs.assess_source_url }}'"
+            echo "Build Artifacts Url: '${{ steps.pipeline.outputs.artifacts_url }}'"

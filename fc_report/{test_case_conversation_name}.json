@@ -1,0 +1,245 @@
+[
+    {
+        "conversation_name": "personal_identity_collector_conversation_0",
+        "assistant_id": "01HK7K7FXV7VHYWZ4M24F9AE6C",
+        "transaction_id": "01HMTTPD62M8BT3XP4XVZGZN51",
+        "prompts": [
+            "Start an Application",
+            "Full Name: Alex Taylor\nAlias: N/A\nDate of Birth: 15 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 123456789\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+        ],
+        "expected": [
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "birth_day": "15",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "full_name": "Alex Taylor",
+                        "ssn": "123456789",
+                        "marital_status_type": "Married",
+                        "us_citizenship_status": "USCitizen",
+                        "aliases": [],
+                        "dependent_ages": []
+                    }
+                }
+            },
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {}
+            }
+        ],
+        "actual": [
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {
+                    "transaction_id": "1234567890",
+                    "main_thread_id": "borrower_personal_information",
+                    "assistant_id_to_exclude": "borrower_personal_information"
+                }
+            },
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "birth_day": "15",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "full_name": "Alex Taylor",
+                        "ssn": "123456789",
+                        "marital_status_type": "Married",
+                        "us_citizenship_status": "USCitizen",
+                        "aliases": [],
+                        "dependent_ages": []
+                    },
+                    "assistant": "borrower_personal_information",
+                    "transaction_id": "1234567890"
+                }
+            }
+        ],
+        "diff_result": {},
+        "conversation_log": [
+            {
+                "sender": "user",
+                "message": "Start an Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "\n**Please provide the following details:**\n\n- **Full Name**:\n- **Alias** (if applicable):\n- **Date of Birth** (Day, Month, Year):\n- **Marital Status**:\n- **SSN (Social Security Number)**:\n- **Citizen Status**:\n- **Dependent Information**:\n    - Number of Dependents:\n    - Ages of Dependents (if applicable)\n- Is this Individual or Joint Application?\n"
+            },
+            {
+                "sender": "user",
+                "message": "Full Name: Alex Taylor\nAlias: N/A\nDate of Birth: 15 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 123456789\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "You are collecting residency information of a user. These are instructions.\nStep 1) Collect following information from user input. If there is any missing data in user input, do not assume any information, ask the user to provide it.\n- Current residence (street address, city, postal code, state code)\n- Residence type (Own, Rent, Living Rent Free)\n- Residency Duration (months, years)\n- If you are renting your place of residence, could you please share the amount you pay for rent each month?\n\nStep 2) When all required information has been collected, invoke 'recordApplicantCurrentResidenceDetails' function with collected information. If you got any validation error, try to fix it and resend. Do not ask the user for confirmation.\n\nStep 3) In order to switch to the next assistant, invoke the 'switchToNextAssistant' function.\n\nEXTREMELY IMPORTANT: The only exception to your workflow is if the user wants to get loan price options. In this case, you must invoke ONLY the 'switchToPriceAssistant' function. 'switchToPriceAssistant' function is the only function that you must invoke in this case. Consider this state as your 'final state', meaning no further information collection is allowed, and no other function calls are allowed. Just provide a brief explanation that the assistant will be included in the conversation.\n\nYou will not mention \"steps\"; you will just naturally progress through them.\n\nYOU MUST GO THROUGH ALL OF THESE STEPS IN ORDER. DO NOT SKIP ANY STEPS.\n\nPlease provide the borrower's current residency information."
+            }
+        ],
+        "test_type": "Function Call"
+    },
+    {
+        "conversation_name": "personal_identity_collector_conversation_0",
+        "assistant_id": "01HK7K7FXV7VHYWZ4M24F9AE6C",
+        "transaction_id": "01HMTTQBPSQF198MRKAGWRKB60",
+        "prompts": [
+            "Start an Application",
+            "Full Name: Alex Taylor\nAlias: N/A\nDate of Birth: 15 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 123456789\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+        ],
+        "expected": [
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "birth_day": "15",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "full_name": "Alex Taylor",
+                        "ssn": "123456789",
+                        "marital_status_type": "Married",
+                        "us_citizenship_status": "USCitizen",
+                        "aliases": [],
+                        "dependent_ages": []
+                    }
+                }
+            },
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {}
+            }
+        ],
+        "actual": [
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {
+                    "transaction_id": "12345",
+                    "main_thread_id": "abcdefg",
+                    "assistant_id_to_exclude": "borrower_personal_information"
+                }
+            },
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "birth_day": "15",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "full_name": "Alex Taylor",
+                        "ssn": "123456789",
+                        "marital_status_type": "Married",
+                        "us_citizenship_status": "USCitizen",
+                        "aliases": [],
+                        "dependent_ages": []
+                    },
+                    "assistant": "borrower_personal_information",
+                    "transaction_id": "12345"
+                }
+            }
+        ],
+        "diff_result": {},
+        "conversation_log": [
+            {
+                "sender": "user",
+                "message": "Start an Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "\n**Please provide the following details:**\n\n- **Full Name**:\n- **Alias** (if applicable):\n- **Date of Birth** (Day, Month, Year):\n- **Marital Status**:\n- **SSN (Social Security Number)**:\n- **Citizen Status**:\n- **Dependent Information**:\n    - Number of Dependents:\n    - Ages of Dependents (if applicable)\n- Is this Individual or Joint Application?\n"
+            },
+            {
+                "sender": "user",
+                "message": "Full Name: Alex Taylor\nAlias: N/A\nDate of Birth: 15 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 123456789\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "Next, I need your current residence information. Please provide the following details:\n- Current residence (street address, city, postal code, state code)\n- Residence type (Own, Rent, Living Rent Free)\n- Residency Duration (months, years)\n- If you are renting your place of residence, could you please share the amount you pay for rent each month?"
+            }
+        ],
+        "test_type": "Function Call"
+    },
+    {
+        "conversation_name": "personal_identity_collector_conversation_0",
+        "assistant_id": "01HK7K7FXV7VHYWZ4M24F9AE6C",
+        "transaction_id": "01HMTTR6F0TEGQ7GYV2NZC4711",
+        "prompts": [
+            "Start an Application",
+            "Full Name: Alex Taylor\nAlias: N/A\nDate of Birth: 15 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 123456789\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+        ],
+        "expected": [
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "birth_day": "15",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "full_name": "Alex Taylor",
+                        "ssn": "123456789",
+                        "marital_status_type": "Married",
+                        "us_citizenship_status": "USCitizen",
+                        "aliases": [],
+                        "dependent_ages": []
+                    }
+                }
+            },
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {}
+            }
+        ],
+        "actual": [
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {
+                    "transaction_id": "12345",
+                    "main_thread_id": "67890",
+                    "assistant_id_to_exclude": "borrower_personal_information"
+                }
+            },
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "birth_day": "15",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "full_name": "Alex Taylor",
+                        "ssn": "123456789",
+                        "marital_status_type": "Married",
+                        "us_citizenship_status": "USCitizen",
+                        "aliases": [],
+                        "dependent_ages": []
+                    },
+                    "assistant": "borrower_personal_information",
+                    "transaction_id": "12345"
+                }
+            }
+        ],
+        "diff_result": {},
+        "conversation_log": [
+            {
+                "sender": "user",
+                "message": "Start an Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "\n**Please provide the following details:**\n\n- **Full Name**:\n- **Alias** (if applicable):\n- **Date of Birth** (Day, Month, Year):\n- **Marital Status**:\n- **SSN (Social Security Number)**:\n- **Citizen Status**:\n- **Dependent Information**:\n    - Number of Dependents:\n    - Ages of Dependents (if applicable)\n- Is this Individual or Joint Application?\n"
+            },
+            {
+                "sender": "user",
+                "message": "Full Name: Alex Taylor\nAlias: N/A\nDate of Birth: 15 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 123456789\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "Alright. Now let's collect your current residency information.\n\nPlease provide the following information:\n- Current residence (street address, city, postal code, state code)\n- Residence type (Own, Rent, Living Rent Free)\n- Residency Duration (months, years)\n- If you are renting your place of residence, could you please share the amount you pay for rent each month?"
+            }
+        ],
+        "test_type": "Function Call"
+    }
+]

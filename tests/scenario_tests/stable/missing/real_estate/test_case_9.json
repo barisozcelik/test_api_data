@@ -1,0 +1,50 @@
+{
+  "conversation_name": "real_estate_missing_9",
+  "assistant_id": "01HJZH0S5D3X6GE8SEXRJVBQ1P",
+  "prompts": [
+    "I own an investment property:\nAddress:\n  Street: 456 Birch Road\n  City: Atlanta\n  State: GA\n  Zip Code: 30303\n Country: US\n  Property Value: $500,000\n  Status: Retained\n","Intended Occupancy: Investment\nMonthly Maintenance Expenses: $400\nMonthly Rental Income: $1500\nMortgage Loan Details:\n  Lender Name: Southern Credit Union\n  Monthly Payment: $2,300\n  Unpaid Balance: $400,000\n  Loan Type: Fha"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordRealEstateInformation",
+      "arguments": {
+        "data": {
+          "property_details": [
+            {
+              "address_line_1": "456 Birch Road",
+              "city_name": "Atlanta",
+              "country_name": "US",
+              "postal_code": "30303",
+              "state_code": "GA",
+              "property_estimated_value_amount": 500000,
+              "property_current_usage_type": "Investment",
+              "owned_property_maintenance_expense_amount": 400,
+              "owned_property_disposition_status_type": "Retain",
+              "owned_property_rental_income_gross_amount": 1500,
+              "lender_name": "Southern Credit Union",
+              "unpaid_balance_amount": 400000,
+              "monthly_payment": 2300,
+              "loan_type": "Fha"
+            }
+          ]
+        },
+        "transaction_id": "12345",
+        "assistant": "borrower_real_estate"
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+        "transaction_id": "12345",
+        "main_thread_id": "abcde",
+        "assistant_id_to_exclude": "borrower_real_estate"
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

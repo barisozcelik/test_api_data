@@ -1,0 +1,45 @@
+conversation_name: mortgage_details_information_missing_conversation_1
+assistant_id: 01HMXZ4NN8S61KZS8CKAWMAXW1
+prompts:
+  - |-
+    Applied Loan:
+
+    Loan Details:
+        Base Loan Amount: $500,000
+        Loan Purpose: Refinance
+  - |-
+    Property:
+        Address:
+            Street: 123 Maple Avenue
+            City: Springfield
+            State: Illinois
+            Zip Code: 62704
+        Number of Units: 2
+        Property Value: $600,000
+        Intended Occupancy: Investment
+        FHA Secondary Residence: Yes
+        Mixed-Use Property: No
+        Manufactured Home: Yes
+expected_function_calls:
+  - name: recordMortageDetailsInformation
+    arguments:
+      data:
+        base_loan_amount: 500000
+        loan_purpose_type: Refinance
+        address_line_1: 123 Maple Avenue
+        city_name: Springfield
+        postal_code: '62704'
+        state_code: IL
+        accessory_unit_count: 2
+        property_estimated_value_amount: 600000
+        property_current_usage_type: Investment
+        fha_secondary_residence_indicator: true
+        property_mixed_usage_indicator: false
+        manufactured_home_indicator: true
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

@@ -1,0 +1,712 @@
+{
+  "conversation_name": "correct_1003_conversation_0",
+  "assistant_id": "01HM92QGZQPXSWCDVJTJ8XP7JJ",
+  "prompts": [
+    "I only want to change self employment indicator to true on my Previous employment for GreenTech Innovations. "
+  ],
+  "init_collection": {
+    "relationships": [
+      {
+        "@id": "finance_relation_1",
+        "@type": "finance_relation",
+        "role": "Borrower",
+        "has_person": "01HHEEBDSDHQK6H2FB884BDY3F"
+      }
+    ],
+    "credits": [
+      {
+        "@id": "credit1",
+        "@type": "credit",
+        "credit_request_type": "Individual"
+      }
+    ],
+    "people": [
+      {
+        "@id": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "@type": "person",
+        "birth_day": "15",
+        "birth_month": "7",
+        "birth_year": "1980",
+        "full_name": "John Doe",
+        "has_alias": "01HHEEBDS89MPT7HCP0MBVX9GC",
+        "has_dependent": [
+          "01HHEEBDSBXFETBGCMY9KPRXXE",
+          "01HHEEBDSCTQ2SCQ3WQ517CH87"
+        ],
+        "marital_status_type": "Married",
+        "ssn": "123456789",
+        "us_citizenship_status": "USCitizen"
+      },
+      {
+        "@id": "01HHEEBDS89MPT7HCP0MBVX9GC",
+        "@type": "person",
+        "full_name": "Johnny, JD"
+      },
+      {
+        "@id": "01HHEEBDSCTQ2SCQ3WQ517CH87",
+        "@type": "person",
+        "age": 8
+      },
+      {
+        "@id": "01HHEEBDSBXFETBGCMY9KPRXXE",
+        "@type": "person",
+        "age": 10
+      }
+    ],
+    "residences": [
+      {
+        "@id": "01HHEEBDS9QTEXDP9QVBB1MYFN",
+        "@type": "residence",
+        "has_address": "01HHEEBDS9D8ZH0NG7J8K20YVE7",
+        "has_resident": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "residency_basis_type": "Rent",
+        "residency_duration_months_count": 4,
+        "residency_duration_years_count": 1,
+        "residency_type": "Current",
+        "has_expense": "01HKMHPJ6TSMZQDPNRAHZYV9VN"
+      },
+      {
+        "@id": "01HHEEBDS9D8ZH0NG7J8K20YVE5",
+        "@type": "residence",
+        "has_address": "01HHEEBDS87XJ4XXSHBRMMWWCY",
+        "has_resident": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "residency_basis_type": "Own",
+        "residency_duration_months_count": 6,
+        "residency_duration_years_count": 3,
+        "residency_type": "Prior"
+      }
+    ],
+    "expenses": [
+      {
+        "@id": "01HKMHPJ6TSMZQDPNRAHZYV9VN",
+        "@type": "expense",
+        "expense_monthly_payment_amount": 1000
+      }
+    ],
+    "addresses": [
+      {
+        "@id": "01HHEEBDS9D8ZH0NG7J8K20YVE7",
+        "@type": "address",
+        "address_line_1": "123 Main St",
+        "city_name": "Anytown",
+        "country_name": "USA",
+        "postal_code": "12345",
+        "state_code": "AL",
+        "unit_identifier": "Unit 101"
+      },
+      {
+        "@id": "01HHEEBDS87XJ4XXSHBRMMWWCY",
+        "@type": "address",
+        "address_line_1": "456 Old St",
+        "city_name": "Oldtown",
+        "country_name": "USA",
+        "postal_code": "54321",
+        "state_code": "AK",
+        "unit_identifier": "Unit 202"
+      },
+      {
+        "@id": "01HHEEBDSBV3Q1J8YCKYNTYZ2T",
+        "@type": "address",
+        "address_line_1": "789 Postal St",
+        "city_name": "Mailville",
+        "country_name": "USA",
+        "postal_code": "67890",
+        "state_code": "AZ",
+        "unit_identifier": "Box 303"
+      },
+      {
+        "@id": "01HHEEBDSBAYVZ7EKP7N5FPTK21",
+        "@type": "address",
+        "address_line_1": "100 Solar Way",
+        "city_name": "Sunnyville",
+        "country_name": "USA",
+        "postal_code": "93001",
+        "state_code": "CA",
+        "unit_identifier": "Suite 500"
+      },
+      {
+        "@id": "01HHEEBDSAYEBGX1PSGNEDFN4Q",
+        "@type": "address",
+        "address_line_1": "20 Commerce Blvd",
+        "city_name": "Businesstown",
+        "country_name": "USA",
+        "postal_code": "20202",
+        "state_code": "AS",
+        "unit_identifier": "Suite 2"
+      },
+      {
+        "@id": "01HKKY764AT0AD029K7W34EECB",
+        "@type": "address",
+        "address_line_1": "123 Main St",
+        "city_name": "Anytown",
+        "country_name": "US",
+        "postal_code": "12345",
+        "state_code": "CA",
+        "unit_identifier": "Unit 5"
+      },
+      {
+        "@id": "01HKKZ88Y0563MGWSV945J406B",
+        "@type": "address",
+        "address_line_1": "456 Oak Street",
+        "city_name": "Springfield",
+        "country_name": "US",
+        "postal_code": "65432",
+        "state_code": "NY",
+        "unit_identifier": "Apt 202"
+      },
+      {
+        "@id": "01HHEEBDS95T2CKY8KN0GK3EX4",
+        "@type": "address",
+        "address_line_1": "10 Industry Rd",
+        "city_name": "Worktown",
+        "country_name": "USA",
+        "postal_code": "10101",
+        "state_code": "AR",
+        "unit_identifier": "Suite 1"
+      }
+    ],
+    "communications": [
+      {
+        "@id": "01HHEEBDS8G6X59BPK9G7E9N7P8",
+        "@type": "communication",
+        "has_mailing_address": "01HHEEBDSBV3Q1J8YCKYNTYZ2T",
+        "contact_person": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "email_address": "johndoe@sample.com",
+        "home_phone_number": "1234567890",
+        "phone_number": "2345678901",
+        "work_phone_number": "3456789012"
+      },
+      {
+        "@id": "01HHEEBDS82QCSZEDWFSAPGHRF",
+        "@type": "communication",
+        "phone_number": "555101111"
+      },
+      {
+        "@id": "01HHEEBDSBAYVZ7EKP7N5FPTK24",
+        "@type": "communication",
+        "phone_number": "555202222"
+      }
+    ],
+    "employments": [
+      {
+        "@id": "01HHEEBDSBRYRXXGXZ55JJMPVW",
+        "@type": "employment",
+        "associated_income": "01HHEEBDS9D8ZH0NG7J8K20YVE9",
+        "employment_end_date": "2020-12-31",
+        "employment_start_date": "2018-03-15",
+        "employment_status_type": "Previous",
+        "has_employee": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "has_employer": "01HHEEBDS98S79HQ6JESFG93JZ",
+        "position_title": "Environmental Engineer",
+        "self_employment_indicator": false
+      },
+      {
+        "@id": "01HHEEBDSBT17PNE759GJ25PGG",
+        "@type": "employment",
+        "associated_income": [
+          "01HHEEBDS9GK1DHGS07GXP06ZV6",
+          "01HHEEBDSARWSDN7DN6RY72Y4X",
+          "01HHEEBDS855MCXMMK2HRP5ESH",
+          "01HHEEBDS9GK1DHGS07GXP06ZV4",
+          "01HHEEBDS9GK1DHGS07GXP06ZV5",
+          "01HHEEBDS9GK1DHGS07GXP06ZV7"
+        ],
+        "employment_start_date": "2010-01-10",
+        "employment_status_type": "Current",
+        "employment_time_in_line_of_work_years_count": 3,
+        "has_employee": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "has_employer": "01HHEEBDSB27TBFYPCF2XQ8J11",
+        "ownership_interest_type": "GreaterThanOrEqualTo25Percent",
+        "position_title": "Manager",
+        "self_employment_indicator": true,
+        "special_borrower_employer_relationship_indicator": true,
+        "time_in_line_of_work_months_count": 2
+      },
+      {
+        "@id": "01HHEEBDSBH00GD7716WZ1AF98",
+        "@type": "employment",
+        "associated_income": [
+          "01HHEEBDSAZ357ZQKYTDE2S6Q5",
+          "01HHEEBDSD1438AFBY9K2VCKZY1",
+          "01HHEEBDS9GK1DHGS07GXP06ZV8",
+          "01HHEEBDSB9EFK3PH3SWWJCGH9",
+          "01HHEEBDSDMQ3RSY6K2Y9AHEMG",
+          "01HHEEBDS9GK1DHGS07GXP06ZV9"
+        ],
+        "employment_start_date": "2015-06-15",
+        "employment_status_type": "Current",
+        "employment_time_in_line_of_work_years_count": 10,
+        "has_employee": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "has_employer": "01HHEEBDSBVT47DCTAZ1T546WA",
+        "position_title": "Senior Analyst",
+        "self_employment_indicator": false,
+        "special_borrower_employer_relationship_indicator": false,
+        "time_in_line_of_work_months_count": 4
+      }
+    ],
+    "incomes": [
+      {
+        "@id": "01HHEEBDS9D8ZH0NG7J8K20YVE9",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 6500,
+        "income_type": "Base"
+      },
+      {
+        "@id": "01HHEEBDS9GK1DHGS07GXP06ZV3",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 450,
+        "income_type": "DividendsInterest"
+      },
+      {
+        "@id": "01HHEEBDS9MDSGMCN8M6KE9G4M",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 800,
+        "income_type": "CapitalGains"
+      },
+      {
+        "@id": "01HHEEBDS9GK1DHGS07GXP06ZV1",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 1200,
+        "income_type": "Alimony"
+      },
+      {
+        "@id": "01HHEEBDS9GK1DHGS07GXP06ZV9",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 0,
+        "income_type": "Other"
+      },
+      {
+        "@id": "01HHEEBDSAZ357ZQKYTDE2S6Q5",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 600,
+        "income_type": "Overtime"
+      },
+      {
+        "@id": "01HHEEBDSDMQ3RSY6K2Y9AHEMG",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 1000,
+        "income_type": "MilitaryBasePay"
+      },
+      {
+        "@id": "01HHEEBDS9GK1DHGS07GXP06ZV4",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 300,
+        "income_type": "Bonuses"
+      },
+      {
+        "@id": "01HHEEBDS9GK1DHGS07GXP06ZV8",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 300,
+        "income_type": "Bonuses"
+      },
+      {
+        "@id": "01HHEEBDS9GK1DHGS07GXP06ZV5",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 1200,
+        "income_type": "Other"
+      },
+      {
+        "@id": "01HHEEBDSD1438AFBY9K2VCKZY1",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 100,
+        "income_type": "Commissions"
+      },
+      {
+        "@id": "01HHEEBDS855MCXMMK2HRP5ESH",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 200,
+        "income_type": "Commissions"
+      },
+      {
+        "@id": "01HHEEBDS9GK1DHGS07GXP06ZV7",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 4000,
+        "income_type": "Base"
+      },
+      {
+        "@id": "01HHEEBDS9GK1DHGS07GXP06ZV6",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 500,
+        "income_type": "Overtime"
+      },
+      {
+        "@id": "01HHEEBDSB9EFK3PH3SWWJCGH9",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 5000,
+        "income_type": "Base"
+      },
+      {
+        "@id": "01HHEEBDSARWSDN7DN6RY72Y4X",
+        "@type": "income",
+        "income_recipient": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "income_amount": 2000,
+        "income_type": "MilitaryBasePay"
+      }
+    ],
+    "companies": [
+      {
+        "@id": "01HHEEBDS98S79HQ6JESFG93JZ",
+        "@type": "company",
+        "has_address": "01HHEEBDSBAYVZ7EKP7N5FPTK21",
+        "name": "GreenTech Innovations"
+      },
+      {
+        "@id": "01HHEEBDSB27TBFYPCF2XQ8J11",
+        "@type": "company",
+        "has_address": "01HHEEBDS95T2CKY8KN0GK3EX4",
+        "has_communication_method": "01HHEEBDS82QCSZEDWFSAPGHRF",
+        "name": "Company One"
+      },
+      {
+        "@id": "01HHEEBDSBVT47DCTAZ1T546WA",
+        "@type": "company",
+        "has_address": "01HHEEBDSAYEBGX1PSGNEDFN4Q",
+        "has_communication_method": "01HHEEBDSBAYVZ7EKP7N5FPTK24",
+        "name": "Company Two"
+      },
+      {
+        "@id": "01HHEEBDS9V68J5NE6SQFWZXTA",
+        "@type": "company",
+        "name": "Credit Union C"
+      },
+      {
+        "@id": "01HHEEBDSBAYVZ7EKP7N5FPTK29",
+        "@type": "company",
+        "name": "Bank A"
+      },
+      {
+        "@id": "01HKKYNEXGQMZA6384RY4AF2DV",
+        "@type": "company",
+        "name": "ABC Lending"
+      }
+    ],
+    "assets": [
+      {
+        "@id": "01HHEEBDS8G6X59BPK9G7E9N7P4",
+        "@type": "asset",
+        "asset_account_identifier": "998877665",
+        "asset_cash_or_market_value_amount": 35000,
+        "asset_type": "MutualFund",
+        "held_by_financial_institution": "01HHEEBDSBAYVZ7EKP7N5FPTK29",
+        "possessed_by": "01HHEEBDSDHQK6H2FB884BDY3F"
+      },
+      {
+        "@id": "01HHEEBDS8G6X59BPK9G7E9N7P3",
+        "@type": "asset",
+        "asset_account_identifier": "123456789",
+        "asset_cash_or_market_value_amount": 5000,
+        "asset_type": "CheckingAccount",
+        "held_by_financial_institution": "01HHEEBDSBAYVZ7EKP7N5FPTK29",
+        "possessed_by": "01HHEEBDSDHQK6H2FB884BDY3F"
+      },
+      {
+        "@id": "01HHEEBDS8G6X59BPK9G7E9N7P5",
+        "@type": "asset",
+        "asset_account_identifier": "987654321",
+        "asset_cash_or_market_value_amount": 15000,
+        "asset_type": "SavingsAccount",
+        "held_by_financial_institution": "01HHEEBDS9V68J5NE6SQFWZXTA",
+        "possessed_by": "01HHEEBDSDHQK6H2FB884BDY3F"
+      },
+      {
+        "@id": "01HHEEBDS8G6X59BPK9G7E9N7P7",
+        "@type": "asset",
+        "asset_account_identifier": "556677889",
+        "asset_cash_or_market_value_amount": 45000,
+        "asset_type": "Stock",
+        "held_by_financial_institution": "01HHEEBDS9V68J5NE6SQFWZXTA",
+        "possessed_by": "01HHEEBDSDHQK6H2FB884BDY3F"
+      },
+      {
+        "@id": "01HHEEBDS8G6X59BPK9G7E9N7P6",
+        "@type": "asset",
+        "asset_account_identifier": "112233445",
+        "asset_cash_or_market_value_amount": 25000,
+        "asset_type": "MoneyMarketFund",
+        "held_by_financial_institution": "01HHEEBDS9V68J5NE6SQFWZXTA",
+        "possessed_by": "01HHEEBDSDHQK6H2FB884BDY3F"
+      },
+      {
+        "@id": "01HHEEBDSCSCMK10J7CK7ZAFM7",
+        "@type": "asset",
+        "asset_cash_or_market_value_amount": 100000,
+        "asset_type": "PendingNetSaleProceedsFromRealEstateAssets",
+        "possessed_by": "01HHEEBDSDHQK6H2FB884BDY3F"
+      },
+      {
+        "@id": "01HHEEBDS8G6X59BPK9G7E9N7P1",
+        "@type": "asset",
+        "asset_cash_or_market_value_amount": 5000,
+        "asset_type": "ProceedsFromSaleOfNonRealEstateAsset",
+        "possessed_by": "01HHEEBDSDHQK6H2FB884BDY3F"
+      },
+      {
+        "@id": "01HHEEBDSD3APA7QJJRQGJTNDB",
+        "@type": "asset",
+        "asset_cash_or_market_value_amount": 15000,
+        "asset_liquidity_indicator": false,
+        "asset_type": "GiftOfPropertyEquity",
+        "funds_source_type": "Employer",
+        "possessed_by": "01HHEEBDSDHQK6H2FB884BDY3F"
+      },
+      {
+        "@id": "01HHEEBDSCN405T3MK0MPBW2K1",
+        "@type": "asset",
+        "asset_cash_or_market_value_amount": 10000,
+        "asset_liquidity_indicator": true,
+        "asset_type": "GiftOfCash",
+        "funds_source_type": "Relative",
+        "possessed_by": "01HHEEBDSDHQK6H2FB884BDY3F"
+      }
+    ],
+    "liabilities": [
+      {
+        "@id": "01HHEEBDS82E4FXB7XKB2EFN54",
+        "@type": "liability",
+        "has_liability_timeline": "01HHEEBDS84EHE26GE3JDCXYWG",
+        "has_liability_holder": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "liability_account_identifier": "12340002",
+        "liability_monthly_payment_amount": 300,
+        "liability_payoff_status_indicator": true,
+        "liability_type": "Installment",
+        "owed_to": "01HHEEBDS9V68J5NE6SQFWZXTA"
+      },
+      {
+        "@id": "01HHEEBDS9RXSCP5F72MAN3AB75",
+        "@type": "liability",
+        "has_liability_timeline": "01HKKXH29GPH21N38PPCXEZ2HK",
+        "has_liability_holder": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "liability_account_identifier": "12340001",
+        "liability_monthly_payment_amount": 150,
+        "liability_payoff_status_indicator": true,
+        "liability_type": "Revolving",
+        "owed_to": "01HHEEBDS9V68J5NE6SQFWZXTA"
+      },
+      {
+        "@id": "01HHEEBDS9RXSCP5F72MAN3AB79",
+        "@type": "liability",
+        "has_liability_timeline": "01HKKXH9604TFHK6CP8E8VXE5A",
+        "has_liability_holder": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "liability_account_identifier": "12340003",
+        "liability_monthly_payment_amount": 100,
+        "liability_payoff_status_indicator": true,
+        "liability_type": "Open30DayChargeAccount",
+        "owed_to": "01HHEEBDS9V68J5NE6SQFWZXTA"
+      },
+      {
+        "@id": "01HHEEBDS9RXSCP5F72MAN3AB79",
+        "@type": "liability",
+        "liability_monthly_payment_amount": 100,
+        "liability_type": "Alimony",
+        "owed_to": "01HHEEBDS9V68J5NE6SQFWZXTA"
+      }
+    ],
+    "liability_timelines": [
+      {
+        "@id": "01HHEEBDS84EHE26GE3JDCXYWG",
+        "@type": "liability_timeline",
+        "liability_unpaid_balance_amount": 10000
+      },
+      {
+        "@id": "01HKKXH29GPH21N38PPCXEZ2HK",
+        "@type": "liability_timeline",
+        "liability_unpaid_balance_amount": 8000
+      },
+      {
+        "@id": "01HKKXH9604TFHK6CP8E8VXE5A",
+        "@type": "liability_timeline",
+        "liability_unpaid_balance_amount": 6000
+      }
+    ],
+    "settlements": [
+      {
+        "@id": "01HKKYP4GK210SDCYCZZ8TT8N1",
+        "@type": "settlement",
+        "has_loan": "01HKKYMREK90A70C6KKSPCH6H1",
+        "has_ownership": "01HKKYJYNCN5NFV5E62D538B6W",
+        "has_company": "01HKKYNEXGQMZA6384RY4AF2DV"
+      },
+      {
+        "@id": "01HKKYP4GK210SDCYCZZ8TT8N1XX",
+        "@type": "settlement",
+        "has_ownership": "01HKKYJYNCN5NFV5E62D538B6WXX"
+      }
+    ],
+    "loans": [
+      {
+        "@id": "01HKKYMREK90A70C6KKSPCH6H1",
+        "@type": "loan",
+        "monthly_payment": 1500,
+        "has_loan_timeline": "01HKKYMDAYMK31Q67DHCYF1MAW",
+        "mortgage_type": "Conventional"
+      },
+      {
+        "@id": "01HKKYVNHW67R39873M8AEN4MC",
+        "@type": "loan",
+        "base_loan_amount": 300000,
+        "loan_purpose_type": "Purchase",
+        "has_finance_relation": "finance_relation_1"
+      }
+    ],
+    "loan_timelines": [
+      {
+        "@id": "01HKKYMDAYMK31Q67DHCYF1MAW",
+        "@type": "loan_timeline",
+        "unpaid_balance_amount": 200000
+      }
+    ],
+    "ownerships": [
+      {
+        "@id": "01HKKYJYNCN5NFV5E62D538B6W",
+        "@type": "ownership",
+        "owned_property": "01HKKYHSWWTDV943CM8BCE67JH",
+        "owned_by": "01HHEEBDSDHQK6H2FB884BDY3F"
+      },
+      {
+        "@id": "01HKKYJYNCN5NFV5E62D538B6WXX",
+        "@type": "ownership",
+        "owned_property": "01HKKYHSWWTDV943CM8BCE67JHXX",
+        "owned_by": "01HHEEBDSDHQK6H2FB884BDY3F"
+      }
+    ],
+    "properties": [
+      {
+        "@id": "01HKKYHSWWTDV943CM8BCE67JH",
+        "@type": "property",
+        "has_address": "01HKKY764AT0AD029K7W34EECB",
+        "property_estimated_value_amount": 500000,
+        "property_current_usage_type": "Investment",
+        "owned_property_maintenance_expense_amount": 300,
+        "owned_property_disposition_status_type": "Retain",
+        "owned_property_rental_income_gross_amount": 4000
+      },
+      {
+        "@id": "01HKKYHSWWTDV943CM8BCE67JHXX",
+        "@type": "property",
+        "has_address": "01HHEEBDS9D8ZH0NG7J8K20YVE7",
+        "property_estimated_value_amount": 2000000,
+        "property_current_usage_type": "PrimaryResidence",
+        "owned_property_maintenance_expense_amount": 5000,
+        "owned_property_disposition_status_type": "Sold"
+      },
+      {
+        "@id": "01HKKYWF88WAB9QTZ6ZJTXX3CM",
+        "@type": "property",
+        "has_address": "01HKKZ88Y0563MGWSV945J406B",
+        "accessory_unit_count": 1,
+        "property_estimated_value_amount": 350000,
+        "property_current_usage_type": "PrimaryResidence",
+        "fha_secondary_residence_indicator": false,
+        "property_mixed_usage_indicator": false,
+        "manufactured_home_indicator": false,
+        "rental_estimated_gross_monthly_rent_amount": 1000,
+        "has_finance_relation": "finance_relation_1"
+      }
+    ],
+    "leads": [
+      {
+        "@id": "01HKKZ77VKJKB0XNA9PZR9CK5T",
+        "@type": "lead",
+        "has_property": "01HKKYWF88WAB9QTZ6ZJTXX3CM",
+        "has_loan": "01HKKYVNHW67R39873M8AEN4MC",
+        "has_finance_relation": "finance_relation_1"
+      }
+    ],
+    "declarations": [
+      {
+        "@id": "01HHEEBDS8G6X59BPK9G7E9N7P9",
+        "@type": "declaration",
+        "has_person": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "intent_to_occupy_indicator": true,
+        "homeowner_past_three_years_indicator": true,
+        "prior_property_title_type": "JointWithSpouse",
+        "prior_property_usage_type": "PrimaryResidence",
+        "special_borrower_seller_relationship_indicator": true,
+        "undisclosed_borrowed_funds_indicator": true,
+        "undisclosed_borrowed_funds_amount": 50000,
+        "undisclosed_mortgage_application_indicator": false,
+        "undisclosed_credit_application_indicator": false,
+        "property_proposed_clean_energy_lien_indicator": true,
+        "undisclosed_comaker_of_note_indicator": false,
+        "outstanding_judgments_indicator": false,
+        "presently_delinquent_indicator": false,
+        "party_to_lawsuit_indicator": true,
+        "prior_property_deed_in_lieu_conveyed_indicator": false,
+        "prior_property_short_sale_completed_indicator": false,
+        "prior_property_foreclosure_completed_indicator": true,
+        "bankruptcy_indicator": true
+      }
+    ],
+    "military_services": [
+      {
+        "@id": "01HHEEBDS9D8ZH0NG7J8K20YVE0",
+        "@type": "military_service",
+        "associated_with": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "military_service_expected_completion_date": "2025-12-31",
+        "military_status_type": "ActiveDuty"
+      }
+    ],
+    "government_monitoring": [
+      {
+        "@id": "01HHEEBDS9RXSCP5F72MAN3AB74",
+        "@type": "government_monitoring",
+        "represents": "01HHEEBDSDHQK6H2FB884BDY3F",
+        "application_taken_method_type": "Internet",
+        "ethnicity_collected_based_on_visual_observation_or_surname_indicator": false,
+        "ethnicity_origin_type": "Other",
+        "ethnicity_origin_type_other_description": "Salvadoran",
+        "ethnicity_refusal_indicator": false,
+        "ethnicity_type": "HispanicOrLatino",
+        "gender_collected_based_on_visual_observation_or_name_indicator": false,
+        "gender_refusal_indicator": false,
+        "gender_type": "Male",
+        "race_collected_based_on_visual_observation_or_surname_indicator": false,
+        "race_refusal_indicator": false,
+        "race_type": "AmericanIndianOrAlaskaNative",
+        "race_type_additional_description": "Navajo"
+      }
+    ]
+  },
+  "expected_function_calls": [
+    {
+      "name": "generateLoanApplicationDocument",
+      "arguments": {}
+    },
+    {
+      "name": "updateWrongItems",
+      "arguments": {
+        "transaction_id": "12345",
+        "data": [
+          {
+            "@id": "01HHEEBDS9D8ZH0NG7J8K20YVE7",
+            "property_name": "self_employment_indicator",
+            "property_value": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "getAllCollectedItems",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "@id",
+    "transaction_id"
+  ]
+}

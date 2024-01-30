@@ -1,0 +1,36 @@
+{
+    "conversation_name": "test_un_list",
+    "assistant_id": "01HMY0BXTV18AJTV17GYDA6X7G",
+    "prompts": [
+        "type: Cash \n value: 100000 USD.",
+        "deposited: no \n source: From relative"
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordGiftGrant",
+            "arguments": {
+                "data": {
+                    "assets": [
+                        {
+                            "asset_type": "GiftOfCash",
+                            "asset_liquidity_indicator": false,
+                            "source": "Relative",
+                            "asset_cash_or_market_value_amount": 100000
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id"
+    ]
+}

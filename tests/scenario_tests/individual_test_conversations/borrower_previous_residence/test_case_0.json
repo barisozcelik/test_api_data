@@ -1,0 +1,72 @@
+{
+  "conversation_name": "borrower_previous_residence_conversation_0",
+  "assistant_id": "01HKPTPQMFF4JN3Q7ZM4HZ8CQ5",
+  "prompts": ["No previous residence"],
+  "init_collection": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ]
+  },
+  "expected_v3": {
+    "people": [
+      {
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation",
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J"
+      }
+    ],
+    "credits": [
+      {
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit",
+        "credit_request_type": "Individual"
+      }
+    ]
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "has_person",
+    "has_credit"
+  ]
+}

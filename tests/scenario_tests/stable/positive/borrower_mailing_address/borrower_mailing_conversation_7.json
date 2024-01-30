@@ -1,0 +1,33 @@
+{
+  "conversation_name": "borrower_mailing_conversation_7",
+  "assistant_id": "01HN2PK38H8JV47SG8S1Y4X2RT",
+  "prompts": [
+    "I recently moved and I'd like to change the mailing address. The new address is Apartment 21B, 432 Park Avenue, New York, NY, 10022. Please note that it's an apartment, not a house."
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordMailingAddressDetails",
+      "arguments": {
+        "data": {
+          "mailing_address_line_1": "432 Park Avenue",
+          "mailing_address_city_name": "New York",
+          "mailing_address_country_name": "US",
+          "mailing_address_postal_code": "10022",
+          "mailing_address_state_code": "NY",
+          "mailing_address_unit_identifier": "Apartment 21B"
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

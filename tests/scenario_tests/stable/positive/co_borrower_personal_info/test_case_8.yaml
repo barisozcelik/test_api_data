@@ -1,0 +1,35 @@
+conversation_name: personal_identity_collector_coborrower_conversation_8
+assistant_id: 01HME5GEY8W746S210QHB2EDH4
+prompts:
+  - |-
+    First Name Sophia
+    Middle Name Marie
+    Last Name Gonzalez
+    Alias none
+    DOB 15.07.1985
+    Married
+    SSN 123456789
+    US Citizen
+    No dependents
+expected_function_calls:
+  - name: recordPersonalInformation
+    arguments:
+      data:
+        birth_day: "15"
+        birth_month: "07"
+        birth_year: "1985"
+        first_name: Sophia
+        middle_name: Marie
+        last_name: Gonzalez
+        ssn: "123456789"
+        marital_status_type: Married
+        us_citizenship_status: USCitizen
+        aliases: []
+        dependent_ages: []
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

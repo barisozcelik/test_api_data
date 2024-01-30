@@ -1,0 +1,30 @@
+conversation_name: co_borrower_contact_info_missing_9
+assistant_id: 01HME9BP824XHJZT7SZKRR3NV4
+prompts:
+  - |-
+    Home Phone Number: 56501234
+    Mailing Address: 4713 Macejkovic Neck, New Sheldon, UT 61425
+  - |-
+    Phone Number: 55501234
+    Email Address: alex.taylor@example.com
+
+expected_function_calls:
+  - name: recordApplicantContactDetails
+    arguments:
+      data:
+        email_address: alex.taylor@example.com
+        phone_number: "55501234"
+        home_phone_number: "56501234"
+        mailing_address_address_line_1: 4713 Macejkovic Neck
+        mailing_address_city_name: New Sheldon
+        mailing_address_state_code: UT
+        mailing_address_postal_code: "61425"
+        mailing_address_country_name: US
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant_id
+  - assistant

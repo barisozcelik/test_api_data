@@ -1,0 +1,48 @@
+name: Publish to Marketplace
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  MarktplacePush:
+    name: Push to Marketplace
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Checkout GitHub Action Repo
+        uses: actions/checkout@v2
+        with:
+          repository: StaircaseAPI/ci_action_v2
+          ref: master
+          token: ${{ secrets.STAIRCASE_GITHUB_TOKEN }}
+          path: action
+
+      - name: Staircase Publish To Marketplace
+        uses: ./action
+        id: pipeline
+        with:
+          service_api_key: ${{ secrets.BUSHNELL_API_KEY }}
+          devops_products_env: "bushnell-dev.staircaseapi.com"
+          github_account: "StaircaseAPI"
+          github_token: ${{ secrets.STAIRCASE_GITHUB_TOKEN }}
+          slack_notification_channel_url: ${{ secrets.SLACK_NOTIFICATION_CHANNEL_URL }}
+          publish_to_marketplace: true
+          marketplace_product_name: "Bot-data"
+          marketplace_env: "marketplace.staircaseapi.com"
+          marketplace_api_key: ${{ secrets.MARKETPLACE_API_KEY }}
+          marketplace_product_dependencies: "Chatbot"
+          is_data_bundle: true
+
+      - name: Get the output
+        run: |
+            echo "Bundle Id: '${{ steps.pipeline.outputs.bundle_id }}'"
+            echo "Assessment Id: '${{ steps.pipeline.outputs.assessment_id }}'"
+            echo "Build Id: '${{ steps.pipeline.outputs.build_id }}'"
+            echo "Review Id: '${{ steps.pipeline.outputs.review_id }}'"
+            echo "Source Url: '${{ steps.pipeline.outputs.source_url }}'"
+            echo "Assess Source Url: '${{ steps.pipeline.outputs.assess_source_url }}'"
+            echo "Build Artifacts Url: '${{ steps.pipeline.outputs.artifacts_url }}'"

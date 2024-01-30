@@ -1,0 +1,38 @@
+{
+    "conversation_name": "test_demographic_data_puerto_rican_female",
+    "assistant_id": "05HLN8QW4JMZ1TSK2PBQF3D9RY",
+    "prompts": [
+        "I identify as a Puerto Rican female.",
+        "I am Hispanic or Latino. I'm black."
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordApplicantDemographicDetails",
+            "arguments": {
+                "data": {
+                    "ethnicity_type": "HispanicOrLatino",
+                    "ethnicity_origin_type": "PuertoRican",
+                    "ethnicity_origin_type_other_description": "",
+                    "ethnicity_refusal_indicator": false,
+                    "gender_type": "Female",
+                    "gender_refusal_indicator": false,
+                    "race_type": "BlackOrAfricanAmerican",
+                    "race_type_additional_description": "",
+                    "race_refusal_indicator": false
+                }
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id",
+        "role"
+    ]
+}

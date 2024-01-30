@@ -1,0 +1,38 @@
+{
+    "conversation_name": "test_demographic_data_asian_female",
+    "assistant_id": "02BKG5DV1WQZBFCN8JH2KFJ3YZ",
+    "prompts": [
+        "I am of Asian descent, specifically Chinese. I am comfortable sharing all of this information.",
+        "I am a female. I am not Latin"
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordApplicantDemographicDetails",
+            "arguments": {
+                "data": {
+                    "ethnicity_type": "NotHispanicOrLatino",
+                    "ethnicity_origin_type": "",
+                    "ethnicity_origin_type_other_description": "",
+                    "ethnicity_refusal_indicator": false,
+                    "gender_type": "Female",
+                    "gender_refusal_indicator": false,
+                    "race_type": "Asian",
+                    "race_type_additional_description": "Chinese",
+                    "race_refusal_indicator": false
+                }
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id",
+        "role"
+    ]
+}

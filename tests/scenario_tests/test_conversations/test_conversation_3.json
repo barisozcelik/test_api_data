@@ -1,0 +1,22 @@
+{
+  "conversation_name": "test_conversation_3",
+  "prompts": [
+    "Start an Application",
+  "Personal Information: My name is Emily Johnson, and I do not have any aliases. I was born on June 15, 1984. I am currently single and a permanent resident of the United States. My Social Security Number is 123-45-6789. I have one dependent, who is 5 years old.",
+  "Residency Information: I reside at Unit 305, 1428 Green Ridge Road, Sun Valley, NV 89433-1234. I own this property and have been living here for 3 years and 4 months",
+  "Contact Information: My primary contact number is 555-4567, and my email address is emily.johnson@example.com. Additionally, my home phone number is 555-2345, and my work phone number is 555-8765. For mailing purposes, please use my residential address, which is the same as my residency address.",
+  "Employment Information: I am currently employed as a Lead Software Developer at Advanced Computing Solutions Inc., a position I have held since March 15, 2017. The company is located at 987 Tech Avenue, Austin, Texas, 78701, USA, and can be contacted at 512-555-0489. In terms of income, my base salary is $85,000 per year. Additionally, I receive bonuses amounting to $5,000 annually, commissions that total $10,000 per year, and overtime pay which adds up to $2,000 each year",
+  "Other Income: No other income",
+  "Previous Employment: No previous employment",
+  "Asset Information: I have several assets under my name. Firstly, I own a Savings Account with Peoples Savings Bank, identified as SA#554433, currently holding $8,500. Additionally, I have a Stock Portfolio (account identifier SP#667788) valued at $25,000, managed by Equity Investment Firm. Lastly, I am invested in a Bond Fund, account number BF#889900, with a cash or market value amounting to $12,000, which is held at Stable Bond Group.",
+  "Other assets: No other assets",
+  "Liability Information: I currently have several liabilities. The first is an installment loan (Loan#889977) from Quick Capital Lending, with a monthly payment of $500 and an unpaid balance of $22,000. The payoff status for this loan is still pending. Additionally, I have a lease payment (Lease#998822) with City Drive Leasing, costing me $450 per month, and the remaining balance is $12,000. Furthermore, I maintain an open 30-day charge account (Account#776655) with Downtown Shopping Network. The monthly payment for this account is variable, usually around $300, and the unpaid balance stands at $4,500. Lastly, I have a revolving credit account (Credit#112233) with Nationwide Credit Services. The monthly payment for this is $200, and I currently owe a balance of $8,000.",
+  "Other liabilities: No other liabilities",
+  "Owned Real Estate: I currently own two properties. The first one is located at 230 Oak Avenue, Madison, Wisconsin, with a zip code of 53703. This property, valued at $300,000, is my primary residence. I've retained its ownership and am responsible for monthly maintenance expenses of $400, which cover insurance, taxes, and HOA dues. There is no monthly rental income from this property. The mortgage on this property is with Reliable Mortgage Corp., featuring a monthly payment of $1,400 and an outstanding balance of $250,000, under an adjustable-rate loan. My second property, which was an investment property, was situated at 88 Cedar Road, Vail, Colorado, zip code 81657. This property was valued at $700,000 and has been sold. While I owned it, I incurred monthly maintenance expenses of $650, covering insurance and taxes. As this property has been sold, there are no current mortgage loan details associated with it.",
+  "Loan Details: I want to apply for a loan with the following details: The base amount of the loan I am seeking is $350,000, and the purpose of this loan is for home improvement. The property related to this loan is located at 789 Mountain View Lane, Prescott, Arizona, with the zip code 86303. It's a single-unit property valued at $450,000. This property serves as my secondary residence. It is also approved as an FHA Secondary Residence. Part of this property is used as a home office, making it a mixed-use property. It is important to note that this is not a manufactured home.",
+  "Gifts and Grants: No gifts and grants",
+  "Declarations: First question yes, others no",
+  "Military Service: No military service",
+  "Demographics: I identify as non-Hispanic or Latino, and therefore, my ethnicity origin is not applicable. I am female by gender and racially, I identify as White."
+  ]
+}

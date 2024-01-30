@@ -1,0 +1,33 @@
+conversation_name: mortgage_details_information_conversation_4
+assistant_id: 01HMXZ4NN8S61KZS8CKAWMAXW1
+prompts:
+  - |-
+    I’m refinancing, needing $420000. The address is 213 Cedar Ave, Orlando, Florida, 32801.
+    It comprises 3 units, with a market value of $500,000.
+    The property is an investment.
+    Not an FHA secondary residence.
+    No business use; it's entirely residential.
+    Also, it's not a manufactured property.
+expected_function_calls:
+  - name: recordMortageDetailsInformation
+    arguments:
+      data:
+        base_loan_amount: 420000
+        loan_purpose_type: Refinance
+        address_line_1: 213 Cedar Ave
+        city_name: Orlando
+        postal_code: '32801'
+        state_code: FL
+        accessory_unit_count: 3
+        property_estimated_value_amount: 500000
+        property_current_usage_type: Investment
+        fha_secondary_residence_indicator: false
+        property_mixed_usage_indicator: false
+        manufactured_home_indicator: false
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

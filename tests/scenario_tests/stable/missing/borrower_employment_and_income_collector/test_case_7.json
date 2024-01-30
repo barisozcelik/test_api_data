@@ -1,0 +1,134 @@
+{
+  "conversation_name": "borrower_employment_and_income_conversation_7_missing",
+  "assistant_id": "01HKB2Y3T2A8JD7NNXY8Q79WD2",
+  "prompts": [
+    "My position title is 'Elementary School Teacher', started working on August 20, 2017, which makes it about 6 years of experience. I work for Sunshine Elementary School located at 789 Education Blvd, Chicago, IL, 60614. Unfortunately, I don't have the school's phone number handy. My monthly income is primarily my base salary, which is $4,200.",
+    "I'm not self-employed and have no ownership interest in any business. Also, I have no special relationships with any employer or party in the transaction."
+  ],
+  "init_collection": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ]
+  },
+  "expected_v3": {
+    "people": [
+      {
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation",
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J"
+      }
+    ],
+    "credits": [
+      {
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit",
+        "credit_request_type": "Individual"
+      }
+    ],
+    "employments": [
+      {
+        "@id": "01HHEEBDSTCHR20PNE759GJ25PGG",
+        "@type": "employment",
+        "associated_income": [
+          "01HHEEBDS9GK1DHGEDU6RP06ZV9"
+        ],
+        "employment_start_date": "2017-08-20",
+        "employment_status_type": "Current",
+        "self_employment_indicator": false,
+        "special_borrower_employer_relationship_indicator": false,
+        "employment_time_in_line_of_work_years_count": 6,
+        "has_employee": "01HMGMQJAZ82YB32Q03SRX296J",
+        "has_employer": "01HHEEBDSB27TBFYPCF4XQ8J13",
+        "position_title": "Elementary School Teacher"
+      }
+    ],
+    "incomes": [
+      {
+        "@id": "01HHEEBDS9GK1DHGEDU6RP06ZV9",
+        "@type": "income",
+        "income_recipient": "01HMGMQJAZ82YB32Q03SRX296J",
+        "income_amount": 4200,
+        "income_type": "Base",
+        "income_pay_frequency_type": "Monthly"
+      }
+    ],
+    "companies": [
+      {
+        "@id": "01HHEEBDSB27TBFYPCF4XQ8J13",
+        "@type": "company",
+        "has_address": "01HHEEBDS95T2CKY8KN2GK3EX6",
+        "has_communication_method": "01HHEEBDS82QCSZEDWFSAQGHSF",
+        "name": "Sunshine Elementary School"
+      }
+    ],
+    "addresses": [
+      {
+        "@id": "01HHEEBDS95T2CKY8KN2GK3EX6",
+        "@type": "address",
+        "address_line_1": "789 Education Blvd",
+        "city_name": "Chicago",
+        "country_name": "USA",
+        "postal_code": "60614",
+        "state_code": "IL"
+      }
+    ],
+    "communications": [
+      {
+        "@id": "01HHEEBDS82QCSZEDWFSAQGHSF",
+        "@type": "communication"
+      }
+    ]
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "has_person",
+    "has_credit",
+    "associated_income",
+    "has_address",
+    "has_communication_method",
+    "has_employee",
+    "has_employer",
+    "income_recipient"
+  ]
+}

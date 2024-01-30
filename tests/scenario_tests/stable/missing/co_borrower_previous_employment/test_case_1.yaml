@@ -1,0 +1,31 @@
+conversation_name: co_borrower_previous_income_conversation_missing_1
+assistant_id: 01HME9BGX8X7ANW1EKSEGH3K2T
+prompts:
+  - |-
+    I worked as a Doctor at Pepsico. 98 Buffalo Rd, Rochester, NY 14624, United States
+    I worked there from 2010-01-01 to 2021-05-01
+  - My income was $42000 per year.
+expected_function_calls:
+  - name: recordPreviousEmploymentDetails
+    arguments:
+      data:
+        associated_incomes:
+          - monthly_income_amount: 3500
+            income_type: Base
+        employment_start_date: "2010-01-01"
+        employment_end_date: "2021-05-01"
+        employer_address_address_line_1: 98 Buffalo Rd
+        employer_address_state_code: "NY"
+        employer_address_city_name: "Rochester"
+        employer_address_postal_code: "14624"
+        employer_address_country_name: "United States"
+        company_name: "Pepsico"
+        position_title: Doctor
+        self_employment_indicator: false
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

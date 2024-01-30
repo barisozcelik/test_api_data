@@ -1,0 +1,41 @@
+{
+  "conversation_name": "assets_conversation_1",
+  "assistant_id": "01HJKHGHCM81HH8XE3BY3H13MH",
+  "prompts": [
+    "\nAsset Type: Money Market Fund\nAccount Identifier: REO#998877\nCash or Market Value Amount: $65,300\nFinancial Institution Name: Bank Of America\nAsset Type: Savings Bond\nAccount Identifier: SA#556627\nCash or Market Value Amount: $15,000\nFinancial Institution Name: JPMorgan Chase Bank\n"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordLiquidAssets",
+      "arguments": {
+        "data": {
+          "assets": [
+            {
+              "asset_account_identifier": "REO#998877",
+              "asset_cash_or_market_value_amount": 65300,
+              "asset_type": "MoneyMarketFund",
+              "financial_institution_name": "Bank Of America"
+            },
+            {
+              "asset_account_identifier": "SA#556627",
+              "asset_cash_or_market_value_amount": 15000,
+              "asset_type": "SavingsBond",
+              "financial_institution_name": "JPMorgan Chase Bank"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant",
+    "assistant_id"
+  ]
+}

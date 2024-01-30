@@ -1,0 +1,37 @@
+{
+    "conversation_name": "test_demographic_data_refusal_to_disclose",
+    "assistant_id": "03CKL6DT2XHY8GJQD9P4MLF6KZ",
+    "prompts": [
+        "I prefer not to disclose my race, ethnicity, or gender."
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordApplicantDemographicDetails",
+            "arguments": {
+                "data": {
+                    "ethnicity_type": "",
+                    "ethnicity_origin_type": "",
+                    "ethnicity_origin_type_other_description": "",
+                    "ethnicity_refusal_indicator": true,
+                    "gender_type": "",
+                    "gender_refusal_indicator": true,
+                    "race_type": "",
+                    "race_type_additional_description": "",
+                    "race_refusal_indicator": true
+                }
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id",
+        "role"
+    ]
+}

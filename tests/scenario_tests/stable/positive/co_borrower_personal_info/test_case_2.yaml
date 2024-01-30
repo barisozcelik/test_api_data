@@ -1,0 +1,35 @@
+conversation_name: personal_identity_collector_coborrower_conversation_2
+assistant_id: 01HME5GEY8W746S210QHB2EDH4
+prompts:
+  - |-
+    1. My first name is Lucas.
+    2. My first middle is William.
+    3. My first last name is Brown.
+    4. I don't have any alias.
+    5. I was born on 15th of July, 1985.
+    6. My marital status is married.
+    7. My SSN is 123-45-6789.
+    8. I am a U.S. citizen.
+    9. I have no dependents.
+expected_function_calls:
+  - name: recordPersonalInformation
+    arguments:
+      data:
+        birth_day: "15"
+        birth_month: "07"
+        birth_year: "1985"
+        first_name: Lucas
+        middle_name: William
+        last_name: Brown
+        ssn: "123456789"
+        marital_status_type: Married
+        us_citizenship_status: USCitizen
+        aliases: []
+        dependent_ages: []
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

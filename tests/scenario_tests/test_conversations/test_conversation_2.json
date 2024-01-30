@@ -1,0 +1,22 @@
+{
+  "conversation_name": "test_conversation_2",
+  "prompts": [
+    "Start an Application",
+  "Personal Information: Full Name: Jordan Smith Alias: Jonathan Smith Date of Birth: 22 March 1990 Marital Status: Married Social Security Number (SSN): 987654321 U.S. Citizenship Status: U.S Citizen Dependent: Two dependents: ages 8, 15",
+  "Residency Information: Address: Apt. 202, 3896 Kertzmann Plaza, Lake Marcella, CA 93282-8574 Occupancy: Own Purchased November 2008",
+  "Contact Information: Phone Number: 555-6789 Email Address: jordan.smith@example.net Home Phone Number: 555-1234 Work Phone Number: 555-9876 Mailing Address: 58047 Goldner Underpass, Kleinton, KS 29641 2008 USA",
+  "Employment Information: Position Title: Senior Project Coordinator Employment Start Date: 08/20/2018 Employer Details: Name: Innovative Tech Solutions Ltd. Address: 403 Progress Lane, Raleigh, North Carolina, 27603, USA Phone Number: 919-555-0234 Associated Incomes: Income Type: Base Income Amount: $68,000 per year Income Type: Bonuses Income Amount: $3,500 per year Income Type: Commission Income Amount: $7,000 per year Income Type: Overtime Income Amount: Not Applicable",
+  "Other Income: No other income",
+  "Previous Employment: No previous employment",
+  "Asset Information: Asset Type: Checking Account Account Identifier: CA#998877 Cash or Market Value Amount: $6,200 Financial Institution Name: Metro Finance Bank Asset Type: Retirement Fund Account Identifier: RF#112233 Cash or Market Value Amount: $42,500 Financial Institution Name: Secure Future Trust Asset Type: Mutual Fund Account Identifier: MF#445566 Cash or Market Value Amount: $15,300 Financial Institution Name: Growth Investment Group",
+  "Other assets: No other assets",
+  "Liability Information: Liability Type: Installment Liability Account Identifier: Loan#54321 Monthly Payment Amount: $420 Payoff Status Indicator: No Owed To: Rapid Finance Co. Liability Unpaid Balance: $18,000 Liability Type: Lease Payment Liability Account Identifier: Lease#12345 Monthly Payment Amount: $380 Payoff Status Indicator: No Owed To: Urban Auto Lease Liability Unpaid Balance: $8,400 Liability Type: Open 30-Day Charge Account Liability Account Identifier: Account#65432 Monthly Payment Amount: Variable, typically around $250 Payoff Status Indicator: No Owed To: Central Retail Chain Liability Unpaid Balance: $3,200 Liability Type: Revolving Liability Account Identifier: Credit#78901 Monthly Payment Amount: $180 Payoff Status Indicator: No Owed To: Global Credit Union Liability Unpaid Balance: $6,700",
+  "Other liabilities: No other liabilities",
+  "Owned Real Estate: Address: 101 Maple Drive, Springfield, Illinois 62704 Property Value: $350,000 Status: Retained Intended Occupancy: Primary Residence Monthly Maintenance Expenses: $450 (Insurance, Taxes, HOA Dues) Monthly Rental Income: N/A Mortgage Loan Details: Lender Name: Trusty Home Loans Monthly Payment: $1,600 Unpaid Balance: $280,000 Loan Type: Fixed-Rate",
+  "Loan Details: Base Loan Amount: $300,000 Loan Purpose: Refinance Property Address: 456 Ridgeview Road, Sedona, Arizona, 86336 Number of Units: 1 Property Value: $400,000 Intended Occupancy: Primary Residence FHA Secondary Residence: No Mixed-Use Property: No Manufactured Home: Yes (located in a residential community)",
+  "Gifts and Grants: No gifts and grants",
+  "Declarations: Intention to Occupy the Property as Primary Residence: Yes Homeownership in the Past Three Years: No Usage Type of Prior Property: N/A (No previous property) Title Type of Prior Property: N/A (No previous property) Relationship with the Property Seller: No Undisclosed Borrowed Funds for Down Payment or Closing Costs: No Amount of Undisclosed Borrowed Funds: N/A Plans to Apply for a Mortgage on a Different Property Before Closing: No Plans to Apply for Non-Mortgage Credit Before Closing This Mortgage: No Property Subject to a Clean Energy Lien: No Guarantor or Co-Signer on Undisclosed Debts: No Outstanding Judgments: No Present Delinquency or Default on Federal Debts/Other Financial Obligations: No Involvement in Ongoing Lawsuits: No Deed in Lieu of Foreclosure in the Last Seven Years: No Completion of a Short Sale in the Past Seven Years: No Foreclosure on Any Properties in the Last Seven Years: No Bankruptcy in the Past Seven Years: No",
+  "Military Service: No military service",
+  "Demographics: Ethnicity: Not Hispanic or Latino Ethnicity Origin: N/A Gender: Male Race: White"
+  ]
+}

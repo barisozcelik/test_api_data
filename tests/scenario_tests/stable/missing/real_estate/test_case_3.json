@@ -1,0 +1,51 @@
+{
+  "conversation_name": "real_estate_missing_3",
+  "assistant_id": "01HJZH0S5D3X6GE8SEXRJVBQ1P",
+  "prompts": [
+    "I have an investment property under a rural development loan:\nAddress:\n  Street: 112 Farm Road\n  City: Little Rock\n  State: AR\n  Zip Code: 72201\n Country: US\n  Property Value: $300,000\n  Status: Retained\n\n",
+    "Intended Occupancy: Investment\nMonthly Maintenance Expenses: $300\nMonthly Rental Income: $1200\n\nAnd about mortgage loan:\n  My lender is AgriBank and loan type is UsdaRuralDevelopment\n  Monthly Payment: $1200\n  Unpaid Balance: 250k$"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordRealEstateInformation",
+      "arguments": {
+        "data": {
+          "property_details": [
+            {
+              "address_line_1": "112 Farm Road",
+              "city_name": "Little Rock",
+              "country_name": "US",
+              "postal_code": "72201",
+              "state_code": "AR",
+              "property_estimated_value_amount": 300000,
+              "property_current_usage_type": "Investment",
+              "owned_property_maintenance_expense_amount": 300,
+              "owned_property_disposition_status_type": "Retain",
+              "owned_property_rental_income_gross_amount": 1200,
+              "lender_name": "AgriBank",
+              "unpaid_balance_amount": 250000,
+              "monthly_payment": 1200,
+              "loan_type": "UsdaRuralDevelopment"
+            }
+          ]
+        },
+        "transaction_id": "12345",
+        "assistant": "borrower_real_estate"
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+        "transaction_id": "12345",
+        "main_thread_id": "abcde",
+        "assistant_id_to_exclude": "borrower_real_estate"
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "conversation_name": "other_liabilities_0_4",
+  "assistant_id": "01HKYH693DNND2Z29G883WDEYQ",
+  "prompts": [
+   
+    "I have two liabilities: $400 monthly for child support and $200 for job-related expenses."
+  ],
+  "expected_function_calls": [
+      {
+        "name": "recordOtherLiabilitiesData",
+        "arguments": {
+          "data":{
+            "other_liabilities": [
+                {
+                  "liability_monthly_payment_amount":200,
+                  "liability_type":"JobRelatedExpenses"
+                  
+                },
+                {
+                  "liability_monthly_payment_amount":400,
+                  "liability_type":"ChildSupport"
+                }
+            ]}}
+      },
+      {
+          "name": "switchToNextAssistant",
+          "arguments": {}
+      }
+    ],
+
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant_id",
+    "assistant",
+    "role"
+  ]
+}

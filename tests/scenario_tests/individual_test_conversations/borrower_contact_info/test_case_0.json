@@ -1,0 +1,86 @@
+{
+  "conversation_name": "borrower_contact_info_conversation_0",
+  "assistant_id": "01HJR4G0EQ81DJVRCJCPXQG5YF",
+  "prompts": [
+    "Phone Number: 55501234\nEmail Address: alex.taylor@example.com\nHome Phone Number: 56501234\nWork Phone Number: 57501234\nMailing Address: Same with residency"
+  ],
+  "init_collection": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ]
+  },
+  "expected_v3": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ],
+    "communications": [
+      {
+        "@id": "01HHEEBDS8G6X59BPK9G7E9N7P8",
+        "@type": "communication",
+        "contact_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "email_address": "alex.taylor@example.com",
+        "home_phone_number": "56501234",
+        "phone_number": "55501234",
+        "work_phone_number": "57501234"
+      }
+    ]
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "has_person",
+    "has_credit",
+    "contact_person"
+  ]
+}

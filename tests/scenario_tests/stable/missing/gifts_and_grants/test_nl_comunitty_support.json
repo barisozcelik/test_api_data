@@ -1,0 +1,36 @@
+{
+    "conversation_name": "test_nl_comunitty_support",
+    "assistant_id": "01HMY0BXTV18AJTV17GYDA6X7G",
+    "prompts": [
+        "I received grant in form of equity worth $250,000.",
+        "The equity is already deposited. Source is a community non-profit organization"
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordGiftGrant",
+            "arguments": {
+                "data": {
+                    "assets": [
+                        {
+                            "asset_type": "GiftOfPropertyEquity",
+                            "asset_liquidity_indicator": true,
+                            "source": "CommunityNonProfit",
+                            "asset_cash_or_market_value_amount": 250000
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id"
+    ]
+}

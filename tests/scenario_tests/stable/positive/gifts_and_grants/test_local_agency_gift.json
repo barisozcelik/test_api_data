@@ -1,0 +1,35 @@
+{
+    "conversation_name": "local_agency_property_gift",
+    "assistant_id": "01HMY0BXTV18AJTV17GYDA6X7G",
+    "prompts": [
+        "Property equity from a local agency valued at $200,000, the gift is not yet deposited."
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordGiftGrant",
+            "arguments": {
+                "data": {
+                    "assets": [
+                        {
+                            "asset_type": "GiftOfPropertyEquity",
+                            "asset_liquidity_indicator": false,
+                            "source": "LocalAgency",
+                            "asset_cash_or_market_value_amount": 200000
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id"
+    ]
+}

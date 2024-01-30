@@ -1,0 +1,85 @@
+{
+  "conversation_name": "credit_liabilities_0",
+  "assistant_id": "01HMGK7369334691XHSBKAC534",
+  "prompts": [
+     "lets start",
+     "I will provide the information",
+     "- installment , 123, 200 , no , staircase, 3450   - revolving , 2345, 300 , no , dell , 3456   - other , 3455, 200 , no , company z, 3456"  
+  ],
+  "init_collection": {
+   
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "owed_to",
+    "has_liability_timeline"
+  ],
+  "expected_v3": {
+    "companies": [
+        {
+            "@type": "company",
+            "name": "staircase",
+            "@id": "01HMR58AE0HK7MF8R76J2PWBY9"
+        },
+        {
+            "@type": "company",
+            "name": "dell",
+            "@id": "01HMR58AE0MVKB5PQK39P3HPHY"
+        },
+        {
+            "@type": "company",
+            "name": "company z",
+            "@id": "01HMR58AE0K78TKZAP26MMJMQN"
+        }
+    ],
+    "liabilities": [
+        {
+            "@type": "liability",
+            "liability_type": "Installment",
+            "owed_to": "01HMR58AE0HK7MF8R76J2PWBY9",
+            "liability_account_identifier": "123",
+            "liability_monthly_payment_amount": 200,
+            "liability_payoff_status_indicator": false,
+            "has_liability_timeline": "01HMR58AE0DREBYKDHMZQ07EJK",
+            "@id": "01HMR58AE052X0DZ51C4TBASZ9"
+        },
+        {
+            "@type": "liability",
+            "liability_type": "Revolving",
+            "owed_to": "01HMR58AE0MVKB5PQK39P3HPHY",
+            "liability_account_identifier": "2345",
+            "liability_monthly_payment_amount": 300,
+            "liability_payoff_status_indicator": false,
+            "has_liability_timeline": "01HMR58AE0WYDPAKPJ7MVY3RTT",
+            "@id": "01HMR58AE0GHNNNQRTZ4FGH8K8"
+        },
+        {
+            "@type": "liability",
+            "liability_type": "Other",
+            "owed_to": "01HMR58AE0K78TKZAP26MMJMQN",
+            "liability_account_identifier": "3455",
+            "liability_monthly_payment_amount": 200,
+            "liability_payoff_status_indicator": false,
+            "has_liability_timeline": "01HMR58AE06PMHH45HW2681NCP",
+            "@id": "01HMR58AE0T6GQVDPFRVM71YHC"
+        }
+    ],
+    "liability_timelines": [
+        {
+            "@type": "liability_timeline",
+            "liability_unpaid_balance_amount": 3450,
+            "@id": "01HMR58AE0DREBYKDHMZQ07EJK"
+        },
+        {
+            "@type": "liability_timeline",
+            "liability_unpaid_balance_amount": 3456,
+            "@id": "01HMR58AE0WYDPAKPJ7MVY3RTT"
+        },
+        {
+            "@type": "liability_timeline",
+            "liability_unpaid_balance_amount": 3456,
+            "@id": "01HMR58AE06PMHH45HW2681NCP"
+        }
+    ]
+}
+}

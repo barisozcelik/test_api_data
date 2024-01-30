@@ -1,0 +1,35 @@
+{
+    "conversation_name": "religious_non_profit_cash_gift",
+    "assistant_id": "01HMY0BXTV18AJTV17GYDA6X7G",
+    "prompts": [
+        "A cash gift of $5,000 from a religious non-profit, already deposited in my account."
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordGiftGrant",
+            "arguments": {
+                "data": {
+                    "assets": [
+                        {
+                            "asset_type": "GiftOfCash",
+                            "asset_liquidity_indicator": true,
+                            "source": "ReligiousNonProfit",
+                            "asset_cash_or_market_value_amount": 5000
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id"
+    ]
+}

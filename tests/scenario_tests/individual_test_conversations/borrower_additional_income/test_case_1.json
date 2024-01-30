@@ -1,0 +1,84 @@
+{
+  "conversation_name": "borrower_additional_income_conversation_1",
+  "assistant_id": "01HKYH6CQX1YZ06Z4VFAN07658",
+  "prompts": [
+    "I have additional income of Capital Gains of $800 per month."
+  ],
+  "init_collection": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ]
+  },
+  "expected_v3": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ],
+    "incomes": [
+      {
+        "@id": "01HHEEBDS9MDSGMCN8M6KE9G4M",
+        "@type": "income",
+        "income_recipient": "01HMGMQJAZ82YB32Q01SRX296J",
+        "income_amount": 800,
+        "income_type": "CapitalGains"
+      }
+    ]
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "has_person",
+    "has_credit",
+    "income_recipient"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "conversation_name": "assets_conversation_4",
+  "assistant_id": "01HJKHGHCM81HH8XE3BY3H13MH",
+  "prompts": [
+    "Just checked my Retirement Fund, under the account RF#556677 at Secure Future Fund. It's now valued at $40,000. I also have the checking account (CA#223344) I hold with National Bank has a balance of $3,000 as of now."
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordLiquidAssets",
+      "arguments": {
+        "data": {
+          "assets": [
+            {
+              "asset_account_identifier": "RF#556677",
+              "asset_cash_or_market_value_amount": 40000,
+              "asset_type": "RetirementFund",
+              "financial_institution_name": "Secure Future Fund"
+            },
+            {
+              "asset_account_identifier": "CA#223344",
+              "asset_cash_or_market_value_amount": 3000,
+              "asset_type": "CheckingAccount",
+              "financial_institution_name": "National Bank"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant",
+    "assistant_id"
+  ]
+}

@@ -1,0 +1,293 @@
+assistant_name: Cheapest Mortgage Analysis Assistant
+description: Cheapest Mortgage Analysis Assistant
+instructions: >-
+  Your Responsibility: Assisting Loan Applicants in Securing the Most Cost-Effective Loan Options.
+
+
+  Behavioral Patterns You Must Follow:
+
+  - You'll be included in the conversation where other Assistants had conversation with the user and replied with requirements for the user to complete - ignore such requirements completely (for example, latest messages from other Assistants indicate that user needs to specify SSN - ignore such requirements, since SSN is not required to complete your job). It doesn't matter whether user completed previous requirements mentioned in the chat history or not, focus on your job. Strictly adhere to your own instructions. Remember - you're acting as an independent Assistant and requirements from other Assistants must not be taken into account.
+
+  - Initiate loan price options retrieval (making function call for initiatePriceOptionsRetrieval function) ONLY after gathering all the required information. You're forbidden to hallucinate and put invented values because it's illegal to do so. Required data to initate the loan price options retrieval are:
+    - US Citizen Status
+    - Credit Score
+    - Loan Amount
+    - Total Monthly Income
+    - Total Monthly Expenses
+    - Total Monthly Liabilities
+    - Subject Property Estimated Value 
+    - Subject Property Occupancy Status
+    - Subject Property Type
+    - Subject Property Stories Count
+    - Subject Property Number of Units
+    - Subject Property Current Usage Type
+    - Subject Property Postal Code
+    - Subject Property County Name
+    - Subject Property State Code
+
+
+  Strictly adhere to the sequence of steps.
+  
+  
+  The steps are:
+
+
+  Step 1) At the beginning of the conversation fetch applicant's recorded data using `getApplicantCollectedInformation` function. Output of the function contains applicant's data collected previously that you can use to create input JSON for `initiatePriceOptionsRetrieval` function. Output of `getApplicantCollectedInformation` function may contain only subset of the required data (or no data at all) for initiating loan price options retrieval.
+
+
+  Step 2) Identify the gap between data retrieved `getApplicantCollectedInformation` function output and required data to initate price options retrieval. Collect missing information from user by asking targeted questions to fill the information gap. Do not present all questions at once, split them into contextually relevant sets to simplify the applicant's input process. For information that already exists in the `getApplicantCollectedInformation` function output, use existing value and don't ask user. If there is any missing data in user input, insist applicant to provide it and do not assume its value. 
+
+
+  Step 3) Once all information has been collected, initiate the loan price options retrieval by making function call for `initiatePriceOptionsRetrieval` function with collected information, according to the `initiatePriceOptionsRetrieval` function schema. Do not use code interpeter to generate JSON. Use following JSON template as an example for the input to the `initiatePriceOptionsRetrieval` function:
+    ```
+    {
+        "us_citizenship_status": <NonPermResidentAlien|NonPermResidentAlien|USCitizen>,
+        "credit_score": <Credit Score>,
+        "total_monthly_income_amount": <Total Monthly Income Amount>,
+        "total_monthly_expenses_amount": <Total Monthly Expenses Amount>,
+        "total_monthly_liabilities_amount": <Total Monthly Liabilities Amount>,
+        "base_loan_amount": <Loan Amount>,
+        "property_estimated_value_amount": <Property Value Amount>,
+        "property_current_occupancy_type": <Abandoned|AdverseOccupied|OccupiedByUnknown|OwnerOccupied|PartiallyVacant|TenantOccupied|Unknown|Vacant>,
+        "property_type": <SingleFamily|Condominium|ManufacturedHousingMultiWide|Modular|Pud|Timeshare|ManufacturedHousing|Cooperative|NonWarrantableCondo|Townhouse|DetachedCondominium>,
+        "stories_count": <Stories Count>,
+        "number_of_units_type": <One|Two|Three|Four>,
+        "property_current_usage_type": <Investment|PrimaryResidence|SecondHome>,
+        "postal_code": <Postal Code>,
+        "county_name": <County Name>,
+        "state_code": <State Code, represented as 2 letters>
+    }
+    ```
+
+  In the case of success, capture the response identifier from the `initiatePriceOptionsRetrieval` function call output. By this identifer you will be able to get the status of retrieval process. If output of the function call contains validation errors, try to fix errors by yourself - some of the variables may have different representation in required schema - identify the most appropriate one and try again.
+
+
+  Step 4) Ask applicant for the number of years that he wants to keep the mortgage. This information will help to identify the cheapest loan price option. 
+
+
+  Step 5) When user asks for the status of loan price options, make `getPriceOptionsStatus` function call to get price options retrieval status. When output of the function call contains 'COMPLETED' status, two available options will be presented in the function call output - 'staircase_option' and 'typical_broker_option'. Display only the Staircase option (which is the cheapest one) to the applicant. EXTREMELY IMPORTANT - mention that cheapest option is offered by Staircase. Explanation on "Cheapest Option" - "Cheapest option" is the option that has the lowest total interest paid over the period (specified after "Total Interest Paid for the Period"). Ask user whether he wants to see the graph of cumulative payments that show comparison between Staircase offer and Typical broker offer.
+
+
+  Step 6) If user wants to see the graph of cumulative payments for Staircase option and Typical Broker option, create a plot using matplotlib. For the y-axis, use values specified for the 'Total Loan Amounts Paid for Each Year' field for both options from 'getPriceOptionsStatus' function call ouput; for the x-axis use number of years. Remember - you are capable of running Python code to create a graph and the values are already returned in the response. Do not skip any year value, show all of them on the graph.
+
+
+  Step 7) If user doesn't have any remaining questions, invoke 'switchToNextAssistant' function. This is your terminal state, meaning your job is done and next assistant will be included in the conversation.
+
+platforms:
+- platform_name: OpenAI
+  model: gpt-3.5-turbo-1106
+file_ids: []
+metadata: {}
+tools:
+  - tool_type: code_interpreter
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/extract_price_related_data_from_transaction
+    function:
+      name: getApplicantCollectedInformation
+      description: This function allows to get latest collected information about the applicant
+      parameters:
+        type: object
+        properties:
+          transaction_id:
+            type: string
+            description: Identifier by which applicant collected information can be retrieved
+            # todo: add const
+        required:
+        - transaction_id
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/initiate_loan_price_options
+    function:
+      name: initiatePriceOptionsRetrieval
+      description: This function initiate the process of getting loan price options. Must not be executed until all calculated fields are identified and explicit confirmation for initiating the price option retrieval is recieved from user
+      parameters:
+        type: object
+        properties:
+          us_citizenship_status:
+            type: string
+            description: Defines the individual's legal citizenship status in the U.S., such
+              as 'NonPermResidentAlien', 'PermResidentAlien', or 'USCitizen'.
+            enum:
+            - NonPermResidentAlien
+            - PermResidentAlien
+            - USCitizen
+          credit_score:
+            type: integer
+            minimum: 300
+            maximum: 850
+            description: A credit score is a numerical representation of a person's creditworthiness
+              based on their credit history. It's a three-digit number that ranges from 300
+              to 850, with higher scores indicating better creditworthiness.
+          total_monthly_income_amount:
+            type: integer
+            exclusiveMinimum: 0
+            description: Total applicant's monthly income amount
+          total_monthly_expenses_amount:
+            type: integer
+            mininum: 0
+            description: Total applicant's monthly expenses amount
+          total_monthly_liabilities_amount:
+            type: integer
+            mininum: 0
+            description: Total applicant's monthly liabilities amount
+          base_loan_amount:
+            type: number
+            exclusiveMinimum: 0
+            description: This value represents the amount the borrower intends to apply for
+              in the mortgage loan application. It's the principal sum that the borrower seeks
+              to finance their property purchase or refinance. This figure is pivotal in determining
+              the structure of the loan, including projected monthly payments, interest calculations,
+              and overall financial planning for the loan. The base_loan_amount sets the foundation
+              for the mortgage, excluding additional costs like processing fees, insurance,
+              and taxes, which are considered separately in the total loan package.
+          property_estimated_value_amount:
+            type: number
+            exclusiveMinimum: 0
+            description: An estimate of the property's current market value, typically provided
+              by the borrower or loan originator, crucial for financial assessments and property
+              valuation.
+          property_current_occupancy_type:
+            type: string
+            enum:
+            - Abandoned
+            - AdverseOccupied
+            - OccupiedByUnknown
+            - OwnerOccupied
+            - PartiallyVacant
+            - TenantOccupied
+            - Unknown
+            - Vacant
+            description: Specifies the property occupancy status of a subject property.
+          property_type:
+            type: string
+            description: Property type refers to the classification of a real estate property
+              based on its characteristics, usage, and zoning designation. Property types
+              can include residential, commercial, industrial, agricultural, and mixed-use
+              properties.
+            enum:
+            - SingleFamily
+            - Condominium
+            - ManufacturedHousingMultiWide
+            - Modular
+            - Pud
+            - Timeshare
+            - ManufacturedHousing
+            - Cooperative
+            - NonWarrantableCondo
+            - Townhouse
+            - DetachedCondominium
+          stories_count:
+            type: integer
+            exclusiveMinimum: 0
+            description: Specifies the number of habitable levels above grade in a structure
+              such as in a 2 story house, a cape cod with 1.5 stories or a 2 story condominium
+              unit in a multi-level building.
+          number_of_units_type:
+            type: string
+            description: Number of units type in mortgage banking refers to the classification
+              of a property based on the number of units it contains. This classification
+              is important for determining the type of loan that can be used to finance the
+              property, as well as the underwriting requirements and guidelines that must
+              be followed.
+            enum:
+            - One
+            - Two
+            - Three
+            - Four
+          property_current_usage_type:
+            type: string
+            description: A value that specifies the current usage of the property by the borrower.
+            enum:
+            - Investment
+            - PrimaryResidence
+            - SecondHome
+          postal_code:
+            type: string
+            minLength: 1
+            description: A postal code, also known as a ZIP code (in the United States) or
+              postcode (in many other countries), is a numerical code used by postal services
+              to identify specific geographic areas for efficient mail sorting and delivery.
+          county_name:
+            type: string
+            minLength: 1
+            description: County name refers to the name of the county in which the address
+              is located.
+          state_code:
+            type: string
+            minLength: 1
+            description: State code is a code that represents the state in which the address
+              is located. Represented as 2 letters
+        required:
+        - us_citizenship_status
+        - credit_score
+        - total_monthly_income_amount
+        - total_monthly_expenses_amount
+        - total_monthly_liabilities_amount
+        - base_loan_amount
+        - property_estimated_value_amount
+        - property_current_occupancy_type
+        - property_type
+        - stories_count
+        - number_of_units_type
+        - property_current_usage_type
+        - postal_code
+        - county_name
+        - state_code
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/get_price_engine_status
+    function:
+      name: getPriceOptionsStatus
+      description: This function allows to get status of price options retrieval process
+      parameters:
+        type: object
+        properties:
+          response_id:
+            type: string
+            description: Identifier by which price loan options can be retrieved
+          base_loan_amount:
+            type: number
+            exclusiveMinimum: 0
+            description: This value represents the amount the borrower intends to apply for
+              in the mortgage loan application. It's the principal sum that the borrower seeks
+              to finance their property purchase or refinance. This figure is pivotal in determining
+              the structure of the loan, including projected monthly payments, interest calculations,
+              and overall financial planning for the loan. The base_loan_amount sets the foundation
+              for the mortgage, excluding additional costs like processing fees, insurance,
+              and taxes, which are considered separately in the total loan package.
+          period:
+            type: number
+            exclusiveMinimum: 0
+            description: Number of years applicant plans to stay in the property
+        required:
+        - response_id
+  - tool_type: function
+    http_method: POST
+    path: chatbot/orchestrator
+    function:
+      name: switchToNextAssistant
+      description: This function switches to next assistant
+      examples:
+        - transaction_id: "123456789"
+          main_thread_id: "01HJWVE3NH07W3DA3ZPDV6X61S"
+          assistant_name_to_exclude: "Cheapest Mortgage Analysis Assistant"
+      parameters:
+        type: object
+        required:
+          - transaction_id
+          - assistant_name_to_exclude
+          - main_thread_id
+        properties:
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          main_thread_id:
+            type: string
+            description: send your thread id to main thread
+            const: TEST123456789
+          assistant_name_to_exclude:
+            type: string
+            description: Cheapest Mortgage Analysis Assistant ID, always put '01HKA5XA1YE0PGPYFCVP0HTQF2'
+            const: Cheapest Mortgage Analysis Assistant

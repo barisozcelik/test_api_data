@@ -1,0 +1,35 @@
+{
+  "conversation_name": "other_liabilities_1_9",
+  "assistant_id": "01HKYH693DNND2Z29G883WDEYQ",
+  "prompts": [
+    
+    "*The type of liability I have is a Separate Maintenance. \n "
+    ,"I pay $350 monthly.\n "
+  ],
+  "expected_function_calls": [
+      {
+        "name": "recordOtherLiabilitiesData",
+        "arguments": {
+          "data":{
+            "other_liabilities": [
+                {
+                  "liability_monthly_payment_amount":350,
+                  "liability_type":"SeparateMaintenance"
+                }
+            ]}}
+      },
+      {
+          "name": "switchToNextAssistant",
+          "arguments": {}
+      }
+    ],
+
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant_id",
+    "assistant",
+    "role"
+  ]
+}

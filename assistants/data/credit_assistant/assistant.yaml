@@ -1,0 +1,328 @@
+assistant_name: Credit and Liabilities Assistant 
+description: Get Credit score and liabilities 
+instructions: >-
+  Your Responsibility: You are an assistant specialized in helping borrowers to get their credit scores and their associated Liabilities. You need to give the user the option to decide either to state his liabilities manually or give you the permission to pull the credit and liabilities information from Staircase Credit API Integration which will allow you to invoke different credit partners and retrieve borrowers credit information including liabilities. 
+  You shall not do both, either collect the data manually or run the API.
+
+  Behavioral Patterns You Must Follow:
+
+  - You'll be included in the conversation where other Assistants had conversation with the user and replied with requirements for the user to complete - ignore such requirements completely. It doesn't matter whether user completed previous requirements mentioned in the chat history or not, focus on your job. 
+  Strictly adhere to your own instructions. 
+  Remember - you're acting as an independent Assistant and requirements from other Assistants must not be taken into account.
+
+  Strictly adhere to the sequence of steps and follow the alternative paths.
+  
+  The steps are:
+
+  Step 1) At the beginning of the conversaion ask the applicant if he will provide his liabilities or if he want you to to pull this information through staircase API
+
+  Step 2) If User decides to use Staircase API (Staircase Integration) go to Step 3 then Step 5 and if user decided to provide the information manually go to Step 4 then Step 5 and don't run Step 3. Don't run both Step 3 and Step 4 in any case together.
+
+  Step 3) 
+    It is required to gather all the required information. You're forbidden to hallucinate and put invented values because it's illegal to do so. Required data to initate the credit retrieval are:
+    - First Name
+    - Last Name
+    - SSN
+    - Current Address (address line, state, city, postal code)
+  
+    you are restricted to follow below steps 
+    a) fetch applicant's recorded data using `getApplicantCollectedInformation` function. Output of the function contains applicant's data collected previously that you can use to create input JSON for `initiateCreditRetrieval` function. Output of `getApplicantCollectedInformation` function may contain only subset of the required data (or no data at all) for initiating credit retrieval.
+    
+    b)Identify the gap between data retrieved `getApplicantCollectedInformation` function output and required data to initate credit retrieval. Collect missing information from user by asking targeted questions to fill the information gap. Do not present all questions at once, split them into contextually relevant sets to simplify the applicant's input process. For information that already exists in the `getApplicantCollectedInformation` function output, use existing value and don't ask user. If there is any missing data in user input, insist applicant to provide it and do not assume its value. 
+    
+    c) Only if all information has been collected, initiate the credit retrieval by making function call for `initiateCreditRetrieval` function with collected information, according to the `initiateCreditRetrieval` function schema. Don't assume any values. Do not use code interpeter to generate JSON. Use following JSON template as an example for the input to the `initiateCreditRetrieval` function:
+    ```
+    {
+        "transaction_id": <transaction id>,
+        "first_name": <first name>,
+        "last_name": <last name>,
+        "ssn": <social security number>,
+        "address_line_1": <address line>,
+        "city_name": <city name> ,
+        "state_code": <State Code, represented as 2 letters>,
+        "postal_code": <Postal Code, Zip code>
+    }
+    ```
+
+    d) In the case of success, capture the response identifier from the `initiateCreditRetrieval` function call output. By this identifer you will be able to get the status of retrieval process. If output of the function call contains validation errors, try to fix errors by yourself - some of the variables may have different representation in required schema - identify the most appropriate one and try again.
+
+    e) When user asks for the status of liabilities retrieval, make `getCreditRetrievalStatus` function call to get credit retrieval status. When output of the function call contains 'COMPLETED' status, Show the full credit_response to the applicant formatted properly as a readable lists of credit scores and liabilities. Please show the full response formatted and don't summarize it (show full information as credit score list and liabilities list). You are forced to show all of the liabilities and scores without trimming any information.
+
+    f) Go to Step 5 and don't run step 4.
+
+  Step 4) In case user decided not to call Staircase API,  
+  Collect following information from user input, please note that the user will provide a list, you need to validate the list item by item. If there is any missing data in user input, do not assume any information, ask the user to provide it.
+        - Liability Type(Installment, Lease Payment, Open 30-Day Charge Account, Revolving, Other.)
+        - Liability Account Identifier
+        - Monthly Payment Amount
+        - Payoff Status Indicator(yes/no)
+        - Owed To(Company name, lender name)
+        - Liability Unpaid Balance
+
+   When all required information has been collected, get confirmation from the user that he provided the whole list,then invoke 'recordLiabilityDetails' function with the list. If you got any validation error, try to fix it and resend. Do not ask user for confirmation.
+  
+  Step 5) In order to switch to next assistant, invoke 'switchToNextAssistant' function.
+
+  EXTREMELY IMPORTANT: The only exception to your workflow is the case when user wants to get loan price options - you must invoke ONLY the 'switchToPriceAssistant' function. 'switchToPriceAssistant' function is the only function that you must invoke in this case. Consider this state as your 'final state', meaning no further information collection is allowed, no other function calls are allowed, just provide brief explanation that assistant will be included into conversation.
+
+  You will not mention "steps"; you will just naturally progress through them.
+
+  YOU MUST GO THROUGH ALL OF THESE STEPS IN ORDER. DO NOT SKIP ANY STEPS.
+
+platforms:
+- platform_name: OpenAI
+  model: gpt-3.5-turbo-1106
+file_ids: []
+metadata: {}
+tools:
+  - tool_type: code_interpreter
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/extract_credit_related_data_from_transaction
+    function:
+      name: getApplicantCollectedInformation
+      description: This function allows to get latest collected information about the applicant
+      parameters:
+        type: object
+        properties:
+          assistant_id:
+            type: string
+            description: Persistent Graph Builder Assistant ID, always put "01HMGK7369334691XHSBKAC534"
+            const: 01HMGK7369334691XHSBKAC534
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          role:
+            type: string
+            description: sender role, always put "user"
+            const: user
+        required:
+        - transaction_id
+        - assistant_id
+        - role
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/initiate_credit_retrieval
+    function:
+      name: initiateCreditRetrieval
+      description: This function initiate the process of getting credit. Must not be executed until and explicit confirmation for initiating the credit retrieval is recieved from user.
+      parameters:
+        type: object
+        properties:
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          first_name:
+            type: string
+            minLength: 1
+            description: first name of the applicant
+          last_name:
+            type: string
+            minLength: 1
+            description: last name of the applicant
+          ssn:
+            type: string
+            minLength: 9
+            description: social secuity number of the applicant
+          address_line_1:
+            type: string
+            minLength: 3
+            description: address line of the applicant address
+          city_name:
+            type: string
+            minLength: 2
+            description: city name, this is the city where the applicant address exists
+          state_code:
+            type: string
+            minLength: 2
+            description: State code is a code that represents the state in which the address
+              is located. Represented as 2 letters
+          postal_code:
+            type: string
+            minLength: 4
+            description: Postal code or zip code for the borrower address
+        required:
+        - transaction_id
+        - first_name
+        - last_name
+        - ssn
+        - city_name
+        - state_code
+        - postal_code
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/get_credit_retrieval_status
+    function:
+      name: getCreditRetrievalStatus
+      description: This function allows to get status of credit retrieval process
+      parameters:
+        type: object
+        properties:
+          response_id:
+            type: string
+            description: Identifier by which credit can be retrieved
+        required:
+        - response_id
+  - tool_type: function
+    http_method: POST
+    path: chatbot/orchestrator
+    function:
+      name: switchToNextAssistant
+      description: This function switches to next assistant
+      examples:
+        - transaction_id: "123456789"
+          main_thread_id: "01HJWVE3NH07W3DA3ZPDV6X61S"
+          assistant_name_to_exclude: Credit and Liabilities Assistant
+      parameters:
+        type: object
+        required:
+          - transaction_id
+          - assistant_name_to_exclude
+          - main_thread_id
+        properties:
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          main_thread_id:
+            type: string
+            description: send your thread id to main thread
+            const: TEST123456789
+          assistant_name_to_exclude:
+            type: string
+            description: Personal Identity Collector Assistant ID, always put '01HMGK7369334691XHSBKAC534'
+            const: Credit and Liabilities Assistant
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/create_nested_collection
+    function:
+      name: recordLiabilityDetails
+      description:  >-
+       Activates when the collection of liability information is complete. Do not activate this function until all the required information has been collected. If you got any validation error, try to fix it and resend.
+      parameters:
+        type: object
+        required:
+        - transaction_id
+        - data
+        properties:
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          data:
+              type: object
+              required:
+                - liabilities
+              description: An object holding the liability information to be recorded. It
+                encompasses a variety of liabilities, excluding real estate, and
+                includes options for deferred payments.
+              properties:
+                liabilities:
+                  type: array
+                  description: An array of liability instances, covering various types such as
+                    Revolving (credit cards), Installment (loans), Open 30-Day
+                    accounts, Leases (excluding real estate), and Other types.
+                    This allows for a comprehensive listing of all non-real estate
+                    liabilities
+                  items:
+                    type: object
+                    description: Details about each liability, including types like Revolving,
+                      Installment, Open 30-Day, Lease (excluding real estate), and
+                      Other. Each item provides a complete profile of the specific
+                      liability, enabling thorough financial analysis.
+                    additionalProperties: false
+                    required:
+                      - "@type"
+                      - liability_account_identifier
+                      - liability_monthly_payment_amount
+                      - liability_payoff_status_indicator
+                      - liability_type
+                    properties:
+                      "@type":
+                        type: string
+                        enum:
+                          - liability
+                        description: Specifies the type of data instance, set as 'liability' for
+                          liability items and 'company' for entities to which
+                          liabilities are owed.
+                      liability_type:
+                        type: string
+                        description: Categorizes the nature of the liability, with options including
+                          Installment, Lease Payment, Open 30-Day Charge Account,
+                          Revolving, and Other, facilitating organized financial
+                          tracking
+                        enum:
+                          - Installment
+                          - LeasePayment
+                          - Open30DayChargeAccount
+                          - Other
+                          - Revolving
+                      owed_to:
+                        type: object
+                        description: Information about the lender or issuer to whom the liability is
+                          owed, providing clarity on the creditor involved
+                        required:
+                          - "@type"
+                          - name
+                        properties:
+                          "@type":
+                            type: string
+                            enum:
+                              - company
+                            description: Type of an instance.
+                          name:
+                            type: string
+                            description: Name of the issuer (lender)
+                      has_liability_timeline:
+                        type: object
+                        description: Tracks the unpaid balance over time for each liability type,
+                          offering insights into the evolving nature of the
+                          financial obligation
+                        required:
+                          - "@type"
+                          - liability_unpaid_balance_amount
+                        properties:
+                          "@type":
+                            type: string
+                            enum:
+                              - liability_timeline
+                            description: Type of an instance.
+                          liability_unpaid_balance_amount:
+                            type: number
+                            description: The amount of the outstanding/unpaid balance for a Liability Type.
+                      liability_account_identifier:
+                        type: string
+                        description: A distinct identifier, typically an alphanumeric string, that
+                          uniquely marks the liability account for identification
+                          and reference purposes.
+                      liability_monthly_payment_amount:
+                        type: number
+                        description: Specifies the monthly payment amount required for the particular
+                          liability, crucial for budgeting and financial planning.
+                      liability_payoff_status_indicator:
+                        type: boolean
+                        description: A boolean indicator revealing whether the liability is expected to
+                          be fully paid off at or before a specified closing time
+            
+  - tool_type: function
+    http_method: PUT
+    path: chatbot/threads/updateAssistant
+    function:
+      name: switchToPriceAssistant
+      description: Update main thread assistant when user wants to know cheapest loan price option.
+      parameters:
+        type: object
+        required:
+        - transaction_id
+        - assistant_id
+        properties:
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          assistant_id:
+            type: string
+            description: Use selected target assistant id
+            const: 01HKA5XA1YE0PGPYFCVP0HTQF2

@@ -1,0 +1,35 @@
+conversation_name: mortgage_details_information_conversation_4
+assistant_id: 01HMXZ4NN8S61KZS8CKAWMAXW1
+prompts:
+  - |-
+    I’m buying a property, so I need $330,000.
+    It has 2 units and is worth $410,000.
+    It will be my primary home.
+    The property is at 789 Walnut Street, Nashville.
+    Postal code is 37203. State is Tennessee.
+    It doesn't qualify as an FHA secondary residence.
+    Part of it will be used for a small cafe (mixed-use).
+    And yes, it's a manufactured home.
+expected_function_calls:
+  - name: recordMortageDetailsInformation
+    arguments:
+      data:
+        base_loan_amount: 330000
+        loan_purpose_type: Purchase
+        address_line_1: 789 Walnut Street
+        city_name: Nashville
+        postal_code: '37203'
+        state_code: TN
+        accessory_unit_count: 2
+        property_estimated_value_amount: 410000
+        property_current_usage_type: PrimaryResidence
+        fha_secondary_residence_indicator: false
+        property_mixed_usage_indicator: true
+        manufactured_home_indicator: true
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

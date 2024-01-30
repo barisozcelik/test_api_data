@@ -1,0 +1,18 @@
+conversation_name: borrower_military_negative_conversation_1
+assistant_id: 01HJT8VNFWJK8MSHKDF69FYREP
+prompts:
+  - I am not active duty military.
+  - I served in my past, now I am a veteran. My service ended on 1 january 1998.
+expected_function_calls:
+  - name: recordMilitaryServiceDetails
+    arguments:
+      data:
+        military_service_expected_completion_date: "1998-01-01"
+        military_status_type: Veteran
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

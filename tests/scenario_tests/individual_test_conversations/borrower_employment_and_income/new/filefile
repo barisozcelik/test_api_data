@@ -1,0 +1,96 @@
+- **Position Title**: Software Developer
+- **Employment Start Date**: 2018-06-01
+- **Years of Experience in Current Profession**: 5
+- **Employer Details**:
+    - Name: Tech Solutions Inc.
+    - Address: 123 Tech Park, Silicon Valley, CA, 94025
+    - Phone Number: Not Provided
+- **Associated Monthly Incomes**:
+    - Income Type: Base
+    - Income Amount: $7,000
+Self Employment: No
+Special Borrower Employer Relationship Indicator: Yes
+
+Position Title: Marketing Manager
+Employment Start Date: 2019-09-15
+Years of Experience in Current Profession: 3
+Employer Details:
+Name: Bright Marketing Agency
+Address: 456 Market St, New York, NY, 10001
+Phone Number: (212) 555-0199
+Associated Monthly Incomes:
+Income Type: Base
+Income Amount: $6,500
+Income Type: Overtime
+Income Amount: $1,500
+Self Employment: No
+Special Borrower Employer Relationship: No
+
+I'm an Elementary School Teacher, started working on August 20, 2017, which makes it about 6 years of experience. I work for Sunshine Elementary School located at 789 Education Blvd, Chicago, IL, 60614. Unfortunately, I don't have the school's phone number handy. My monthly income is primarily my base salary, which is $4,200. I'm not self-employed and have no ownership interest in any business. Also, I have no special relationships with any employer or party in the transaction.
+
+I am a Registered Nurse, having begun my current employment on January 5, 2020. This gives me over 4 years of experience in this profession. I am employed by City Hospital, which is at 321 Health Way, Los Angeles, CA, 90001. I don’t have the hospital's phone number right now. My monthly earnings consist of a base income of $5,800 and $700 bonuses. I do not engage in any self-employment activities and hold no ownership interests. Additionally, I am not employed by any family member or related to any party in the transaction.
+
+- **Position Title**: Civil Engineer
+- **Employment Start Date**: 2016-11-01
+- **Years of Experience in Current Profession**: 7
+- **Employer Details**:
+    - Name: ConstructCo
+    - Address: 987 Builder Lane, Dallas, TX, 75201
+    - Phone Number: (469) 555-0102
+- **Associated Monthly Incomes**:
+    - Income Type: Base
+    - Income Amount: $8,000
+- **Self Employment**: No
+- **Special Borrower Employer Relationship Indicator**: Yes
+
+
+
+
+
+### Test Case 1 (Structured Input)
+- **Position Title**: Software Developer
+- **Employment Start Date**: 2018-06-01
+- **Years of Experience in Current Profession**: 5
+- **Employer Details**:
+    - Name: Tech Solutions Inc.
+    - Address: 123 Tech Park, Silicon Valley, CA, 94025
+    - Phone Number: Not Provided
+- **Associated Monthly Incomes**:
+    - Income Type: Base
+    - Income Amount: $7,000
+- **Self Employment**: Not Applicable
+- **Special Borrower Employer Relationship Indicator**: None
+
+### Test Case 2 (Structured Input)
+- **Position Title**: Marketing Manager
+- **Employment Start Date**: 2019-09-15
+- **Years of Experience in Current Profession**: 3
+- **Employer Details**:
+    - Name: Bright Marketing Agency
+    - Address: 456 Market St, New York, NY, 10001
+    - Phone Number: (212) 555-0199
+- **Associated Monthly Incomes**:
+    - Income Type: Base
+    - Income Amount: $6,500
+- **Self Employment**: Not Applicable
+- **Special Borrower Employer Relationship Indicator**: None
+
+### Test Case 3 (Free Text)
+I'm an Elementary School Teacher, started working on August 20, 2017, which makes it about 6 years of experience. I work for Sunshine Elementary School located at 789 Education Blvd, Chicago, IL, 60614. Unfortunately, I don't have the school's phone number handy. My monthly income is primarily my base salary, which is $4,200. I'm not self-employed and have no ownership interest in any business. Also, I have no special relationships with any employer or party in the transaction.
+
+### Test Case 4 (Free Text)
+I am a Registered Nurse, having begun my current employment on January 5, 2020. This gives me over 4 years of experience in this profession. I am employed by City Hospital, which is at 321 Health Way, Los Angeles, CA, 90001. I don’t have the hospital's phone number right now. My monthly earnings consist of a base income of $5,800. I do not engage in any self-employment activities and hold no ownership interests. Additionally, I am not employed by any family member or related to any party in the transaction.
+
+### Test Case 5 (Structured Input)
+- **Position Title**: Civil Engineer
+- **Employment Start Date**: 2016-11-01
+- **Years of Experience in Current Profession**: 7
+- **Employer Details**:
+    - Name: ConstructCo
+    - Address: 987 Builder Lane, Dallas, TX, 75201
+    - Phone Number: (469) 555-0102
+- **Associated Monthly Incomes**:
+    - Income Type: Base
+    - Income Amount: $8,000
+- **Self Employment**: Not Applicable
+- **Special Borrower Employer Relationship Indicator**: None

@@ -1,0 +1,50 @@
+{
+  "conversation_name": "real_estate_0",
+  "assistant_id": "01HJZH0S5D3X6GE8SEXRJVBQ1P",
+  "prompts": [
+    "I only own one property:\nAddress:\n  Street: 211 Oak Street\n  City: Boulder\n  State: CO\n  Zip Code: 80302\n Country: US\n  Property Value: $400,000\n  Status: Retained\nIntended Occupancy: Primary Residence\nMonthly Maintenance Expenses: $500 (Insurance, Taxes, HOA Dues)\nMonthly Rental Income: N/A\nMortgage Loan Details:\n  Lender Name: Stable Mortgage Bank\n  Monthly Payment: $1,800\n  Unpaid Balance: $300,000\n  Loan Type: Conventional"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordRealEstateInformation",
+      "arguments": {
+        "data": {
+          "property_details": [
+            {
+              "address_line_1": "211 Oak Street",
+              "city_name": "Boulder",
+              "country_name": "US",
+              "postal_code": "80302",
+              "state_code": "CO",
+              "property_estimated_value_amount": 400000,
+              "property_current_usage_type": "PrimaryResidence",
+              "owned_property_maintenance_expense_amount": 500,
+              "owned_property_disposition_status_type": "Retain",
+              "owned_property_rental_income_gross_amount": 0,
+              "lender_name": "Stable Mortgage Bank",
+              "unpaid_balance_amount": 300000,
+              "monthly_payment": 1800,
+              "loan_type": "Conventional"
+            }
+          ]
+        },
+        "transaction_id": "12345",
+        "assistant": "borrower_real_estate"
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+        "transaction_id": "12345",
+        "main_thread_id": "abcde",
+        "assistant_id_to_exclude": "borrower_real_estate"
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

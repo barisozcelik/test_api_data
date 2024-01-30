@@ -1,0 +1,52 @@
+{
+    "conversation_name": "personal_identity_collector_conversation_2",
+    "assistant_id": "01HK7K7FXV7VHYWZ4M24F9AE6C",
+    "prompts": [
+        "Start an Application",
+        "1. My full name is Alex Taylor.",
+        "2. I don't have any alias.",
+        "3. I was born on 15th of July, 1985.",
+        "4. My marital status is married.",
+        "5. My SSN is 123-45-6789.",
+        "6. I am a U.S. citizen.",
+        "7. I have no dependents.",
+        "8. Individual"
+
+    ],
+    "expected_v3": {
+        "people": [
+            {
+                "ssn": "123456789",
+                "full_name": "Alex Taylor",
+                "birth_day": "15",
+                "birth_month": "07",
+                "birth_year": "1985",
+                "us_citizenship_status": "USCitizen",
+                "marital_status_type": "Married",
+                "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+                "@type": "person",
+                "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+            }
+        ],
+        "relationships": [
+            {
+                "role": "Borrower",
+                "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+                "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+                "@type": "finance_relation"
+            }
+        ],
+        "credits": [
+            {
+                "credit_request_type": "Individual",
+                "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+                "@type": "credit"
+            }
+        ]
+    },
+    "exclude_regex_paths": [
+        "@id",
+        "has_person",
+        "has_credit"
+    ]
+}

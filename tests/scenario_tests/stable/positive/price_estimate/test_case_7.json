@@ -1,0 +1,46 @@
+{
+    "conversation_name": "market_index_rate_conversation_7",
+    "assistant_id": "01HMRH95EZRN56M2RCV81CAJXS",
+    "prompts": [
+      "Let's start the flow.",
+      "I'm a US Citizen, Credit Score: 740, Monthly Income: $12000, Monthly Expenses: $4000, Monthly Liabilities: $2000, Estimated Value: $900000, Loan Amount: $600000, Property is currently vacant, Single Family property, It has two stories, one unit, Primary Residence, Postal Code: 36702, County: Dallas, State: Alabama.",
+      {
+        "type": "sleep",
+        "sleep": 15
+      }
+    ],
+    "expected_function_calls": [
+        {
+            "name": "initiatePriceOptionsRetrieval",
+            "arguments": {
+              "us_citizenship_status": "USCitizen",
+              "credit_score": 740,
+              "total_monthly_income_amount": 12000,
+              "total_monthly_expenses_amount": 4000,
+              "total_monthly_liabilities_amount": 2000,
+              "base_loan_amount": 600000,
+              "property_estimated_value_amount": 900000,
+              "property_current_occupancy_type": "Vacant",
+              "property_type": "SingleFamily",
+              "stories_count": 2,
+              "number_of_units_type": "One",
+              "property_current_usage_type": "PrimaryResidence",
+              "postal_code": "36702",
+              "county_name": "Dallas",
+              "state_code": "AL",
+              "transaction_id": "123456789"
+            }
+        },
+        {
+            "name": "getPriceOptionsStatus",
+            "arguments": {
+              "response_id": "123456789",
+              "transaction_id": "123456789"
+            }
+        }
+    ],
+    "exclude_regex_paths": [
+        "response_id",
+        "transaction_id"
+    ]
+}

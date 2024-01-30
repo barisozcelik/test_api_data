@@ -1,0 +1,42 @@
+{
+    "conversation_name": "test_different_multiple",
+    "assistant_id": "01HMY0BXTV18AJTV17GYDA6X7G",
+    "prompts": [
+        "Gifts: $30,000 in cash from a relative. Another $15,000 in property equity from a state agency.",
+        "First one is not deposited, second one already deposited."
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordGiftGrant",
+            "arguments": {
+                "data": {
+                    "assets": [
+                        {
+                            "asset_type": "GiftOfCash",
+                            "asset_liquidity_indicator": false,
+                            "source": "Relative",
+                            "asset_cash_or_market_value_amount": 30000
+                        },
+                        {
+                            "asset_type": "GiftOfPropertyEquity",
+                            "asset_liquidity_indicator": true,
+                            "source": "StateAgency",
+                            "asset_cash_or_market_value_amount": 15000
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id"
+    ]
+}

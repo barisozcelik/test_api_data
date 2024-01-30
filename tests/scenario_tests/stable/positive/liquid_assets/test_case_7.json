@@ -1,0 +1,35 @@
+{
+  "conversation_name": "assets_conversation_7",
+  "assistant_id": "01HJKHGHCM81HH8XE3BY3H13MH",
+  "prompts": [
+    "The trust account (TA#445566) I have with Premier Bank currently stands at $5,500"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordLiquidAssets",
+      "arguments": {
+        "data": {
+          "assets": [
+            {
+              "asset_account_identifier": "TA#445566",
+              "asset_cash_or_market_value_amount": 5500,
+              "asset_type": "TrustAccount",
+              "financial_institution_name": "Premier Bank"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant",
+    "assistant_id"
+  ]
+}

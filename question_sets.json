@@ -1,0 +1,660 @@
+{
+  "Checklist Style Questions": [
+    {
+        "Question": "What is your full legal name (including any middle names and suffixes)?",
+        "Answer": "Full Legal Name: John A. Doe"
+    },
+    {
+        "Question": "Do you have any alternate names or aliases that you have used in financial documents or transactions?",
+        "Answer": "Alternate Names/Aliases: N/A"
+    },
+    {
+        "Question": "What is your Social Security Number?",
+        "Answer": "Social Security Number: XXX-XX-XXXX"
+    },
+    {
+        "Question": "Please provide your date of birth (Month, Day, Year).",
+        "Answer": "Date of Birth: 01/15/1980"
+    },
+    {
+        "Question": "Are you a U.S. Citizen, Permanent Resident Alien, or a Non-Permanent Resident Alien?",
+        "Answer": "Citizenship Status: U.S. Citizen"
+    },
+    {
+        "Question": "What is your marital status (Married, Unmarried, or Separated)?",
+        "Answer": "Marital Status: Married"
+    },
+    {
+        "Question": "Provide your current home phone number, cell phone number, work phone number, and email address.",
+        "Answer": "Contact Information: Home Phone - (555) 123-4567, Cell Phone - (555) 987-6543, Work Phone - (555) 765-4321, Email - johndoe@email.com"
+    },
+    {
+        "Question": "What is your current mailing address (Street, City, State, ZIP, Country, Unit)?",
+        "Answer": "Current Mailing Address: 123 Main St, Apt 4B, Anytown, AA 12345, USA"
+    },
+    {
+        "Question": "How many dependents do you have, and what are their ages?",
+        "Answer": "Dependents: 2 (Ages 7 and 4)"
+    },
+    {
+        "Question": "Have you served in the U.S. Armed Forces? If so, what is your current status (Active Duty, Retired, Separated, etc.), and what are the relevant service dates?",
+        "Answer": "Military Service: No"
+    },
+    {
+        "Question": "Please list your current employment details, including the employer/business name, address (Street, City, State, ZIP, Country, Unit), position/title, start date (Month, Day, Year), and whether you are self-employed.",
+        "Answer": "Current Employment: XYZ Corp, 456 Corporate Blvd, Business City, AA 67890, USA; Position - Senior Manager; Start Date - 03/01/2015; Self-Employed - No"
+    },
+    {
+        "Question": "Have you been employed in this line of work for at least two years? If not, provide the total number of years and months in this line of work.",
+        "Answer": "Time in Line of Work: 10 years"
+    },
+    {
+        "Question": "List any previous employers, if applicable, for the past two years, including the same details as the current employment.",
+        "Answer": "Previous Employment: ABC Inc. (01/2010 - 02/2015)"
+    },
+    {
+        "Question": "Please detail all sources of income you receive, such as employment, alimony, child support, dividends, etc., including the amount per month for each source.",
+        "Answer": "Sources of Income: Employment - $5,000/month, Dividends - $200/month"
+    },
+    {
+        "Question": "Detail all your bank accounts (checking, savings), including the account number, current balance, and the name of the financial institution.",
+        "Answer": "Bank Accounts: Checking (Acct #123456) - $3,000, Savings (Acct #789101) - $15,000; Bank Name - Local Bank"
+    },
+    {
+        "Question": "List any additional assets like stocks, bonds, retirement accounts, etc., including their current cash or market value.",
+        "Answer": "Additional Assets: Retirement Account - $50,000"
+    },
+    {
+        "Question": "Provide details on any liabilities or debts, including account numbers, monthly payments, unpaid balances, and to whom you owe these debts.",
+        "Answer": "Liabilities: Car Loan (Acct #112233) - $300/month, $10,000 balance; Credit Card (Acct #445566) - $200/month, $4,000 balance"
+    },
+    {
+        "Question": "Are there any other expenses or financial obligations, such as alimony or child support? Please provide details.",
+        "Answer": "Other Financial Obligations: Alimony - $500/month"
+    },
+    {
+        "Question": "What is the address of the property you are seeking to purchase or refinance?",
+        "Answer": "Property Address: 789 Oak Street, Property Town, AA 54321"
+    },
+    {
+        "Question": "Specify the type of property (single-family, condo, multi-unit, etc.) and its intended use (primary residence, investment, etc.).",
+        "Answer": "Property Type and Use: Single-family home, Primary Residence"
+    },
+    {
+        "Question": "Provide the estimated value of the property.",
+        "Answer": "Estimated Property Value: $250,000"
+    },
+    {
+        "Question": "Answer questions regarding your intentions to occupy the property, any past foreclosures, bankruptcies, judgments, or lawsuits.",
+        "Answer": "Intentions and Past Property: Will occupy as primary residence, no foreclosures, no bankruptcies."
+    },
+    {
+        "Question": "Have you had an ownership interest in a property in the last three years?",
+        "Answer": "Ownership Interest: Yes, in the current residence."
+    },
+    {
+        "Question": "Please answer all declaration questions honestly, including those about citizenship status, pending lawsuits, delinquent debts, etc.",
+        "Answer": "All declaration questions: No delinquent debts, no citizenship issues, no lawsuits."
+    },
+    {
+        "Question": "Please provide demographic information such as ethnicity, race, and sex, if you choose to disclose this information.",
+        "Answer": "Demographic Information: (Optional) Ethnicity - Hispanic or Latino, Race - White, Sex - Male"
+    },
+    {
+        "Question": "Confirm that you agree to all terms, acknowledge all declarations, and consent to provide this information for the loan application.",
+        "Answer": "Agreement Confirmation: I agree to the terms and acknowledge all declarations."
+    },
+    {
+        "Question": "Please provide your signature and the date to confirm the accuracy and truthfulness of all information provided in this application.",
+        "Answer": "Signature: John A. Doe"
+    }
+],
+  "Conversational Style Questions": [
+    {
+        "Question": "Are you applying for this loan by yourself or with someone else?",
+        "Answer": "I'm applying for this loan with my spouse."
+    },
+    {
+        "Question": "Could you share your full name? And do you have any alternate names?",
+        "Answer": "My full name is Jordan A. Smith. I don\u2019t have any alternate names."
+    },
+    {
+        "Question": "What's your date of birth?",
+        "Answer": "My date of birth is August 15, 1985."
+    },
+    {
+        "Question": "May I have your Social Security number?",
+        "Answer": "My Social Security number is 123-45-6789."
+    },
+    {
+        "Question": "Where are you currently living? Can you provide your current address?",
+        "Answer": "I currently live at 123 Maple Street, Springfield, IL."
+    },
+    {
+        "Question": "How long have you been living at your current address?",
+        "Answer": "I\u2019ve been living at my current address for 3 years."
+    },
+    {
+        "Question": "Do you rent or own your current residence?",
+        "Answer": "I own my current residence."
+    },
+    {
+        "Question": "Have you lived at any other addresses in the last two years?",
+        "Answer": "No, I haven\u2019t lived anywhere else in the last two years."
+    },
+    {
+        "Question": "Where are you currently employed? What's the name of your employer?",
+        "Answer": "I work at Acme Corp. I am an IT Manager there."
+    },
+    {
+        "Question": "What is your role at your current job?",
+        "Answer": "I manage the IT department, focusing on network security."
+    },
+    {
+        "Question": "How long have you been working in this line of work?",
+        "Answer": "I\u2019ve been in this line of work for about 10 years now."
+    },
+    {
+        "Question": "What is your monthly income?",
+        "Answer": "My monthly income is approximately $5,000."
+    },
+    {
+        "Question": "Do you have any other sources of income, like alimony or rental income?",
+        "Answer": "No, I don\u2019t have any other sources of income."
+    },
+    {
+        "Question": "Do you have any bank accounts, stocks, or retirement funds?",
+        "Answer": "Yes, I have a savings account and a retirement fund."
+    },
+    {
+        "Question": "Do you have any ongoing debts, like car loans, student loans, or credit card debts?",
+        "Answer": "I have a car loan with a balance of $10,000 and a student loan of $25,000."
+    },
+    {
+        "Question": "Are you currently owning or renting any property?",
+        "Answer": "I own a two-bedroom apartment in Springfield."
+    },
+    {
+        "Question": "What's the purpose of this loan? Are you planning to buy a new home, refinance, or something else?",
+        "Answer": "I\u2019m planning to buy a new home."
+    },
+    {
+        "Question": "In the past few years, have you been involved in any bankruptcy or foreclosure proceedings?",
+        "Answer": "No, I have not been involved in any bankruptcy or foreclosure proceedings."
+    },
+    {
+        "Question": "For government monitoring purposes, would you like to declare your ethnicity, race, and sex? It\u2019s optional.",
+        "Answer": "I prefer not to provide this information."
+    },
+    {
+        "Question": "Is there a co-borrower on this loan? If yes, I\u2019ll need their details too.",
+        "Answer": "Yes, my spouse is a co-borrower. Her name is Emily A. Smith."
+    }
+],
+  "Form Style Questions": [
+    {
+        "Question": "What is the type of credit you are applying for: Individual or Joint?",
+        "Answer": "Type of Credit: Joint"
+    },
+    {
+        "Question": "Full Legal Name (including any alternate names used):",
+        "Answer": "Full Legal Name: John A. Doe (Alternate Name: Johnny Doe)"
+    },
+    {
+        "Question": "Social Security Number:",
+        "Answer": "Social Security Number: 123-45-6789"
+    },
+    {
+        "Question": "Date of Birth (MM/DD/YYYY):",
+        "Answer": "Date of Birth: 06/15/1980"
+    },
+    {
+        "Question": "Citizenship Status: U.S. Citizen, Permanent Resident Alien, or Non-Permanent Resident Alien?",
+        "Answer": "Citizenship Status: U.S. Citizen"
+    },
+    {
+        "Question": "Marital Status: Married, Unmarried, or Separated?",
+        "Answer": "Marital Status: Married"
+    },
+    {
+        "Question": "Contact Information: Home, Cell, and Work Phone Numbers, Email Address.",
+        "Answer": "Contact Information: Home Phone: 555-1234, Cell Phone: 555-5678, Work Phone: 555-9012, Email: john.doe@email.com"
+    },
+    {
+        "Question": "Current Mailing Address: Street, City, State, ZIP, Country, and Unit.",
+        "Answer": "Current Mailing Address: 123 Main St, Springfield, IL, 62704, USA, Apt 101"
+    },
+    {
+        "Question": "Number of Dependents (not including yourself):",
+        "Answer": "Number of Dependents: 2"
+    },
+    {
+        "Question": "Ages of Dependents:",
+        "Answer": "Ages of Dependents: 7, 4"
+    },
+    {
+        "Question": "Employer or Business Name:",
+        "Answer": "Employer or Business Name: Springfield Industries"
+    },
+    {
+        "Question": "Employer Address: Street, City, State, ZIP, Country, and Unit.",
+        "Answer": "Employer Address: 456 Industrial Rd, Springfield, IL, 62705, USA"
+    },
+    {
+        "Question": "Position/Title:",
+        "Answer": "Position/Title: Project Manager"
+    },
+    {
+        "Question": "Employment Start Date (MM/DD/YYYY):",
+        "Answer": "Employment Start Date: 01/15/2015"
+    },
+    {
+        "Question": "Monthly Income:",
+        "Answer": "Monthly Income: $8,000"
+    },
+    {
+        "Question": "If Self-Employed, indicate the percentage of ownership:",
+        "Answer": "Self-Employed Ownership Percentage: N/A"
+    },
+    {
+        "Question": "List all Bank Accounts (Checking, Savings, etc.): Account Number, Institution, and Current Balance.",
+        "Answer": "Bank Accounts: Checking (Acct #123456789, Springfield Bank, $5,000), Savings (Acct #987654321, Springfield Bank, $15,000)"
+    },
+    {
+        "Question": "Declare any additional income sources (e.g., Alimony, Child Support):",
+        "Answer": "Additional Income Sources: None"
+    },
+    {
+        "Question": "Declare any monthly obligations (Loans, Alimony, Child Support):",
+        "Answer": "Monthly Obligations: Car Loan ($350), Credit Card ($200)"
+    },
+    {
+        "Question": "Property Address: Street, City, State, ZIP, Country, and Unit.",
+        "Answer": "Property Address: 789 Residential Ln, Springfield, IL, 62706, USA"
+    },
+    {
+        "Question": "Property Value (estimated):",
+        "Answer": "Property Value (estimated): $250,000"
+    },
+    {
+        "Question": "Intended Use: Primary Residence, Second Home, or Investment?",
+        "Answer": "Intended Use: Primary Residence"
+    },
+    {
+        "Question": "Details of Current Residence: Own, Rent, or Living Rent-Free?",
+        "Answer": "Details of Current Residence: Rent"
+    },
+    {
+        "Question": "Previous Residence Information (if applicable):",
+        "Answer": "Previous Residence Information: 567 Oldtown Rd, Springfield, IL, 62702, USA (Rented from 2010 to 2015)"
+    },
+    {
+        "Question": "Loan Amount Requested:",
+        "Answer": "Loan Amount Requested: $200,000"
+    },
+    {
+        "Question": "Purpose of Loan: Purchase, Refinance, or Other.",
+        "Answer": "Purpose of Loan: Purchase"
+    },
+    {
+        "Question": "Describe the Property: Single Family, Condo, Co-op, etc.",
+        "Answer": "Describe the Property: Single Family"
+    },
+    {
+        "Question": "Number of Units:",
+        "Answer": "Number of Units: 1"
+    },
+    {
+        "Question": "If Refinancing, provide details of the current mortgage:",
+        "Answer": "Details of Current Mortgage (if Refinancing): N/A"
+    },
+    {
+        "Question": "Answer Yes/No to the following:",
+        "Answer": "Yes/No Questions:"
+    },
+    {
+        "Question": "Any outstanding judgments?",
+        "Answer": "Outstanding judgments? No"
+    },
+    {
+        "Question": "Declared bankruptcy in the past 7 years?",
+        "Answer": "Declared bankruptcy in the past 7 years? No"
+    },
+    {
+        "Question": "Foreclosed property in the last 7 years?",
+        "Answer": "Foreclosed property in the last 7 years? No"
+    },
+    {
+        "Question": "Party to a lawsuit?",
+        "Answer": "Party to a lawsuit? No"
+    },
+    {
+        "Question": "Obligated on any loan not listed in the application?",
+        "Answer": "Obligated on any loan not listed in the application? No"
+    },
+    {
+        "Question": "U.S. citizen?",
+        "Answer": "U.S. citizen? Yes"
+    },
+    {
+        "Question": "Permanent resident alien?",
+        "Answer": "Permanent resident alien? No"
+    },
+    {
+        "Question": "Primary residence for the past two years?",
+        "Answer": "Primary residence for the past two years? Yes"
+    },
+    {
+        "Question": "Do you acknowledge all information provided is true and accurate to the best of your knowledge?",
+        "Answer": "Acknowledgement: Yes"
+    },
+    {
+        "Question": "Signature and Date:",
+        "Answer": "Signature and Date: John A. Doe, 12/07/2023"
+    },
+    {
+        "Question": "Ethnicity, Race, and Sex (Optional):",
+        "Answer": "Ethnicity, Race, and Sex: White, Male (Optional)"
+    },
+    {
+        "Question": "Method of Application: Face-to-Face, Telephone, Internet, etc.",
+        "Answer": "Method of Application: Internet"
+    }
+],
+  "Long, comprehensive questions": [
+    {
+        "Question": "What is your full name, including any alternate names or aliases, and your Social Security Number?",
+        "Answer": "Full Name and Social Security Number: John A. Doe, SSN: 123-45-6789."
+    },
+    {
+        "Question": "Please provide your date of birth, citizenship status (U.S. Citizen, Permanent Resident Alien, or Non-Permanent Resident Alien), and marital status (Married, Unmarried, or Separated).",
+        "Answer": "Date of Birth, Citizenship, Marital Status: Born on 05/15/1980, U.S. Citizen, Married."
+    },
+    {
+        "Question": "Could you provide your home, cell, and work phone numbers, as well as your email address?",
+        "Answer": "Contact Numbers and Email: Home: 555-1234, Cell: 555-5678, Work: 555-9012, Email: johndoe@email.com."
+    },
+    {
+        "Question": "What is your current mailing address, including street, city, state, ZIP code, and country? If applicable, include the unit designator type.",
+        "Answer": "Current Mailing Address: 123 Main St, Apt 4B, Springfield, IL, 62704, USA."
+    },
+    {
+        "Question": "How long have you lived at your current address, and do you own, rent, or have no primary housing expense there?",
+        "Answer": "Current Address Tenure and Status: Lived here for 3 years, own the property."
+    },
+    {
+        "Question": "If you have lived at your current address for less than two years, what is your former address and how long did you reside there? Please also indicate if you owned, rented, or had no primary housing expense at this former address.",
+        "Answer": "Former Address (if applicable): 456 Elm St, Springfield, IL, 62701, rented for 2 years."
+    },
+    {
+        "Question": "Can you provide details about your dependents, including the number of dependents and their ages?",
+        "Answer": "Dependent Details: Two dependents, ages 7 and 4."
+    },
+    {
+        "Question": "If applicable, please provide information regarding your military service, including your current status (Active Duty, Retired/Discharged/Separated, Non-activated member of Reserves/National Guard), and the expected expiration date of your current service.",
+        "Answer": "Military Service Details: Not applicable/No military service."
+    },
+    {
+        "Question": "Please list your current and previous employers for the last two years, including employer names, addresses, phone numbers, your positions or titles, and the dates of employment. Indicate if you are self-employed or own any business with 25% or more ownership.",
+        "Answer": "Employment Information: Current Employer - ABC Corp, 789 Business Rd, Springfield, IL, 62702, Position: Manager, Dates: 01/2018 to present. Previous Employer - XYZ Inc., 101 Commerce Lane, Springfield, IL, 62703, Position: Assistant Manager, Dates: 02/2016 to 12/2017."
+    },
+    {
+        "Question": "For each employment, how long have you been in the line of work, and is there any special borrower-employer relationship?",
+        "Answer": "Employment Line of Work Duration: In current line of work for 8 years, no special relationship with employer."
+    },
+    {
+        "Question": "Can you specify any additional sources of income, such as alimony, child support, or separate maintenance income, and the monthly amounts received for each?",
+        "Answer": "Additional Income Sources: No additional sources of income."
+    },
+    {
+        "Question": "Could you provide detailed information on your checking, savings, and other financial accounts, including account numbers, cash or market values, account types, and the names of financial institutions?",
+        "Answer": "Financial Accounts: Checking Account - Bank of Springfield, Acct # 111222333, Value: $5,000. Savings Account - Bank of Springfield, Acct # 444555666, Value: $15,000."
+    },
+    {
+        "Question": "For other assets, such as proceeds from real estate to be sold before closing, secured or unsecured borrowed funds, earnest money, employer assistance, or relocation funds, please specify the type and amount.",
+        "Answer": "Other Assets: Not applicable/No other assets."
+    },
+    {
+        "Question": "Regarding liabilities, please list all account numbers, monthly payments, account types, company names, and unpaid balances. Specify which liabilities will be paid off at or before closing.",
+        "Answer": "Liabilities: Car Loan with Auto Finance Co., Acct # 777888999, Monthly Payment: $350, Balance: $10,000. Credit Card with Bank of Springfield, Acct # 123456789, Monthly Payment: $200, Balance: $4,000."
+    },
+    {
+        "Question": "Could you also detail any other liabilities and expenses, including alimony, child support, separate maintenance, job-related expenses, or other liabilities, along with their monthly payments?",
+        "Answer": "Other Liabilities and Expenses: No other liabilities or expenses."
+    },
+    {
+        "Question": "For any real estate properties you currently own, please provide the property addresses, types, statuses, intended occupancies, estimated values, and monthly rental incomes, if applicable.",
+        "Answer": "Real Estate Owned: Not applicable/Do not own other real estate."
+    },
+    {
+        "Question": "What is the loan amount you are applying for, and the purpose of the loan (Purchase, Refinance, Other)?",
+        "Answer": "Loan Amount and Purpose: Applying for a $200,000 loan for Home Purchase."
+    },
+    {
+        "Question": "For the property you are obtaining the loan for, please provide the address, number of units, estimated value, intended occupancy (Primary Residence, Secondary Home, Investment Property), and if it's a mixed-use property or a manufactured home.",
+        "Answer": "Property for Loan: 234 Oak St, 1 unit, estimated value $250,000, intended as Primary Residence, not a mixed-use or manufactured home."
+    },
+    {
+        "Question": "If applicable, specify any expected monthly rental income from this property.",
+        "Answer": "Expected Rental Income: Not applicable/No expected rental income."
+    },
+    {
+        "Question": "Will you occupy the property as your primary residence, and have you had an ownership interest in a property in the last three years?",
+        "Answer": "Primary Residence and Ownership Interest: Will occupy as primary residence, have not had ownership interest in the last three years."
+    },
+    {
+        "Question": "Are there any aspects of your financial history such as outstanding judgments, delinquency, foreclosure, bankruptcy, or being a party to a lawsuit, that we should be aware of?",
+        "Answer": "Financial History Aspects: No outstanding judgments, not delinquent, no foreclosures or bankruptcies, not a party to any lawsuit."
+    },
+    {
+        "Question": "Have you borrowed any funds for this transaction or plan to apply for new credit or a loan on another property?",
+        "Answer": "Borrowing Plans: Not borrowing any funds for this transaction and do not plan to apply for new credit or a loan on another property."
+    },
+    {
+        "Question": "Can you confirm the date of signing this application?",
+        "Answer": "Signing Date Confirmation: Will confirm upon signing."
+    },
+    {
+        "Question": "Would you like to provide information about your ethnicity, race, and sex for government monitoring purposes, or do you prefer not to answer these questions?",
+        "Answer": "Demographic Information: Prefer not to provide ethnicity, race, and sex information."
+    },
+    {
+        "Question": "Please provide the full name, email, phone number, address, and the NMLS/R State License ID of your loan originator.",
+        "Answer": "Loan Originator Information: Loan Originator - Jane Smith, Email: jane.smith@loans.com, Phone: 555-1011, Address: 321 Finance Way, Springfield, IL, 62704, License ID: 987654321."
+    }
+],
+  "Short, Easy to Answer Questions": [
+    {
+        "Question": "What is your full name (including first, middle, last, and any suffix)?",
+        "Answer": "Full Name: John A. Doe Jr."
+    },
+    {
+        "Question": "Do you have any alternate names under which credit was previously received?",
+        "Answer": "Alternate Names: None."
+    },
+    {
+        "Question": "Are you applying for individual or joint credit?",
+        "Answer": "Credit Application: Individual."
+    },
+    {
+        "Question": "What is your Social Security Number (or Individual Taxpayer Identification Number)?",
+        "Answer": "Social Security Number: 123-45-6789."
+    },
+    {
+        "Question": "Please provide your date of birth (mm/dd/yyyy).",
+        "Answer": "Date of Birth: 01/15/1980."
+    },
+    {
+        "Question": "Are you a U.S. Citizen, Permanent Resident Alien, or Non-Permanent Resident Alien?",
+        "Answer": "Citizenship Status: U.S. Citizen."
+    },
+    {
+        "Question": "If applicable, list the name(s) of other borrower(s) applying for this loan.",
+        "Answer": "Other Borrowers: Not applicable."
+    },
+    {
+        "Question": "What is your marital status (Married, Separated, Unmarried)?",
+        "Answer": "Marital Status: Married."
+    },
+    {
+        "Question": "Do you have dependents? If yes, how many and what are their ages?",
+        "Answer": "Dependents: Yes, 2 (ages 5 and 8)."
+    },
+    {
+        "Question": "Please provide your contact information, including home, cell, and work phone numbers, as well as your email address.",
+        "Answer": "Contact Information: Home Phone: 555-1234, Cell: 555-5678, Work: 555-9012, Email: johndoe@email.com."
+    },
+    {
+        "Question": "What is your current address, including street, city, state, ZIP, and country?",
+        "Answer": "Current Address: 123 Maple Street, Springfield, IL, 62704, USA."
+    },
+    {
+        "Question": "How long have you lived at your current address (years and months)?",
+        "Answer": "Current Residence Duration: 3 years and 4 months."
+    },
+    {
+        "Question": "Do you own or rent your current residence? If renting, what is your monthly rent?",
+        "Answer": "Residence Type: Own."
+    },
+    {
+        "Question": "If at your current address for less than 2 years, what is your former address and how long did you live there?",
+        "Answer": "Former Address: Not applicable."
+    },
+    {
+        "Question": "If applicable, what is your mailing address (if different from your current address)?",
+        "Answer": "Mailing Address: Same as current address."
+    },
+    {
+        "Question": "What is the name of your current employer or business?",
+        "Answer": "Current Employer: ABC Corporation."
+    },
+    {
+        "Question": "Please provide your employer's/business's phone number and address.",
+        "Answer": "Employer Contact: Phone: 555-3456, Address: 456 Oak Avenue, Springfield, IL, 62704."
+    },
+    {
+        "Question": "What is your position or title?",
+        "Answer": "Position: Software Engineer."
+    },
+    {
+        "Question": "What is your start date at this job (mm/dd/yyyy)?",
+        "Answer": "Job Start Date: 05/01/2016."
+    },
+    {
+        "Question": "How long have you been in this line of work (years and months)?",
+        "Answer": "Line of Work Duration: 10 years."
+    },
+    {
+        "Question": "Are you employed by a family member, property seller, real estate agent, or another party to the transaction?",
+        "Answer": "Employment Relationship: No."
+    },
+    {
+        "Question": "Are you a business owner or self-employed? If so, what is your ownership share?",
+        "Answer": "Business Ownership: No."
+    },
+    {
+        "Question": "What is your gross monthly income (base, overtime, bonus, commission, military entitlements, etc.)?",
+        "Answer": "Gross Monthly Income: $8,000."
+    },
+    {
+        "Question": "If applicable, please provide details of any additional employment or self-employment, including employer name, position, start date, and gross monthly income.",
+        "Answer": "Additional Employment: None."
+    },
+    {
+        "Question": "If applicable, provide information about your previous employment or self-employment, including employer name, position, start and end dates, and previous gross monthly income.",
+        "Answer": "Previous Employment: Not applicable."
+    },
+    {
+        "Question": "Do you have any income from other sources such as alimony, child support, interest and dividends, etc.? If so, please specify the source and monthly income.",
+        "Answer": "Other Income Sources: None."
+    },
+    {
+        "Question": "What are your bank account types (e.g., checking, savings, etc.), their respective financial institutions, account numbers, and cash or market values?",
+        "Answer": "Bank Accounts: Checking - First Bank, Account #123456, $5,000; Savings - First Bank, Account #789101, $15,000."
+    },
+    {
+        "Question": "List other assets and credits you have, specifying the type and cash or market value.",
+        "Answer": "Other Assets and Credits: None."
+    },
+    {
+        "Question": "Detail your liabilities, including account types (e.g., revolving, installment), company names, account numbers, unpaid balances, and monthly payments.",
+        "Answer": "Liabilities: Credit Card - XYZ Bank, Account #555666, $2,000 unpaid, $200/month; Car Loan - XYZ Bank, Account #777888, $10,000 unpaid, $350/month."
+    },
+    {
+        "Question": "Do you have other liabilities and expenses such as alimony, child support, etc.? If yes, please list them with monthly payment amounts.",
+        "Answer": "Other Liabilities: None."
+    },
+    {
+        "Question": "List any real estate properties you own, including address, property value, status, intended occupancy, monthly rental income (if applicable), and details of mortgage loans on these properties.",
+        "Answer": "Real Estate Properties: None."
+    },
+    {
+        "Question": "What is the amount of the loan you are applying for?",
+        "Answer": "Loan Amount: $250,000."
+    },
+    {
+        "Question": "Please provide the property address for which the loan is intended.",
+        "Answer": "Property Address: 789 Pine Road, Springfield, IL, 62704."
+    },
+    {
+        "Question": "What is the purpose of the loan (Purchase, Refinance, Other)?",
+        "Answer": "Loan Purpose: Purchase."
+    },
+    {
+        "Question": "How many units does the property have, and what is the property value?",
+        "Answer": "Property Units/Value: 1 unit, $300,000."
+    },
+    {
+        "Question": "What is the intended occupancy for the property (Primary Residence, Second Home, Investment Property)?",
+        "Answer": "Intended Occupancy: Primary Residence."
+    },
+    {
+        "Question": "If applicable, is the property a mixed-use property or a manufactured home?",
+        "Answer": "Property Type: Not a mixed-use property or manufactured home."
+    },
+    {
+        "Question": "Will you occupy the property as your primary residence? Have you had an ownership interest in another property in the last three years?",
+        "Answer": "Occupancy/Ownership Interest: Yes, will occupy as primary residence; no ownership interest in another property."
+    },
+    {
+        "Question": "If this is a purchase transaction, do you have a family relationship or business affiliation with the seller of the property?",
+        "Answer": "Relationship to Seller: No."
+    },
+    {
+        "Question": "Are you borrowing any money for this real estate transaction or obtaining any money from another party that is not disclosed on this loan application?",
+        "Answer": "Borrowed Money: No."
+    },
+    {
+        "Question": "Have you or will you be applying for a mortgage loan on another property or any new credit before closing this loan?",
+        "Answer": "Other Loan Applications: No."
+    },
+    {
+        "Question": "Will this property be subject to a priority lien such as a clean energy lien?",
+        "Answer": "Priority Lien: No."
+    },
+    {
+        "Question": "Do you have any outstanding judgments, delinquencies, or defaults on Federal debt, or are you a party to a lawsuit with potential personal financial liability?",
+        "Answer": "Judgments/Delinquencies: No."
+    },
+    {
+        "Question": "Have you conveyed title to any property in lieu of foreclosure, completed a pre-foreclosure sale or short sale, had property foreclosed upon, or declared bankruptcy within the past 7 years?",
+        "Answer": "Foreclosure/Bankruptcy: No."
+    },
+    {
+        "Question": "Please confirm your understanding and agreement with the Acknowledgments and Agreements section of the application.",
+        "Answer": "Acknowledgments Agreement: Understood and agreed."
+    },
+    {
+        "Question": "Have you (or your deceased spouse) ever served or are you currently serving in the United States Armed Forces?",
+        "Answer": "Military Service: No."
+    },
+    {
+        "Question": "Would you like to provide your demographic information (ethnicity, sex, and race)?",
+        "Answer": "Demographic Information: Prefer not to provide."
+    },
+    {
+        "Question": "Please confirm the loan originator's information, including name, organization, address, email, phone, and license IDs.",
+        "Answer": "Loan Originator Information: Confirmed as provided."
+    }
+]
+}

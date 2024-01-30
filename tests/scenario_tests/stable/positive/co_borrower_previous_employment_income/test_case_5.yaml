@@ -1,0 +1,28 @@
+conversation_name: co_borrower_previous_income_conversation_5
+assistant_id: 01HME9BGX8X7ANW1EKSEGH3K2T
+prompts:
+  - I worked as a Marketing Manager at 85 Innovation Drive, Boston, MA 02110, United States from 2011-09-05 to 2022-08-20. My employer was BlueSky Enterprises. My monthly income was $8800.
+expected_function_calls:
+  - name: recordPreviousEmploymentDetails
+    arguments:
+      data:
+        associated_incomes:
+          - monthly_income_amount: 8800
+            income_type: Base
+        employment_start_date: "2011-09-05"
+        employment_end_date: "2022-08-20"
+        employer_address_address_line_1: 85 Innovation Drive
+        employer_address_state_code: "MA"
+        employer_address_city_name: "Boston"
+        employer_address_postal_code: "02110"
+        employer_address_country_name: "United States"
+        company_name: "BlueSky Enterprises"
+        position_title: "Marketing Manager"
+        self_employment_indicator: false
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

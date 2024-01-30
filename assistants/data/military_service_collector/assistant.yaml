@@ -1,0 +1,114 @@
+assistant_name: Military Service Collector
+configuration_identifier: c185e090-cf08-4edd-bc0b-bc9f4843f709
+description: Military Service Collector
+instructions: >-
+  You need to gather military service details from a user. Here's how to do it:
+
+      Ask the user about their military service. Make sure to get:
+          Their status (like Active Duty, Reserve/National Guard Never Activated, Separated, Veteran, or Other).
+          The expected date they'll finish their service (format: YYYY-MM-DD).
+
+      If any information is missing, ask the user to provide it. Don't guess or assume anything. Do not ask any optional questions unless you've already collected all the required information.
+      DO NOT ask for demographic information or any other information that's not related to military service.
+
+      Once you have all the necessary details, use the 'recordMilitaryServiceDetails' function to save this information. If there's an error, try to fix it and submit again. You don't need to confirm with the user before resubmitting.
+      After saving the details, use the 'switchToNextAssistant' function to move on to the next task.
+
+  Just follow these instructions in order, and don't skip any part.
+
+platforms:
+  - platform_name: OpenAI
+    model: gpt-3.5-turbo
+file_ids: [ ]
+metadata: { }
+tools:
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/graph
+    function:
+      name: recordMilitaryServiceDetails
+      description: >-
+        This function is for recording a borrower's military service information.
+        It's important for determining loan eligibility and benefits for military personnel. Keep in mind:
+        Use this function only after you've gathered all the required information.
+        Don't add any optional information unless you've already collected it.
+        If you find an error while checking the details, correct it and submit again.
+        You don't need to confirm with the user before resubmitting.
+      parameters:
+        type: object
+        required:
+          - assistant
+          - transaction_id
+          - data
+        properties:
+          assistant:
+            type: string
+            description: Always put "borrower_military"
+            const: borrower_military
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          data:
+            type: object
+            additionalProperties: false
+            required:
+              - military_service_expected_completion_date
+              - military_status_type
+            properties:
+              military_service_expected_completion_date:
+                type: string
+                description: >-
+                  It tells you when the current military term is expected to end.
+                  This helps to know how long the borrower has served and their commitments.
+                format: date
+              military_status_type:
+                type: string
+                description: Classifies the borrower's current military status, such as 'Active
+                  Duty', 'Veteran', or 'Reserve', providing insights into
+                  their service nature and implications for loan
+                  eligibility.
+                enum:
+                  - ActiveDuty
+                  - ReserveNationalGuardNeverActivated
+                  - Separated
+                  - Veteran
+                  - Other
+              military_status_type_other_description:
+                type: string
+                description: >-
+                  This is a text field for entering a specific type of military status when you choose 'Other' as the Military Status Type.
+                  For example, borrower could write 'Surviving Spouse' here.
+            description: >-
+              The military service object records all details about a person's military involvement.
+              This includes their service status, when they expect to finish their service, and any special categories they belong to.
+              This information is important to understand the borrower's military background and to match their loan application with the right military benefits and considerations.
+  - tool_type: function
+    http_method: POST
+    path: chatbot/orchestrator
+    function:
+      name: switchToNextAssistant
+      description: This function switches to next assistant
+      examples:
+        - transaction_id: "123456789"
+          main_thread_id: "01HJWVE3NH07W3DA3ZPDV6X61S"
+          assistant_name_to_exclude: "01HJT8VNFWJK8MSHKDF69FYREP"
+      parameters:
+        type: object
+        required:
+          - transaction_id
+          - main_thread_id
+          - assistant_name_to_exclude
+        properties:
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          main_thread_id:
+            type: string
+            description: send your thread id to main thread
+            const: TEST123456789
+          assistant_name_to_exclude:
+            type: string
+            description: Always put '01HJT8VNFWJK8MSHKDF69FYREP'
+            const: Military Service Collector

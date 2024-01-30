@@ -1,0 +1,245 @@
+[
+    {
+        "conversation_name": "personal_identity_collector_conversation_1",
+        "assistant_id": "01HK7K7FXV7VHYWZ4M24F9AE6C",
+        "transaction_id": "01HMTZRQ87Y0VCSCBZQZ2R6AE6",
+        "prompts": [
+            "Start an Application",
+            "Full Name: Bob Taylor\nAlias: N/A\nDate of Birth: 20 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 987654321\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+        ],
+        "expected": [
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "birth_day": "20",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "full_name": "Bob Taylor",
+                        "ssn": "987654321",
+                        "marital_status_type": "Married",
+                        "us_citizenship_status": "USCitizen",
+                        "aliases": [],
+                        "dependent_ages": []
+                    }
+                }
+            },
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {}
+            }
+        ],
+        "actual": [
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {
+                    "transaction_id": "1234567890",
+                    "main_thread_id": "",
+                    "assistant_id_to_exclude": "borrower_personal_information"
+                }
+            },
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "full_name": "Bob Taylor",
+                        "aliases": [],
+                        "birth_day": "20",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "marital_status_type": "Married",
+                        "ssn": "987654321",
+                        "us_citizenship_status": "USCitizen",
+                        "dependent_ages": []
+                    },
+                    "assistant": "borrower_personal_information",
+                    "transaction_id": "1234567890"
+                }
+            }
+        ],
+        "diff_result": {},
+        "conversation_log": [
+            {
+                "sender": "user",
+                "message": "Start an Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "\n**Please provide the following details:**\n\n- **Full Name**:\n- **Alias** (if applicable):\n- **Date of Birth** (Day, Month, Year):\n- **Marital Status**:\n- **SSN (Social Security Number)**:\n- **Citizen Status**:\n- **Dependent Information**:\n    - Number of Dependents:\n    - Ages of Dependents (if applicable)\n- Is this Individual or Joint Application?\n"
+            },
+            {
+                "sender": "user",
+                "message": "Full Name: Bob Taylor\nAlias: N/A\nDate of Birth: 20 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 987654321\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "Alright, now I need to collect your current residency information. Please provide the following details:\n\n- Current residence (street address, city, postal code, state code)\n- Residence type (Own, Rent, Living Rent Free)\n- Residency Duration (months, years)\n- If you are renting your place of residence, could you please share the amount you pay for rent each month?\n\n"
+            }
+        ],
+        "test_type": "Function Call"
+    },
+    {
+        "conversation_name": "personal_identity_collector_conversation_1",
+        "assistant_id": "01HK7K7FXV7VHYWZ4M24F9AE6C",
+        "transaction_id": "01HMTZRQ88TG4HXX8S9Y8HJZ2B",
+        "prompts": [
+            "Start an Application",
+            "Full Name: Bob Taylor\nAlias: N/A\nDate of Birth: 20 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 987654321\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+        ],
+        "expected": [
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "birth_day": "20",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "full_name": "Bob Taylor",
+                        "ssn": "987654321",
+                        "marital_status_type": "Married",
+                        "us_citizenship_status": "USCitizen",
+                        "aliases": [],
+                        "dependent_ages": []
+                    }
+                }
+            },
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {}
+            }
+        ],
+        "actual": [
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {
+                    "transaction_id": "12345",
+                    "main_thread_id": "<main_thread_id>",
+                    "assistant_id_to_exclude": "borrower_personal_information"
+                }
+            },
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "birth_day": "20",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "full_name": "Bob Taylor",
+                        "ssn": "987654321",
+                        "marital_status_type": "Married",
+                        "us_citizenship_status": "USCitizen",
+                        "aliases": [],
+                        "dependent_ages": []
+                    },
+                    "assistant": "borrower_personal_information",
+                    "transaction_id": "12345"
+                }
+            }
+        ],
+        "diff_result": {},
+        "conversation_log": [
+            {
+                "sender": "user",
+                "message": "Start an Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "\n**Please provide the following details:**\n\n- **Full Name**:\n- **Alias** (if applicable):\n- **Date of Birth** (Day, Month, Year):\n- **Marital Status**:\n- **SSN (Social Security Number)**:\n- **Citizen Status**:\n- **Dependent Information**:\n    - Number of Dependents:\n    - Ages of Dependents (if applicable)\n- Is this Individual or Joint Application?\n"
+            },
+            {
+                "sender": "user",
+                "message": "Full Name: Bob Taylor\nAlias: N/A\nDate of Birth: 20 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 987654321\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "You are collecting residency information of a user. These are instructions.\nStep 1) Collect the following information from the user:\n  - Current residence (street address, city, postal code, state code)\n  - Residence type (Own, Rent, Living Rent Free)\n  - Residency Duration (months, years)\n  - If you are renting your place of residence, could you please share the amount you pay for rent each month?\n\nStep 2) When all required information has been collected, invoke the 'recordApplicantCurrentResidenceDetails' function with the collected information. If you encounter any validation error, try to fix it and resend. Do not ask the user for confirmation.\n\nStep 3) In order to switch to the next assistant, invoke the 'switchToNextAssistant' function.\n\nEXTREMELY IMPORTANT: The only exception to your workflow is if the user wants to get loan price options. In that case, you must invoke ONLY the 'switchToPriceAssistant' function. 'switchToPriceAssistant' function is the only function that you can invoke in this case. Consider this state as your 'final state', meaning no further information collection is allowed, and no other function calls are allowed. Just provide a brief explanation that the assistant will be included in the conversation.\n\nPlease provide the borrower's current residency information:\n - Current residence:\n   - Include: Street, Unit #, City, State, ZIP Code, and Country\n - Residence type:\n   - Own, Rent, Living Rent Free\n - How long have you been at your current address?\n   - Years and Months\n - Housing:\n   - If you are renting your place of residence, please share the amount you pay for rent each month."
+            }
+        ],
+        "test_type": "Function Call"
+    },
+    {
+        "conversation_name": "personal_identity_collector_conversation_1",
+        "assistant_id": "01HK7K7FXV7VHYWZ4M24F9AE6C",
+        "transaction_id": "01HMTZRQ7RA7HEXN7SBW4FAAF5",
+        "prompts": [
+            "Start an Application",
+            "Full Name: Bob Taylor\nAlias: N/A\nDate of Birth: 20 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 987654321\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+        ],
+        "expected": [
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "birth_day": "20",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "full_name": "Bob Taylor",
+                        "ssn": "987654321",
+                        "marital_status_type": "Married",
+                        "us_citizenship_status": "USCitizen",
+                        "aliases": [],
+                        "dependent_ages": []
+                    }
+                }
+            },
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {}
+            }
+        ],
+        "actual": [
+            {
+                "name": "switchToNextAssistant",
+                "arguments": {
+                    "transaction_id": "123456789",
+                    "main_thread_id": "",
+                    "assistant_id_to_exclude": "borrower_personal_information"
+                }
+            },
+            {
+                "name": "recordPersonalInformation",
+                "arguments": {
+                    "data": {
+                        "credit_request_type": "Individual",
+                        "birth_day": "20",
+                        "birth_month": "07",
+                        "birth_year": "1985",
+                        "full_name": "Bob Taylor",
+                        "ssn": "987654321",
+                        "marital_status_type": "Married",
+                        "us_citizenship_status": "USCitizen",
+                        "aliases": [],
+                        "dependent_ages": []
+                    },
+                    "assistant": "borrower_personal_information",
+                    "transaction_id": "123456789"
+                }
+            }
+        ],
+        "diff_result": {},
+        "conversation_log": [
+            {
+                "sender": "user",
+                "message": "Start an Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "\n**Please provide the following details:**\n\n- **Full Name**:\n- **Alias** (if applicable):\n- **Date of Birth** (Day, Month, Year):\n- **Marital Status**:\n- **SSN (Social Security Number)**:\n- **Citizen Status**:\n- **Dependent Information**:\n    - Number of Dependents:\n    - Ages of Dependents (if applicable)\n- Is this Individual or Joint Application?\n"
+            },
+            {
+                "sender": "user",
+                "message": "Full Name: Bob Taylor\nAlias: N/A\nDate of Birth: 20 July 1985\nMarital Status: Married\nSocial Security Number (SSN): 987654321\nU.S. Citizenship Status: Citizen\nDependent: No dependent\nIndividual Application"
+            },
+            {
+                "sender": "assistant",
+                "message": "You are collecting residency information of a user. These are instructions.\nStep 1) Collect following information from user input. If there is any missing data in user input, do not assume any information, ask the user to provide it.\n  - Current residence (street address, city, postal code, state code)\n  - Residence type (Own, Rent, Living Rent Free)\n  - Residency Duration (months, years)\n  - If you are renting your place of residence, could you please share the amount you pay for rent each month?\n\nStep 2) When all required information has been collected, invoke 'recordApplicantCurrentResidenceDetails' function with collected information. If you got any validation error, try to fix it and resend. Do not ask the user for confirmation.\n\nStep 3) In order to switch to the next assistant, invoke 'switchToNextAssistant' function.\n\nEXTREMELY IMPORTANT: The only exception to your workflow is the case when the user wants to get loan price options - you must invoke ONLY the 'switchToPriceAssistant' function. 'switchToPriceAssistant' function is the only function that you must invoke in this case. Consider this state as your 'final state', meaning no further information collection is allowed, no other function calls are allowed, just provide a brief explanation that the assistant will be included in the conversation.\n\nYou will not mention \"steps\"; you will just naturally progress through them.\n\nYOU MUST GO THROUGH ALL OF THESE STEPS IN ORDER. DO NOT SKIP ANY STEPS.\n\nPlease provide Borrower's current residency information:\n\n- Current residence:\n    - Include: Street, Unit #, City, State, ZIP, and Country\n- Residence type:\n    - Own, Rent, Living Rent Free\n- How long at Former Address:\n    - Years and Months\n- Housing:\n    - If you are renting your place of residence, could you please share the amount you pay for rent each month?"
+            }
+        ],
+        "test_type": "Function Call"
+    }
+]

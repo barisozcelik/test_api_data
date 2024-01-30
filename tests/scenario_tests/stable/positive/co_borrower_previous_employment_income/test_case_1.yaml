@@ -1,0 +1,32 @@
+conversation_name: co_borrower_previous_income_conversation_1
+assistant_id: 01HME9BGX8X7ANW1EKSEGH3K2T
+prompts:
+  - |-
+    I worked as Junior Engineer at Google from 1 January 2019 to 1 May 2020.
+    I was working in 1600 Amphitheatre Parkway, Mountain View, CA 94043, United State.
+    I was not self employed.
+    My base income was $120000 per year.
+expected_function_calls:
+  - name: recordPreviousEmploymentDetails
+    arguments:
+      data:
+        associated_incomes:
+          - monthly_income_amount: 10000
+            income_type: Base
+        employment_start_date: "2019-01-01"
+        employment_end_date: "2020-05-01"
+        employer_address_address_line_1: 1600 Amphitheatre Parkway
+        employer_address_state_code: "CA"
+        employer_address_country_name: "United States"
+        employer_address_city_name: "Mountain View"
+        employer_address_postal_code: "94043"
+        company_name: Google
+        position_title: Junior Engineer
+        self_employment_indicator: false
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

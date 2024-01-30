@@ -1,0 +1,33 @@
+{
+  "conversation_name": "other_asset_conversation_1",
+  "assistant_id": "01HKYH6ET3DP83P8R6W5XNV8YA",
+  "prompts": [
+    "I've just sold some of my vintage car collection and will receive about $120,000 as proceeds from this non-real estate asset sale."
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordOtherAssets",
+      "arguments": {
+        "data": {
+          "assets": [
+            {
+              "asset_cash_or_market_value_amount": 120000,
+              "asset_type": "ProceedsFromSaleOfNonRealEstateAsset"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant",
+    "assistant_id"
+  ]
+}

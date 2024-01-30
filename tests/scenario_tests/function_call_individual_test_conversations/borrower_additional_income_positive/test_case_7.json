@@ -1,0 +1,35 @@
+{
+    "conversation_name": "borrower_additional_income_conversation_7",
+    "assistant_id": "01HMY427GY16D85PV6SH499GB9",
+    "prompts": [
+        "I have Military Base Pay, about 800$ every month."
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordAdditionalIncome",
+            "arguments": {
+                "data": {
+                    "additional_incomes": [
+                        {"monthly_income_amount": 800, "income_type": "MilitaryBasePay"}
+                    ]
+                },
+                "transaction_id": "12345",
+                "assistant": "borrower_additional_income"
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {
+                "transaction_id": "12345",
+                "main_thread_id": "abcde",
+                "assistant_id_to_exclude": "borrower_additional_income"
+            }
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant"
+    ]
+}

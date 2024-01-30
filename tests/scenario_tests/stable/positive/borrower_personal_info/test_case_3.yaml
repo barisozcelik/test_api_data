@@ -1,0 +1,27 @@
+conversation_name: personal_identity_collector_conversation_3
+assistant_id: 01HK7K7FXV7VHYWZ4M24F9AE6C
+prompts:
+  - 'First Name: Lucas, Middle Name: William, Last Name: Brown, Alias: None, Birth Date: 15-Jul-1985, Married: Yes, SSN: 123456789, Citizenship: U.S. Citizen, Dependents: Zero, Individual'
+expected_function_calls:
+  - name: recordPersonalInformation
+    arguments:
+      data:
+        credit_request_type: Individual
+        birth_day: "15"
+        birth_month: "07"
+        birth_year: "1985"
+        first_name: Lucas
+        middle_name: William
+        last_name: Brown
+        ssn: "123456789"
+        marital_status_type: Married
+        us_citizenship_status: USCitizen
+        aliases: []
+        dependent_ages: []
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

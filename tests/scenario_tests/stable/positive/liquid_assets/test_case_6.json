@@ -1,0 +1,35 @@
+{
+  "conversation_name": "assets_conversation_6",
+  "assistant_id": "01HJKHGHCM81HH8XE3BY3H13MH",
+  "prompts": [
+    "My latest statement from the individual development account (IDA#112233) at Growth Investments shows a market value of $20,000."
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordLiquidAssets",
+      "arguments": {
+        "data": {
+          "assets": [
+            {
+              "asset_account_identifier": "IDA#112233",
+              "asset_cash_or_market_value_amount": 20000,
+              "asset_type": "IndividualDevelopmentAccount",
+              "financial_institution_name": "Growth Investments"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant",
+    "assistant_id"
+  ]
+}

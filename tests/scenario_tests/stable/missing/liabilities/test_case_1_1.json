@@ -1,0 +1,47 @@
+{
+  "conversation_name": "liabilities_1_1",
+  "assistant_id": "01HKCSPEY9PQ9HNY0ZBB27FG2S",
+  "prompts": [
+    
+    "* Liability Type: Installment\n    * Monthly Payment Amount: $350\n    * Payoff Status Indicator: No\n    * Owed To: Quick Loans Inc.\n    * Liability Unpaid Balance: $15,000\n* Liability Type: Open 30-Day Charge Account\n    * Liability Account Identifier: Account#98765\n    * Monthly Payment Amount: Variable, typically around $200\n    * Payoff Status Indicator: No\n    * Owed To: Metro Department Store\n    ",
+    "* Account Identifier for Installment is Loan#12345\n * Unpaid Balance for Open 30-Day Charge Account is $2,400"
+  ],
+  "expected_function_calls": [
+      {
+        "name": "recordLiabilitiesData",
+        "arguments": {
+            "data":{
+              "liabilities": [
+                  {
+                    "liability_account_identifier":"Loan#12345",
+                    "liability_monthly_payment_amount":350,
+                    "liability_payoff_status_indicator": false,
+                    "liability_type":"Installment",
+                    "owed_to":"Quick Loans Inc.",
+                    "liability_unpaid_balance_amount":15000
+                  },
+                  {
+                    "liability_account_identifier":"Account#98765",
+                    "liability_monthly_payment_amount":200,
+                    "liability_payoff_status_indicator": false,
+                    "liability_type":"Open30DayChargeAccount",
+                    "owed_to":"Metro Department Store",
+                    "liability_unpaid_balance_amount":2400
+                  }
+              ]}}
+      },
+      {
+          "name": "switchToNextAssistant",
+          "arguments": {}
+      }
+    ],
+
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant_id",
+    "assistant",
+    "role"
+  ]
+}

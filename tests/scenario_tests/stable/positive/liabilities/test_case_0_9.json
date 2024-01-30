@@ -1,0 +1,45 @@
+{
+  "conversation_name": "liabilities_0_9",
+  "assistant_id": "01HKCSPEY9PQ9HNY0ZBB27FG2S",
+  "prompts": [
+    "Regarding my financial liabilities, I have two: Firstly, an open 30-day charge account with OfficeSupplies Inc., account number OS505, with a monthly payment variable around $150 and a remaining balance of $700. Secondly, an installment loan, account number IL606, with SmartLoan Bank, monthly payment of $500, and an unpaid balance of $10,000. Both liabilities are yet to be fully paid off"
+  ],
+  "expected_function_calls": [
+      {
+        "name": "recordLiabilitiesData",
+        "arguments": {
+          "data":{
+            "liabilities": [
+                {
+                  "liability_account_identifier":"OS505",
+                  "liability_monthly_payment_amount":150,
+                  "liability_payoff_status_indicator": false,
+                  "liability_type":"Open30DayChargeAccount",
+                  "owed_to":"OfficeSupplies Inc.",
+                  "liability_unpaid_balance_amount":700
+                },
+                {
+                  "liability_account_identifier":"IL606",
+                  "liability_monthly_payment_amount":500,
+                  "liability_payoff_status_indicator": false,
+                  "liability_type":"Installment",
+                  "owed_to":"SmartLoan Bank",
+                  "liability_unpaid_balance_amount":10000
+                }
+            ]}}
+      },
+      {
+          "name": "switchToNextAssistant",
+          "arguments": {}
+      }
+    ],
+
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant_id",
+    "assistant",
+    "role"
+  ]
+}

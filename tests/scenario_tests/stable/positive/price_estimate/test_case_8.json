@@ -1,0 +1,46 @@
+{
+    "conversation_name": "market_index_rate_conversation_8",
+    "assistant_id": "01HMRH95EZRN56M2RCV81CAJXS",
+    "prompts": [
+      "Let's start the flow.",
+      "Yes I have a US citizenship. My credit score is 735, I have an income of 50000, expenses of 12000, liabilities of 13000, the property value is 1700000. The loan I'm looking for is 1000000 the property is owner occupied it's a Condo it has one story and two units. It's going to be an investment, location is Lafayette, 64067, Missouri.",
+      {
+        "type": "sleep",
+        "sleep": 15
+      }
+    ],
+    "expected_function_calls": [
+        {
+            "name": "initiatePriceOptionsRetrieval",
+            "arguments": {
+              "us_citizenship_status": "USCitizen",
+              "credit_score": 735,
+              "total_monthly_income_amount": 50000,
+              "total_monthly_expenses_amount": 12000,
+              "total_monthly_liabilities_amount": 13000,
+              "base_loan_amount": 1000000,
+              "property_estimated_value_amount": 1700000,
+              "property_current_occupancy_type": "OwnerOccupied",
+              "property_type": "Condo",
+              "stories_count": 1,
+              "number_of_units_type": "Two",
+              "property_current_usage_type": "Investment",
+              "postal_code": "64067",
+              "county_name": "Lafayette",
+              "state_code": "MO",
+              "transaction_id": "123456789"
+            }
+        },
+        {
+            "name": "getPriceOptionsStatus",
+            "arguments": {
+              "response_id": "123456789",
+              "transaction_id": "123456789"
+            }
+        }
+    ],
+    "exclude_regex_paths": [
+        "response_id",
+        "transaction_id"
+    ]
+}

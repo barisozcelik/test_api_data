@@ -1,0 +1,43 @@
+{
+  "conversation_name": "declarations_conversation_0",
+  "assistant_id": "01HJTEHZ45A1SZ15TCD4QDDBYJ",
+  "prompts": [
+    "- **Intention to Occupy Property as Primary Residence**: Yes\n- **Homeownership in the Past Three Years**: No\n- **Usage Type of Prior Property**: N/A\n- **Title Type of Prior Property**: N/A\n- **Relationship with the Property Seller**: No\n- **Undisclosed Borrowed Funds for Down Payment or Closing Costs**: No\n    - If Yes, **Amount of Undisclosed Borrowed Funds**: N/A\n- **Plans to Apply for a Mortgage on a Different Property Before Closing**: No\n- **Plans to Apply for Non-Mortgage Credit Before Closing This Mortgage**: No\n- **Property Subject to a Clean Energy Lien**: No\n- **Guarantor or Co-Signer on Undisclosed Debts**: No\n- **Outstanding Judgments**: No\n- **Present Delinquency or Default on Federal Debts/Other Financial Obligations**: No\n- **Involvement in Ongoing Lawsuits**: No\n- **Deed in Lieu of Foreclosure in the Last Seven Years**: No\n- **Completion of a Short Sale in the Past Seven Years**: No\n- **Foreclosure on Any Properties in the Last Seven Years**: No\n- **Bankruptcy in the Past Seven Years**: No"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordBorrowerDeclarations",
+      "arguments": {
+        "assistant": "borrower_declarations",
+        "transaction_id": "12345",
+        "data": {
+          "intent_to_occupy_indicator": true,
+          "homeowner_past_three_years_indicator": false,
+          "special_borrower_seller_relationship_indicator": false,
+          "undisclosed_borrowed_funds_indicator": false,
+          "undisclosed_mortgage_application_indicator": false,
+          "undisclosed_credit_application_indicator": false,
+          "property_proposed_clean_energy_lien_indicator": false,
+          "undisclosed_comaker_of_note_indicator": false,
+          "outstanding_judgments_indicator": false,
+          "presently_delinquent_indicator": false,
+          "party_to_lawsuit_indicator": false,
+          "prior_property_deed_in_lieu_conveyed_indicator": false,
+          "prior_property_short_sale_completed_indicator": false,
+          "prior_property_foreclosure_completed_indicator": false,
+          "bankruptcy_indicator": false
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

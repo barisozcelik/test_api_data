@@ -1,0 +1,144 @@
+{
+  "conversation_name": "real_estate_0",
+  "assistant_id": "01HMY5YFTEC2TM03697E9VMZFG",
+  "prompts": [
+    "I only own one property:\nAddress:\n  Street: 211 Oak Street\n  City: Boulder\n  State: CO\n  Zip Code: 80302\n  Property Value: $400,000\n  Status: Retained\nIntended Occupancy: Primary Residence\nMonthly Maintenance Expenses: $500 (Insurance, Taxes, HOA Dues)\nMonthly Rental Income: N/A\nMortgage Loan Details:\n  Lender Name: Stable Mortgage Bank\n  Monthly Payment: $1,800\n  Unpaid Balance: $300,000\n  Loan Type: Conventional"
+  ],
+  "init_collection": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ]
+  },
+  "expected_v3": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ],
+    "settlements": [
+      {
+        "@id": "01HKKYP4GK210SDCYCZZ8TT8N1",
+        "@type": "settlement",
+        "has_loan": "01HKKYMREK90A70C6KKSPCH6H1",
+        "has_ownership": "01HKKYJYNCN5NFV5E62D538B6W",
+        "has_company": "01HKKYNEXGQMZA6384RY4AF2DV"
+      }
+    ],
+    "loans": [
+      {
+        "@id": "01HKKYMREK90A70C6KKSPCH6H1",
+        "@type": "loan",
+        "monthly_payment": 1800,
+        "has_loan_timeline": "01HKKYMDAYMK31Q67DHCYF1MAW",
+        "mortgage_type": "Conventional"
+      }
+    ],
+    "loan_timelines": [
+      {
+        "@id": "01HKKYMDAYMK31Q67DHCYF1MAW",
+        "@type": "loan_timeline",
+        "unpaid_balance_amount": 300000
+      }
+    ],
+    "ownerships": [
+      {
+        "@id": "01HKKYJYNCN5NFV5E62D538B6W",
+        "@type": "ownership",
+        "owned_property": "01HKKYHSWWTDV943CM8BCE67JH",
+        "owned_by": "01HMGMQJAZ82YB32Q01SRX296J"
+      }
+    ],
+    "properties": [
+      {
+        "@id": "01HKKYHSWWTDV943CM8BCE67JH",
+        "@type": "property",
+        "has_address": "01HKKY764AT0AD029K7W34EECB",
+        "property_estimated_value_amount": 400000,
+        "property_current_usage_type": "PrimaryResidence",
+        "owned_property_maintenance_expense_amount": 500,
+        "owned_property_disposition_status_type": "Retain"
+      }
+    ],
+    "companies": [
+      {
+        "@id": "01HKKYNEXGQMZA6384RY4AF2DV",
+        "@type": "company",
+        "name": "Stable Mortgage Bank"
+      }
+    ],
+    "addresses": [
+      {
+        "@id": "01HKKY764AT0AD029K7W34EECB",
+        "@type": "address",
+        "address_line_1": "211 Oak Street",
+        "city_name": "Boulder",
+        "country_name": "US",
+        "postal_code": "80302",
+        "state_code": "CO"
+      }
+    ]
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "has_person",
+    "has_credit",
+    "has_property",
+    "has_loan",
+    "has_ownership",
+    "owned_property",
+    "owned_by",
+    "has_address",
+    "has_company",
+    "has_loan_timeline"
+  ]
+}

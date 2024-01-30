@@ -1,0 +1,47 @@
+conversation_name: mortgage_details_information_missing_conversation_8
+assistant_id: 01HMXZ4NN8S61KZS8CKAWMAXW1
+prompts:
+  - |-
+    Applied Loan:
+    
+    Loan Details:
+    
+    Base Loan Amount: $250,000
+    Loan Purpose: Purchase
+  - |-
+    Property:
+    
+    Address:
+    Street: 789 Hilltop Lane
+    City: Flagstaff
+    State: Arizona
+    Zip Code: 86001
+    Number of Units: 1
+    Property Value: $320,000
+    Intended Occupancy: Primary Residence
+    FHA Secondary Residence: No
+    Mixed-Use Property: Yes (Planning to set aside a space for a home office)
+    Manufactured Home: No
+expected_function_calls:
+  - name: recordMortageDetailsInformation
+    arguments:
+      data:
+        base_loan_amount: 250000
+        loan_purpose_type: Purchase
+        address_line_1: 789 Hilltop Lane
+        city_name: Flagstaff
+        postal_code: '86001'
+        state_code: AZ
+        accessory_unit_count: 1
+        property_estimated_value_amount: 320000
+        property_current_usage_type: PrimaryResidence
+        fha_secondary_residence_indicator: false
+        property_mixed_usage_indicator: true
+        manufactured_home_indicator: false
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

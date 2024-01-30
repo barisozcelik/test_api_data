@@ -1,0 +1,33 @@
+{
+  "conversation_name": "other_asset_conversation_2",
+  "assistant_id": "01HKYH6ET3DP83P8R6W5XNV8YA",
+  "prompts": [
+    "I've been approved for a secured loan, using my art collection as collateral. The loan amount I'll receive is $200,000."
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordOtherAssets",
+      "arguments": {
+        "data": {
+          "assets": [
+            {
+              "asset_cash_or_market_value_amount": 200000,
+              "asset_type": "ProceedsFromSecuredLoan"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant",
+    "assistant_id"
+  ]
+}

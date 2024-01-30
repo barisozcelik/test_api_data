@@ -1,0 +1,36 @@
+conversation_name: personal_identity_collector_missing_conversation_9
+assistant_id: 01HK7K7FXV7VHYWZ4M24F9AE6C
+prompts:
+  - |-
+    First Name: Evelyn
+    Middle Name: Grace
+    Alias: Not applicable
+    Marital Status: Married
+    Citizenship Status in the U.S.: Citizen
+    Dependents: None
+  - |-
+    Last Name: Johnson
+    Date of Birth: 1985-07-15
+    Social Security Number: 123-456-789
+expected_function_calls:
+  - name: recordPersonalInformation
+    arguments:
+      data:
+        birth_day: "15"
+        birth_month: "07"
+        birth_year: "1985"
+        first_name: Evelyn
+        middle_name: Grace
+        last_name: Johnson
+        ssn: "123456789"
+        marital_status_type: Married
+        us_citizenship_status: USCitizen
+        aliases: []
+        dependent_ages: []
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

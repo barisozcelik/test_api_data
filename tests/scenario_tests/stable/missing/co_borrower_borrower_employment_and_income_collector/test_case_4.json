@@ -1,0 +1,153 @@
+{
+  "conversation_name": "co_borrower_employment_and_income_conversation_4_missing",
+  "assistant_id": "01HME9BFQX4RGKS4M0Y72QPH45",
+  "prompts": [
+    "I currently work as a Data Analyst and have been in this position since March 1, 2020. This role adds up to 4 years of experience in my current profession. I am employed at Insightful Analytics Corp., located at 789 Data Drive, Analytics City, TX, 75001. You can reach them at 555-987-6543 if needed.\n On top of that, I receive a bonus which averages to about $417 per month, and occasionally, I make around $167 per month in overtime. I am not self-employed and do not have any ownership interest in any business.\n\nRegarding any special relationships with my employer, there are none to declare. I am not employed by a family member, property seller, real estate agent, or any other party involved in the transaction.",
+    "In terms of my income, I earn a base salary of approximately $7,083 per month."
+  ],
+  "init_collection": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "CoBorrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Joint",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ]
+  },
+  "expected_v3": {
+    "people": [
+      {
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation",
+        "role": "CoBorrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J"
+      }
+    ],
+    "credits": [
+      {
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit",
+        "credit_request_type": "Joint"
+      }
+    ],
+    "employments": [
+      {
+        "@id": "01HHEEBDSBT17PNE759GJ25PGG",
+        "@type": "employment",
+        "associated_income": [
+          "01HHEEBDS855MCXMMK2HRP5ESH",
+          "01HHEEBDS9GK1DHGS07GXP06ZV4",
+          "01HHEEBDS9GK1DHGS07GXP06ZV7"
+        ],
+        "employment_start_date": "2020-03-01",
+        "employment_status_type": "Current",
+        "self_employment_indicator": false,
+        "special_borrower_employer_relationship_indicator": false,
+        "employment_time_in_line_of_work_years_count": 4,
+        "has_employee": "01HMGMQJAZ82YB32Q01SRX296J",
+        "has_employer": "01HHEEBDSB27TBFYPCF2XQ8J11",
+        "position_title": "Data Analyst"
+      }
+    ],
+    "incomes": [
+      {
+        "@id": "01HHEEBDS9GK1DHGS07GXP06ZV4",
+        "@type": "income",
+        "income_recipient": "01HMGMQJAZ82YB32Q01SRX296J",
+        "income_amount": 417,
+        "income_type": "Bonuses",
+        "income_pay_frequency_type": "Monthly"
+      },
+      {
+        "@id": "01HHEEBDS9GK1DHGS07GXP06ZV7",
+        "@type": "income",
+        "income_recipient": "01HMGMQJAZ82YB32Q01SRX296J",
+        "income_amount": 7083,
+        "income_type": "Base",
+        "income_pay_frequency_type": "Monthly"
+      },
+      {
+        "@id": "01HHEEBDS855MCXMMK2HRP5ESH",
+        "@type": "income",
+        "income_recipient": "01HMGMQJAZ82YB32Q01SRX296J",
+        "income_amount": 167,
+        "income_type": "Overtime",
+        "income_pay_frequency_type": "Monthly"
+      }
+    ],
+    "companies": [
+      {
+        "@id": "01HHEEBDSB27TBFYPCF2XQ8J11",
+        "@type": "company",
+        "has_address": "01HHEEBDS95T2CKY8KN0GK3EX4",
+        "has_communication_method": "01HHEEBDS82QCSZEDWFSAPGHRF",
+        "name": "Insightful Analytics Corp."
+      }
+    ],
+    "addresses": [
+      {
+        "@id": "01HHEEBDS95T2CKY8KN0GK3EX4",
+        "@type": "address",
+        "address_line_1": "789 Data Drive",
+        "city_name": "Analytics City",
+        "country_name": "USA",
+        "postal_code": "75001",
+        "state_code": "TX"
+      }
+    ],
+    "communications": [
+      {
+        "@id": "01HHEEBDS82QCSZEDWFSAPGHRF",
+        "@type": "communication",
+        "phone_number": "5559876543"
+      }
+    ]
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "has_person",
+    "has_credit",
+    "associated_income",
+    "has_address",
+    "has_communication_method",
+    "has_employee",
+    "has_employer",
+    "income_recipient"
+  ]
+}

@@ -1,0 +1,24 @@
+conversation_name: co_borrower_contact_info_negative_7
+assistant_id: 01HME9BP824XHJZT7SZKRR3NV4
+prompts:
+  - |-
+    Phone Number: 555-0-1234
+    Email Address: alex.taylor@example.com
+    Mailing Address: Same with residency
+  - |-
+    Phone Number: 55501234
+expected_function_calls:
+  - name: recordApplicantContactDetails
+    arguments:
+      data:
+        email_address: alex.taylor@example.com
+        phone_number: "55501234"
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant_id
+  - assistant
+  - mailing_address_country_name

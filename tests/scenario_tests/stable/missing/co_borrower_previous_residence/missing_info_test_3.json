@@ -1,0 +1,38 @@
+{
+  "conversation_name": "missing_info_co_borrower_previous_residence_3",
+  "assistant_id": "01HME9BJ2M5DGZCWSJKFSWZKVV",
+  "prompts": [
+    "This the address 9820 El Camino Real, Bellevue, WA 98004",
+    "This house was rented for 1 year and 4 months",
+    "1000"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordApplicantPastResidenceDetails",
+      "arguments": {
+        "data": {
+          "address_line_1": "9820 El Camino Real",
+          "city_name": "Bellevue",
+          "postal_code": "98004",
+          "state_code": "WA",
+          "country_name": "US",
+          "residency_basis_type": "Rent",
+          "residency_duration_years_count": 1,
+          "residency_duration_months_count": 4,
+          "expense_monthly_payment_amount": 1000
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

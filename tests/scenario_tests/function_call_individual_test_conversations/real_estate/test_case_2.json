@@ -1,0 +1,50 @@
+{
+  "conversation_name": "real_estate_2",
+  "assistant_id": "01HMY5YFTEC2TM03697E9VMZFG",
+  "prompts": [
+    "I own a second home:\nAddress:\n  Street: 324 Maple Avenue\n  City: Miami\n  State: FL\n  Zip Code: 33131\n Country: US\n  Property Value: $800,000\n  Status: Retained\nIntended Occupancy: Second Home\nMonthly Maintenance Expenses: $750\nMonthly Rental Income: N/A\nMortgage Loan Details:\n  Lender Name: Coastal Loans\n  Monthly Payment: $3,500\n  Unpaid Balance: $600,000\n  Loan Type: Conventional"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordRealEstateInformation",
+      "arguments": {
+        "data": {
+          "property_details": [
+            {
+              "address_line_1": "324 Maple Avenue",
+              "city_name": "Miami",
+              "country_name": "US",
+              "postal_code": "33131",
+              "state_code": "FL",
+              "property_estimated_value_amount": 800000,
+              "property_current_usage_type": "SecondHome",
+              "owned_property_maintenance_expense_amount": 750,
+              "owned_property_disposition_status_type": "Retain",
+              "owned_property_rental_income_gross_amount": 0,
+              "lender_name": "Coastal Loans",
+              "unpaid_balance_amount": 600000,
+              "monthly_payment": 3500,
+              "loan_type": "Conventional"
+            }
+          ]
+        },
+        "transaction_id": "12345",
+        "assistant": "borrower_real_estate"
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+        "transaction_id": "12345",
+        "main_thread_id": "abcde",
+        "assistant_id_to_exclude": "borrower_real_estate"
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

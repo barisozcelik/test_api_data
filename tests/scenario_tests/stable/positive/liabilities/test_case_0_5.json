@@ -1,0 +1,45 @@
+{
+  "conversation_name": "liabilities_0_5",
+  "assistant_id": "01HKCSPEY9PQ9HNY0ZBB27FG2S",
+  "prompts": [
+    "Alright, first, a lease with DriveEasy, account DE111, $250 monthly, $4,000 unpaid, not done yet. Also, an installment loan, ThinkBank, TB222, $350 each month, $6,500 to go so not paid off"
+  ],
+  "expected_function_calls": [
+      {
+        "name": "recordLiabilitiesData",
+        "arguments": {
+          "data":{
+            "liabilities": [
+                {
+                  "liability_account_identifier":"DE111",
+                  "liability_monthly_payment_amount":250,
+                  "liability_payoff_status_indicator": false,
+                  "liability_type":"LeasePayment",
+                  "owed_to":"DriveEasy",
+                  "liability_unpaid_balance_amount":4000
+                },
+                {
+                  "liability_account_identifier":"TB222",
+                  "liability_monthly_payment_amount":350,
+                  "liability_payoff_status_indicator": false,
+                  "liability_type":"Installment",
+                  "owed_to":"ThinkBank",
+                  "liability_unpaid_balance_amount":6500
+                }
+            ]}}
+      },
+      {
+          "name": "switchToNextAssistant",
+          "arguments": {}
+      }
+    ],
+
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant_id",
+    "assistant",
+    "role"
+  ]
+}

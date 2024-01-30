@@ -1,0 +1,15 @@
+{
+  "conversation_name": "faq_conversation_0",
+  "assistant_name": "ChatMTG FAQ Support",
+  "prompts": [
+    "What is ChatMTG?"
+  ],
+  "expected_function_calls": [],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_name_to_exclude",
+    "assistant",
+    "assistant_name"
+  ]
+}

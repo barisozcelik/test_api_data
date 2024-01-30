@@ -1,0 +1,8 @@
+version: 1.0
+
+testSuites:
+  unitTests:
+    - enabled: True
+      testsPath: tests/
+      testFramework: pytest
+      parallelTest: True

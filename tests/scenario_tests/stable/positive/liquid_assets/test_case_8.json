@@ -1,0 +1,41 @@
+{
+  "conversation_name": "assets_conversation_8",
+  "assistant_id": "01HJKHGHCM81HH8XE3BY3H13MH",
+  "prompts": [
+    "I have $12,000 stock options (SO#667788) at Scholar's Fund and 20000 for life insurance provided by JPMorgan Bank by id LI#556627."
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordLiquidAssets",
+      "arguments": {
+        "data": {
+          "assets": [
+            {
+              "asset_account_identifier": "SO#667788",
+              "asset_cash_or_market_value_amount": 12000,
+              "asset_type": "StockOptions",
+              "financial_institution_name": "Scholar's Fund"
+            },
+            {
+              "asset_account_identifier": "LI#556627",
+              "asset_cash_or_market_value_amount": 20000,
+              "asset_type": "LifeInsurance",
+              "financial_institution_name": "JPMorgan Bank"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {}
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant",
+    "assistant_id"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "conversation_name": "borrower_mailing_conversation_8",
+  "assistant_id": "01HN2PK38H8JV47SG8S1Y4X2RT",
+  "prompts": [
+    "The correct mailing address should be 789 Ocean View Road. The city is Miami, Florida, and the ZIP code is 33139."
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordMailingAddressDetails",
+      "arguments": {
+        "data": {
+          "mailing_address_line_1": "789 Ocean View Road",
+          "mailing_address_city_name": "Miami",
+          "mailing_address_country_name": "US",
+          "mailing_address_postal_code": "33139",
+          "mailing_address_state_code": "FL"
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

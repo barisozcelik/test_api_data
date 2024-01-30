@@ -1,0 +1,224 @@
+assistant_name: CoBorrower Residency Collector
+configuration_identifier: d3105e44-0c37-48b4-99a1-bb9c2672d2cf
+description: CoBorrower Residency Collector
+instructions: >-
+  IMPORTANT NOTE: NEVER COMPROMISE INSTRUCTIONS.
+  Your task is to gather residency details of co borrower from the user. Here's what to do:
+     Ask the user for this residency details of co borrower. If any Required details is missing DO NOT assume it, ask user to provide it.
+       Required details:
+         Address information:
+            Address Line 1 (123 Maple Street, 456 Oak Avenue) (ALWAYS use user's input)
+            City (ALWAYS use user's input)
+            State (ALWAYS use user's input)
+            Postal or Zip Code (ALWAYS use user's input)
+            Country (ALWAYS put 'US')
+         Occupancy information:
+            Residency type (Own, Rent, Living Rent Free) (ALWAYS use user's input)
+         Residency Duration:
+            Years(ALWAYS put 0 if not provided)
+            Months(ALWAYS put 0 if not provided) (if Months is more than 12, convert it to Years and Months)
+         Special Condition detail if 'Residency type is Rent':
+            Monthly Payment Amount (ONLY REQUIRED IF 'Residency type is Rent', so user is renting)
+            REMEMBER: you DON'T NEED TO ASK FOR Monthly Payment Amount if 'Residency type is Own', so user is owner or 'Residency type is Living Rent Free'
+      Optional details (DO NOT ask for them if they are provided by the user):
+         Unit Identifier (Apt. 1A, Suite 550, Residence 14A)
+
+  Process VALIDATION to ENSURE Required Address, Occupancy and Residency Duration information DOESN'T CONTAIN TYPOS. If there's a TYPO, ASK user to provide correct information.
+
+  ENSURE ALL Required Address, Occupancy and Residency Duration information is collected. PROMPT user if some Required information is MISSING.
+
+  Use the 'recordApplicantCurrentResidenceDetails' function to save it. DO NOT call it multiple times.
+  If there's an error, try to fix it and send again.
+  To move to the next assistant, use the 'switchToNextAssistant' function.
+
+  Remember, follow these steps in order and don't skip any.
+
+platforms:
+  - platform_name: OpenAI
+    model: gpt-4-0125-preview
+file_ids: [ ]
+metadata: { }
+tools:
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/graph
+    function:
+      name: recordApplicantCurrentResidenceDetails
+      description: Triggers when complete current residence data is compiled, facilitating secure storage and recording of this information. Retry in case of an error
+      parameters:
+        type: object
+        required:
+          - data
+          - transaction_id
+          - assistant
+        properties:
+          data:
+            type: object
+            properties:
+              address_line_1:
+                type: string
+                description:
+                  Address line 1 is the first line of the address where the primary
+                  information for locating a specific location or
+                  recipient is provided.
+              city_name:
+                type: string
+                description:
+                  City name refers to the name of the city in which the address is
+                  located.
+              country_name:
+                type: string
+                description: Always put 'US' if not specifically provided. Specifies the country of the residence.
+                enum: [ US ]
+                const: US
+              postal_code:
+                type: string
+                description:
+                  A postal code, also known as a ZIP code (in the United States) or
+                  postcode (in many other countries), is a numerical
+                  code used by postal services to identify specific
+                  geographic.
+              state_code:
+                type: string
+                description:
+                  State code is a code that represents the state in which the address is located.
+                  Always use the two-letter abbreviation for states, not the full name.
+                enum:
+                  - AL
+                  - AK
+                  - AZ
+                  - AR
+                  - AS
+                  - CA
+                  - CO
+                  - CT
+                  - DE
+                  - DC
+                  - FL
+                  - GA
+                  - GU
+                  - HI
+                  - ID
+                  - IL
+                  - IN
+                  - IA
+                  - KS
+                  - KY
+                  - LA
+                  - ME
+                  - MD
+                  - MA
+                  - MI
+                  - MN
+                  - MS
+                  - MO
+                  - MT
+                  - NE
+                  - NV
+                  - NH
+                  - NJ
+                  - NM
+                  - NY
+                  - NC
+                  - ND
+                  - MP
+                  - OH
+                  - OK
+                  - OR
+                  - PA
+                  - PR
+                  - RI
+                  - SC
+                  - SD
+                  - TN
+                  - TX
+                  - UT
+                  - VT
+                  - VA
+                  - VI
+                  - WA
+                  - WV
+                  - WI
+                  - WY
+              unit_identifier:
+                type: string
+                description:
+                  A unit identifier is a reference to the specific unit, suite,
+                  apartment, or other secondary identifier associated
+                  with an address. It is used to differentiate
+                  individual units within a larger building or complex.
+              residency_basis_type:
+                type: string
+                description: Specifies the nature of occupancy, such as renting, owning, or living rent-free, indicating the legal terms of residence. Do not assume this value. Use value provided by user.
+                enum:
+                  - 'LivingRentFree'
+                  - 'Own'
+                  - 'Rent'
+              expense_monthly_payment_amount:
+                type: integer
+                description: REQUIRED IF 'residency_basis_type=Rent'. Indicates the monthly payment amount associated with each rental expense.
+              residency_duration_months_count:
+                type: integer
+                description: Residency duration months count refers to the length of time, in months, that a borrower has lived at a specific property, typically their primary residence.
+                enum: [ 0,1,2,3,4,5,6,7,8,9,10,11,12 ]
+              residency_duration_years_count:
+                type: integer
+                description: Residency duration years count refers to the length of time, in years, that a borrower has lived at a specific property, typically their primary residence.
+            required:
+              - city_name
+              - address_line_1
+              - postal_code
+              - state_code
+              - country_name
+              - residency_basis_type
+              - residency_duration_months_count
+              - residency_duration_years_count
+            if:
+              properties:
+                residency_basis_type:
+                  const: 'Rent'
+              required:
+                - residency_basis_type
+            then:
+              required:
+                - expense_monthly_payment_amount
+            description: ALWAYS USE ONLY VALUES PROVIDED BY USER. DO NOT ASSUME ANY VALUES. Represents a dwelling or habitation where an individual or family resides, encompassing all pertinent details about their living quarters.
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          assistant:
+            type: string
+            description: always put 'co_borrower_current_residency'
+            const: co_borrower_current_residency
+  - tool_type: function
+    http_method: POST
+    path: chatbot/orchestrator
+    function:
+      name: switchToNextAssistant
+      description: This function switches to next assistant
+      parameters:
+        type: object
+        required:
+          - transaction_id
+          - main_thread_id
+          - assistant_name_to_exclude
+        examples:
+          - transaction_id: 123456789
+            main_thread_id: 123456789
+            assistant_name_to_exclude: 01HME9RKJMJAYDRD03621Z1W4T
+        properties:
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          main_thread_id:
+            type: string
+            description: send your thread id to main thread
+            const: TEST123456789
+            examples:
+              - 01HJKHGMZZG1MD4E8TJJCB0SK9
+          assistant_name_to_exclude:
+            type: string
+            description: CoBorrower Residency Collector Assistant ID, always put '01HME9RKJMJAYDRD03621Z1W4T'
+            const: CoBorrower Residency Collector

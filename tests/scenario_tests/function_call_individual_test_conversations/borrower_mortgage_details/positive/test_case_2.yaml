@@ -1,0 +1,42 @@
+conversation_name: mortgage_details_information_conversation_2
+assistant_id: 01HMXZ4NN8S61KZS8CKAWMAXW1
+prompts:
+  - |-
+    Loan Details:
+      Base Loan Amount: $350,000
+      Loan Purpose: Purchase
+    Property:
+        Address:
+            Street: 456 Oak Street
+            City: Boulder
+            State: Colorado
+            Zip Code: 80302
+        Number of Units: 1
+        Property Value: $450,000
+        Intended Occupancy: Second Home
+        FHA Secondary Residence: No
+        Mixed-Use Property: Yes (Planning for a small shop)
+        Manufactured Home: No
+expected_function_calls:
+  - name: recordMortageDetailsInformation
+    arguments:
+      data:
+        base_loan_amount: 350000
+        loan_purpose_type: Purchase
+        address_line_1: 456 Oak Street
+        city_name: Boulder
+        postal_code: '80302'
+        state_code: CO
+        accessory_unit_count: 1
+        property_estimated_value_amount: 450000
+        property_current_usage_type: SecondHome
+        fha_secondary_residence_indicator: false
+        property_mixed_usage_indicator: true
+        manufactured_home_indicator: false
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

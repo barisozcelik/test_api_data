@@ -1,0 +1,107 @@
+{
+  "conversation_name": "borrower_residence_conversation_1",
+  "assistant_id": "01HJQY26V25C7SJQWHKYV3JFHW",
+  "prompts": [
+    "Address: 4713 Macejkovic Neck, New Sheldon, UT 61425\nOccupancy: Own\nResidency Duration: 2 years and 3 months.\nMonthly Payment: $1000"
+  ],
+  "init_collection": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ]
+  },
+  "expected_v3": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ],
+    "residences": [
+      {
+        "@id": "01HHEEBDS9QTEXDP9QVBB1MYFN",
+        "@type": "residence",
+        "has_address": "01HHEEBDS9D8ZH0NG7J8K20YVE7",
+        "has_resident": "01HMGMQJAZ82YB32Q01SRX296J",
+        "residency_basis_type": "Rent",
+        "residency_duration_months_count": 3,
+        "residency_duration_years_count": 2,
+        "residency_type": "Current",
+        "has_expenses": "01HKMHPJ6TSMZQDPNRAHZYV9VN"
+      }
+    ],
+    "addresses": [
+      {
+        "@id": "01HHEEBDS9D8ZH0NG7J8K20YVE7",
+        "@type": "address",
+        "address_line_1": "4713 Macejkovic Neck",
+        "city_name": "New Sheldon",
+        "country_name": "US",
+        "postal_code": "61425",
+        "state_code": "UT"
+      }
+    ],
+    "expenses": [
+      {
+        "@id": "01HKMHPJ6TSMZQDPNRAHZYV9VN",
+        "@type": "expense",
+        "expense_monthly_payment_amount": 1000
+      }
+    ]
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "has_person",
+    "has_credit",
+    "has_resident",
+    "has_address"
+  ]
+}

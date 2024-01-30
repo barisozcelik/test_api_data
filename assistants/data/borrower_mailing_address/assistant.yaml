@@ -1,0 +1,183 @@
+assistant_name: Mailing Address Collector
+configuration_identifier: 8689102d-97c1-40ae-b42d-e274aa72e44f
+description: Mailing Address
+instructions: >-
+  Your task is to gather mailing address details from the user. Here's what to do:
+     Ask the user for this mailing address details. If any Required details is missing DO NOT assume it, ask user to provide it.
+       Required details:
+          Address Line 1 (123 Maple Street, 456 Oak Avenue) (ALWAYS use user's input)
+          City (ALWAYS use user's input)
+          State (ALWAYS use user's input)
+          Postal or Zip Code (ALWAYS use user's input)
+          Country (ALWAYS put 'US')
+      Optional details (DO NOT ask for them if they are provided by the user):
+         Unit Identifier (Apt. 1A, Suite 550, Residence 14A)
+
+  REMEMBER: NEVER ASK USER TO CONFIRM INFORMATION. ALWAYS USE USER'S INPUT.
+
+  MAKE SURE ALL Required information is collected and have no typos. Ask user if some Required information is missing or typo.
+  Use the 'recordMailingAddressDetails' function to save it. Save ALL information provided. DO NOT call it multiple times.
+  If there's an error, try to fix it and send again.
+  To move to the next assistant, use the 'switchToNextAssistant' function.
+
+  Remember, follow these steps in order and don't skip any.
+platforms:
+  - platform_name: OpenAI
+    model: gpt-4-1106-preview
+file_ids: [ ]
+metadata: { }
+tools:
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/graph
+    function:
+      name: recordMailingAddressDetails
+      description: Triggers when complete mailing address data is compiled, facilitating secure storage and recording of this information. Retry in case of an error
+      parameters:
+        type: object
+        required:
+          - data
+          - transaction_id
+          - assistant
+        properties:
+          data:
+            type: object
+            description:
+              Represents a comprehensive mailing address including address line 1, city, country, postal code, state
+            required:
+              - mailing_address_line_1
+              - mailing_address_city_name
+              - mailing_address_country_name
+              - mailing_address_postal_code
+              - mailing_address_state_code
+            properties:
+              mailing_address_line_1:
+                type: string
+                description:
+                  Address line 1 is the first line of the address where the primary
+                  information for locating a specific location or
+                  recipient is provided.
+              mailing_address_city_name:
+                type: string
+                description:
+                  City name refers to the name of the city in which the address is
+                  located.
+              mailing_address_country_name:
+                type: string
+                description: ALWAYS PUT 'US' if not specifically provided. Specifies the country of the mailing address, essential for international identification and postal services.
+                enum: [ US ]
+                const: US
+                examples:
+                  - US
+              mailing_address_postal_code:
+                type: string
+                length: 5
+                description:
+                  A postal code, also known as a ZIP code (in the United States) or
+                  postcode (in many other countries), is a
+                  numerical code used by postal services to
+                  identify specific geographic areas for efficient
+                  mail sorting and delivery.
+              mailing_address_state_code:
+                type: string
+                description:
+                  State code is a code that represents the state in which the address
+                  is located.
+                enum:
+                  - AL
+                  - AK
+                  - AZ
+                  - AR
+                  - AS
+                  - CA
+                  - CO
+                  - CT
+                  - DE
+                  - DC
+                  - FL
+                  - GA
+                  - GU
+                  - HI
+                  - ID
+                  - IL
+                  - IN
+                  - IA
+                  - KS
+                  - KY
+                  - LA
+                  - ME
+                  - MD
+                  - MA
+                  - MI
+                  - MN
+                  - MS
+                  - MO
+                  - MT
+                  - NE
+                  - NV
+                  - NH
+                  - NJ
+                  - NM
+                  - NY
+                  - NC
+                  - ND
+                  - MP
+                  - OH
+                  - OK
+                  - OR
+                  - PA
+                  - PR
+                  - RI
+                  - SC
+                  - SD
+                  - TN
+                  - TX
+                  - UT
+                  - VT
+                  - VA
+                  - VI
+                  - WA
+                  - WV
+                  - WI
+                  - WY
+              mailing_address_unit_identifier:
+                type: string
+                description:
+                  A unit identifier is a reference to the specific unit, suite,
+                  apartment, or other secondary identifier
+                  associated with an address. It is used to
+                  differentiate individual units within a larger
+                  building or complex.
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          assistant:
+            type: string
+            description: always put 'borrower_mailing_address_details' # TODO: change to valid
+            const: borrower_mailing_address_details # TODO: change to valid
+  - tool_type: function
+    http_method: POST
+    path: chatbot/orchestrator
+    function:
+      name: switchToNextAssistant
+      description: This function switches to next assistant
+      parameters:
+        type: object
+        required:
+          - transaction_id
+          - main_thread_id
+          - assistant_name_to_exclude
+        properties:
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          main_thread_id:
+            type: string
+            description: send your thread id to main thread
+            const: TEST123456789
+          assistant_name_to_exclude:
+            type: string
+            description: Contact Details Collector Assistant ID, always put 'Mailing Address Collector'
+            const: Mailing Address Collector

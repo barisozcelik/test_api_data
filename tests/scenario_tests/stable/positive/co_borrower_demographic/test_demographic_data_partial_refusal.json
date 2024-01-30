@@ -1,0 +1,38 @@
+{
+    "conversation_name": "demographic_data_partial_refusal",
+    "assistant_id": "01HME9BKAQT15WSGZK5BS46VN5",
+    "prompts": [
+        "I prefer not to state my ethnicity. I'm a female, and my race is Asian, specifically Chinese."
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordApplicantDemographicDetails",
+            "arguments": {
+                "data": {
+                    "ethnicity_type": "",
+                    "ethnicity_origin_type": "",
+                    "ethnicity_origin_type_other_description": "",
+                    "ethnicity_refusal_indicator": true,
+                    "gender_type": "Female",
+                    "gender_refusal_indicator": false,
+                    "race_type": "Asian",
+                    "race_type_additional_description": "Chinese",
+                    "race_refusal_indicator": false
+                }
+
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id",
+        "role"
+    ]
+}

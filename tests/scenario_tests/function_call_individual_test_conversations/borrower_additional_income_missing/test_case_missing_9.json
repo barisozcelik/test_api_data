@@ -1,0 +1,36 @@
+{
+    "conversation_name": "borrower_additional_income_conversation_9_missing",
+    "assistant_id": "01HMY427GY16D85PV6SH499GB9",
+    "prompts": [
+        "I receive $550 per month.",
+        "That's all money I'm getting, its on contract basis."
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordAdditionalIncome",
+            "arguments": {
+                "data": {
+                    "additional_incomes": [
+                        {"monthly_income_amount": 550, "income_type": "ContractBasis"}
+                    ]
+                },
+                "transaction_id": "12345",
+                "assistant": "borrower_additional_income"
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {
+                "transaction_id": "12345",
+                "main_thread_id": "abcde",
+                "assistant_id_to_exclude": "borrower_additional_income"
+            }
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant"
+    ]
+}

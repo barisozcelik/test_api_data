@@ -1,0 +1,143 @@
+{
+  "conversation_name": "borrower_employment_and_income_conversation_5",
+  "assistant_id": "01HKB2Y3T2A8JD7NNXY8Q79WD2",
+  "prompts": [
+    "Position Title: Marketing Manager\nEmployment Start Date: 2019-09-15\nYears of Experience in Current Profession: 3\nEmployer Details:\nName: Bright Marketing Agency\nAddress: 456 Market St, New York, NY, 10001\nPhone Number: (212) 555-0199\nAssociated Monthly Incomes:\nIncome Type: Base\nIncome Amount: $6,500\nIncome Type: Overtime\nIncome Amount: $1,500\nSelf Employment: No\nSpecial Borrower Employer Relationship: No"
+  ],
+  "init_collection": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Individual",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ]
+  },
+  "expected_v3": {
+    "people": [
+      {
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation",
+        "role": "Borrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J"
+      }
+    ],
+    "credits": [
+      {
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit",
+        "credit_request_type": "Individual"
+      }
+    ],
+    "employments": [
+      {
+        "@id": "01HHEEBDSMNGR20PNE759GJ25PGG",
+        "@type": "employment",
+        "associated_income": [
+          "01HHEEBDS9GK1DHGMKT6RP06ZV7",
+          "01HHEEBDS9GK1DHOVTMXP06ZV8"
+        ],
+        "employment_start_date": "2019-09-15",
+        "employment_status_type": "Current",
+        "self_employment_indicator": false,
+        "special_borrower_employer_relationship_indicator": false,
+        "employment_time_in_line_of_work_years_count": 3,
+        "has_employee": "01HMGMQJAZ82YB32Q02SRX296J",
+        "has_employer": "01HHEEBDSB27TBFYPCF3XQ8J12",
+        "position_title": "Marketing Manager"
+      }
+    ],
+    "incomes": [
+      {
+        "@id": "01HHEEBDS9GK1DHGMKT6RP06ZV7",
+        "@type": "income",
+        "income_recipient": "01HMGMQJAZ82YB32Q02SRX296J",
+        "income_amount": 6500,
+        "income_type": "Base",
+        "income_pay_frequency_type": "Monthly"
+      },
+      {
+        "@id": "01HHEEBDS9GK1DHOVTMXP06ZV8",
+        "@type": "income",
+        "income_recipient": "01HMGMQJAZ82YB32Q02SRX296J",
+        "income_amount": 1500,
+        "income_type": "Overtime",
+        "income_pay_frequency_type": "Monthly"
+      }
+    ],
+    "companies": [
+      {
+        "@id": "01HHEEBDSB27TBFYPCF3XQ8J12",
+        "@type": "company",
+        "has_address": "01HHEEBDS95T2CKY8KN1GK3EX5",
+        "has_communication_method": "01HHEEBDS82QCSZEDWFSAQGHRF",
+        "name": "Bright Marketing Agency"
+      }
+    ],
+    "addresses": [
+      {
+        "@id": "01HHEEBDS95T2CKY8KN1GK3EX5",
+        "@type": "address",
+        "address_line_1": "456 Market St",
+        "city_name": "New York",
+        "country_name": "USA",
+        "postal_code": "10001",
+        "state_code": "NY"
+      }
+    ],
+    "communications": [
+      {
+        "@id": "01HHEEBDS82QCSZEDWFSAQGHRF",
+        "@type": "communication",
+        "phone_number": "2125550199"
+      }
+    ]
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "has_person",
+    "has_credit",
+    "associated_income",
+    "has_address",
+    "has_communication_method",
+    "has_employee",
+    "has_employer",
+    "income_recipient"
+  ]
+}

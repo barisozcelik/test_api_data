@@ -1,0 +1,50 @@
+{
+  "conversation_name": "real_estate_missing_5",
+  "assistant_id": "01HMY5YFTEC2TM03697E9VMZFG",
+  "prompts": [
+    "My urban apartment details are as follows:\nAddress:\n  Street: 2332 Cityview Lane\n  City: Chicago\n  State: IL\n  Zip Code: 60601\n Country: US\n  Property Value: $350,000\n  Status: Pending Sale\n","Intended Occupancy: Investment\nMonthly Maintenance Expenses: $200\nMonthly Rental Income: $1500\nMortgage Loan Details:\n  Lender Name: Windy City Bank\n  Monthly Payment: $2,200\n  Unpaid Balance: $280,000\n  Loan Type: Conventional"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordRealEstateInformation",
+      "arguments": {
+        "data": {
+          "property_details": [
+            {
+              "address_line_1": "2332 Cityview Lane",
+              "city_name": "Chicago",
+              "country_name": "US",
+              "postal_code": "60601",
+              "state_code": "IL",
+              "property_estimated_value_amount": 350000,
+              "property_current_usage_type": "Investment",
+              "owned_property_maintenance_expense_amount": 200,
+              "owned_property_disposition_status_type": "PendingSale",
+              "owned_property_rental_income_gross_amount": 1500,
+              "lender_name": "Windy City Bank",
+              "unpaid_balance_amount": 280000,
+              "monthly_payment": 2200,
+              "loan_type": "Conventional"
+            }
+          ]
+        },
+        "transaction_id": "12345",
+        "assistant": "borrower_real_estate"
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+        "transaction_id": "12345",
+        "main_thread_id": "abcde",
+        "assistant_id_to_exclude": "borrower_real_estate"
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

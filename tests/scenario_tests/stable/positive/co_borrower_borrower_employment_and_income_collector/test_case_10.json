@@ -1,0 +1,134 @@
+{
+  "conversation_name": "co_borrower_employment_and_income_conversation_10",
+  "assistant_id": "01HME9BFQX4RGKS4M0Y72QPH45",
+  "prompts": [
+    "Position Title: Product Manager\nEmployment Start Date: 2018-03-15\nYears of Experience in Current Profession: 6\nEmployer Details:\n    Name: Bright Marketing Solutions\n    Address: 200 Innovation Blvd, Suite 300, Austin, TX 78704\n    Phone: no-phone\nAll Associated Monthly Incomes:\n    Income Type: Base\n    Income Amount: $7,500\nNot self employed, no ownership, no special relationships to employer"
+  ],
+  "init_collection": {
+    "people": [
+      {
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "role": "CoBorrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation"
+      }
+    ],
+    "credits": [
+      {
+        "credit_request_type": "Joint",
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit"
+      }
+    ]
+  },
+  "expected_v3": {
+    "people": [
+      {
+        "@id": "01HMGMQJAZ82YB32Q01SRX296J",
+        "@type": "person",
+        "ssn": "123456789",
+        "full_name": "Alex Taylor",
+        "birth_day": "15",
+        "birth_month": "07",
+        "birth_year": "1985",
+        "us_citizenship_status": "USCitizen",
+        "marital_status_type": "Married",
+        "has_credit": "01HMGMQJAZ5NWBW09XF6ZCK424"
+      }
+    ],
+    "relationships": [
+      {
+        "@id": "01HMGMQJAZXPXHGABCC3RCZVJS",
+        "@type": "finance_relation",
+        "role": "CoBorrower",
+        "has_person": "01HMGMQJAZ82YB32Q01SRX296J"
+      }
+    ],
+    "credits": [
+      {
+        "@id": "01HMGMQJAZ5NWBW09XF6ZCK424",
+        "@type": "credit",
+        "credit_request_type": "Joint"
+      }
+    ],
+    "employments": [
+      {
+        "@id": "01HHEEBDSBT17PNE759GJ25PGG",
+        "@type": "employment",
+        "associated_income": [
+          "01HHEEBDS9GK1DHGS07GXP06ZV4"
+        ],
+        "employment_start_date": "2018-03-15",
+        "employment_status_type": "Current",
+        "self_employment_indicator": false,
+        "special_borrower_employer_relationship_indicator": false,
+        "employment_time_in_line_of_work_years_count": 6,
+        "has_employee": "01HMGMQJAZ82YB32Q01SRX296J",
+        "has_employer": "01HHEEBDSB27TBFYPCF2XQ8J11",
+        "position_title": "Product Manager"
+      }
+    ],
+    "incomes": [
+      {
+        "@id": "01HHEEBDS9GK1DHGS07GXP06ZV4",
+        "@type": "income",
+        "income_recipient": "01HMGMQJAZ82YB32Q01SRX296J",
+        "income_amount": 7500,
+        "income_type": "Base",
+        "income_pay_frequency_type": "Monthly"
+      }
+    ],
+    "companies": [
+      {
+        "@id": "01HHEEBDSB27TBFYPCF2XQ8J11",
+        "@type": "company",
+        "has_address": "01HHEEBDS95T2CKY8KN0GK3EX4",
+        "has_communication_method": "01HHEEBDS82QCSZEDWFSAPGHRF",
+        "name": "Bright Marketing Solutions"
+      }
+    ],
+    "addresses": [
+      {
+        "@id": "01HHEEBDS95T2CKY8KN0GK3EX4",
+        "@type": "address",
+        "address_line_1": "200 Innovation Blvd",
+        "city_name": "Austin",
+        "country_name": "USA",
+        "postal_code": "78704",
+        "state_code": "TX",
+        "unit_identifier": "Suite 300"
+      }
+    ],
+    "communications": [
+      {
+        "@id": "01HHEEBDS82QCSZEDWFSAPGHRF",
+        "@type": "communication"
+      }
+    ]
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "has_person",
+    "has_credit",
+    "associated_income",
+    "has_address",
+    "has_communication_method",
+    "has_employee",
+    "has_employer",
+    "income_recipient"
+  ]
+}

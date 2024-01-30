@@ -1,0 +1,20 @@
+conversation_name: co_borrower_military_negative_conversation_3
+assistant_id: 01HME9BN2E3ZS7QK5MNNWJ5FSZ
+prompts:
+  - I am a wife.
+  - I am married to a military service member. I am not a military service member myself. My husband will complete his service at 9 April 2024.
+expected_function_calls:
+  - name: recordMilitaryServiceDetails
+    arguments:
+      data:
+        military_service_expected_completion_date: "2024-04-09"
+        military_status_type: Other
+        military_status_type_other_description: "Spouse of Military Service Member"
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant
+  - military_status_type_other_description

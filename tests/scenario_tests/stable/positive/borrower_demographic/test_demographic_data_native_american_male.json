@@ -1,0 +1,37 @@
+{
+    "conversation_name": "test_demographic_data_native_table",
+    "assistant_id": "06JPK2CV5NBF8HRGZL4QT3X8KM",
+    "prompts": [
+        "race:White  \ngender:Male \nhispanic: No"
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordApplicantDemographicDetails",
+            "arguments": {
+                "data": {
+                    "ethnicity_type": "NotHispanicOrLatino",
+                    "ethnicity_origin_type": "",
+                    "ethnicity_origin_type_other_description": "",
+                    "ethnicity_refusal_indicator": false,
+                    "gender_type": "Male",
+                    "gender_refusal_indicator": false,
+                    "race_type": "White",
+                    "race_type_additional_description": "",
+                    "race_refusal_indicator": false
+                }
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id",
+        "role"
+    ]
+}

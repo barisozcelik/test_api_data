@@ -1,0 +1,59 @@
+assistant_name: Loan Application Document Generator
+configuration_identifier: e232f845-4a2a-42c3-90d6-91737de14933
+description: Loan Application Document Generator
+instructions: |
+    Once conversation is started, call 'generateLoanApplicationDocument' function to generate the document and return the complete link to the user.
+    Don't ask any questions to user.
+
+platforms:
+- platform_name: OpenAI
+  model: gpt-3.5-turbo
+file_ids: []
+metadata: {}
+tools:
+- tool_type: function
+  http_method: POST
+  path: lexicon/document/1003
+  function:
+    name: generateLoanApplicationDocument
+    description:  |
+      Generate loan application document based on the transaction ID.
+    parameters:
+      type: object
+      required:
+      - transaction_id
+      properties:
+        transaction_id:
+          type: string
+          description: Use transaction id in metadata
+          const: TEST123456789
+- tool_type: function
+  http_method: POST
+  path: chatbot/orchestrator
+  function:
+    name: switchToNextAssistant
+    description: This function switches to next assistant
+    examples:
+      - transaction_id: "123456789"
+        main_thread_id: "01HJWVE3NH07W3DA3ZPDV6X61S"
+        assistant_name_to_exclude: Loan Application Document Generator
+    parameters:
+      type: object
+      required:
+        - transaction_id
+        - main_thread_id
+        - assistant_name_to_exclude
+      properties:
+        transaction_id:
+          type: string
+          description: Use transaction id in metadata
+          const: TEST123456789
+        main_thread_id:
+          type: string
+          description: send your thread id to main thread
+          const: TEST123456789
+        assistant_name_to_exclude:
+          type: string
+          description: Doc generation assistant ID, always put '01HKPX70E2VB2ZR61RRPFBD6Q2'
+          const: Loan Application Document Generator
+

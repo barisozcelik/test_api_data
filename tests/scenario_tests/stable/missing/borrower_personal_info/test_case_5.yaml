@@ -1,0 +1,38 @@
+conversation_name: personal_identity_collector_missing_conversation_5
+assistant_id: 01HK7K7FXV7VHYWZ4M24F9AE6C
+prompts:
+  - |-
+    First Name: Alex 
+    Middle Name: James
+    Last Name: Taylor
+    Alias: N/A
+    Date of Birth: 15 July 1985
+    Marital Status: Married
+    Social Security Number (SSN): 123456789
+    Dependent: No dependent
+    U.S. Citizenship Status: Citizen
+  - |-
+    Individual Application
+expected_function_calls:
+  - name: recordPersonalInformation
+    arguments:
+      data:
+        credit_request_type: Individual
+        birth_day: "15"
+        birth_month: "07"
+        birth_year: "1985"
+        first_name: Alex
+        middle_name: James
+        last_name: Taylor
+        ssn: "123456789"
+        marital_status_type: Married
+        us_citizenship_status: USCitizen
+        aliases: []
+        dependent_ages: []
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

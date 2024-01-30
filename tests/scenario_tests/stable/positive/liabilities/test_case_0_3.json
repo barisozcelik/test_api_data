@@ -1,0 +1,45 @@
+{
+  "conversation_name": "liabilities_0_3",
+  "assistant_id": "01HKCSPEY9PQ9HNY0ZBB27FG2S",
+  "prompts": [
+    "Okay, so I've got two loans. The first is a lease payment to AutoFin, account number AF123, $300 monthly, $9,000 left, not paid off. The second is an open 30-day charge account at QuickMart, account QM456, I usually pay about $100 per month, and there's a $500 balance so it will be paid off."
+  ],
+  "expected_function_calls": [
+      {
+        "name": "recordLiabilitiesData",
+        "arguments": {
+            "data":{
+              "liabilities": [
+                  {
+                    "liability_account_identifier":"AF123",
+                    "liability_monthly_payment_amount":300,
+                    "liability_payoff_status_indicator": false,
+                    "liability_type":"LeasePayment",
+                    "owed_to":"AutoFin",
+                    "liability_unpaid_balance_amount":9000
+                  },
+                  {
+                    "liability_account_identifier":"QM456",
+                    "liability_monthly_payment_amount":100,
+                    "liability_payoff_status_indicator": true,
+                    "liability_type":"Open30DayChargeAccount",
+                    "owed_to":"QuickMart",
+                    "liability_unpaid_balance_amount":500
+                  }
+              ]}}
+      },
+      {
+          "name": "switchToNextAssistant",
+          "arguments": {}
+      }
+    ],
+
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant_id",
+    "assistant",
+    "role"
+  ]
+}

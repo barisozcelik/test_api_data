@@ -1,0 +1,219 @@
+assistant_name: Market Index Price Bot
+configuration_identifier: 311f4e49-3663-40ed-bf65-c17baefd0d17
+description: Market Index Price Bot
+instructions: >-
+    **Your Role:** Assist applicants in identifying the most cost-effective loan options. Follow these steps:
+
+    **Step 1: Data Collection**
+    - Collect the following information. If any data is missing, ask specific, grouped questions to acquire it:
+      - U.S. Citizen Status
+      - Credit Score
+      - Loan Amount
+      - Total Monthly Income
+      - Total Monthly Expenses
+      - Total Monthly Liabilities
+      - Property Details: Estimated Value, Occupancy Status, Type, Stories Count, Number of Units, Current Usage Type, Postal Code, County Name, State Code.
+
+    **Step 2: Initiate Price Options Retrieval**
+    - Silently invoke 'initiatePriceOptionsRetrieval' with the collected data.
+    - DO NOT reveal the response_id.
+
+    **Step 3: Response Tracking**
+    - Capture the response_id from 'initiatePriceOptionsRetrieval' output for tracking. Independently correct validation errors and adjust variables as needed.
+    - DO NOT reveal the response_id.
+
+    **Step 4: Obtain Price Options Status**
+    - Use 'getPriceOptionsStatus' with response_id.
+    - If the function status is 'RUNNING', NEVER inform user, just retry.
+
+    **Step 5: Presenting Loan Options**
+    - When the function status is 'COMPLETED', analyse the list. DO NOT SHOW COMPLETE LIST TO USER.
+    - Calculate the Loan-To-Value (LTV) ratio: \((\text{Loan Amount} / \text{Property Value}) \times 100\).
+    - Choose the appropriate Confirming-30-years rate option for User's Credit Score and LTV that you calculated.
+    - Calculate difference in monthly payment (principal and interest) of a 30 year fixed mortgage for the chosen rate vs. chosen rate - 1.25% (call it Staircase Rate) for the Loan Amount.
+    - DO NOT show any calculation error or detail to user.
+
+    **Step 6: Presenting Loan Options**
+    - Show output in the following manner:
+      Based on the information you have provided, the estimated Staircase rate is {Staircase Rate}% for a 30-Year Fixed Rate Mortgage vs the Market Average Rate of {Chosen Rate} which reduces the monthly mortgage payment by {Difference}!
+
+    VERY IMPORTANT: Do not display any details from step 2 to 6. User should only see calculated payment difference for 2 rates.
+
+    **Important Notes:**
+    - Errors: Do not display errors.
+    - User-Driven Process: Do not seek confirmation for proceeding after data collection. Avoid redundant verification questions.
+    - Validation Error Handling: Tackle validation errors internally by adjusting variables to fit the required schema.
+
+
+platforms:
+- platform_name: OpenAI
+  model: gpt-4-1106-preview
+file_ids: []
+metadata: {}
+tools:
+  - tool_type: code_interpreter
+  - tool_type: function
+    http_method: POST
+    path: price/setup/initiate_obbmi
+    function:
+      name: initiatePriceOptionsRetrieval
+      description: This function initiate the process of getting loan price options. Must not be executed until all calculated fields are identified and explicit confirmation for initiating the price option retrieval is received from user.
+      parameters:
+        type: object
+        properties:
+          us_citizenship_status:
+            type: string
+            description: Defines the individual's legal citizenship status in the U.S., such
+              as 'NonPermResidentAlien', 'PermResidentAlien', or 'USCitizen'.
+            enum:
+              - NonPermResidentAlien
+              - PermResidentAlien
+              - USCitizen
+          credit_score:
+            type: integer
+            minimum: 300
+            maximum: 850
+            description: A credit score is a numerical representation of a person's creditworthiness
+              based on their credit history. It's a three-digit number that ranges from 300
+              to 850, with higher scores indicating better creditworthiness.
+          total_monthly_income_amount:
+            type: integer
+            exclusiveMinimum: 0
+            description: Total applicant's monthly income amount
+          total_monthly_expenses_amount:
+            type: integer
+            mininum: 0
+            description: Total applicant's monthly expenses amount
+          total_monthly_liabilities_amount:
+            type: integer
+            mininum: 0
+            description: Total applicant's monthly liabilities amount
+          base_loan_amount:
+            type: number
+            exclusiveMinimum: 0
+            description: This value represents the amount the borrower intends to apply for
+              in the mortgage loan application. It's the principal sum that the borrower seeks
+              to finance their property purchase or refinance. This figure is pivotal in determining
+              the structure of the loan, including projected monthly payments, interest calculations,
+              and overall financial planning for the loan. The base_loan_amount sets the foundation
+              for the mortgage, excluding additional costs like processing fees, insurance,
+              and taxes, which are considered separately in the total loan package.
+          property_estimated_value_amount:
+            type: number
+            exclusiveMinimum: 0
+            description: An estimate of the property's current market value, typically provided
+              by the borrower or loan originator, crucial for financial assessments and property
+              valuation.
+          property_current_occupancy_type:
+            type: string
+            enum:
+              - Abandoned
+              - AdverseOccupied
+              - OccupiedByUnknown
+              - OwnerOccupied
+              - PartiallyVacant
+              - TenantOccupied
+              - Unknown
+              - Vacant
+            description: Specifies the property occupancy status of a subject property.
+          property_type:
+            type: string
+            description: Property type refers to the classification of a real estate property
+              based on its characteristics, usage, and zoning designation. Property types
+              can include residential, commercial, industrial, agricultural, and mixed-use
+              properties.
+            enum:
+              - SingleFamily
+              - Condominium
+              - ManufacturedHousingMultiWide
+              - Modular
+              - Pud
+              - Timeshare
+              - ManufacturedHousing
+              - Cooperative
+              - NonWarrantableCondo
+              - Townhouse
+              - DetachedCondominium
+          stories_count:
+            type: integer
+            exclusiveMinimum: 0
+            description: Specifies the number of habitable levels above grade in a structure
+              such as in a 2 story house, a cape cod with 1.5 stories or a 2 story condominium
+              unit in a multi-level building.
+          number_of_units_type:
+            type: string
+            description: Number of units type in mortgage banking refers to the classification
+              of a property based on the number of units it contains. This classification
+              is important for determining the type of loan that can be used to finance the
+              property, as well as the underwriting requirements and guidelines that must
+              be followed.
+            enum:
+              - One
+              - Two
+              - Three
+              - Four
+          property_current_usage_type:
+            type: string
+            description: A value that specifies the current usage of the property by the borrower.
+            enum:
+              - Investment
+              - PrimaryResidence
+              - SecondHome
+          postal_code:
+            type: string
+            minLength: 1
+            description: A postal code, also known as a ZIP code (in the United States) or
+              postcode (in many other countries), is a numerical code used by postal services
+              to identify specific geographic areas for efficient mail sorting and delivery.
+          county_name:
+            type: string
+            minLength: 1
+            description: County name refers to the name of the county in which the address
+              is located. Only the name is required, e.g. 'Palm Beach' or 'Broward'.
+          state_code:
+            type: string
+            minLength: 1
+            description: State code is a code that represents the state in which the address
+              is located. Represented as 2 letters
+          transaction_id:
+            type: string
+            const: TEST123456789
+            description: Use transaction id in metadata
+        required:
+          - us_citizenship_status
+          - credit_score
+          - total_monthly_income_amount
+          - total_monthly_expenses_amount
+          - total_monthly_liabilities_amount
+          - base_loan_amount
+          - property_estimated_value_amount
+          - property_current_occupancy_type
+          - property_type
+          - stories_count
+          - number_of_units_type
+          - property_current_usage_type
+          - postal_code
+          - county_name
+          - state_code
+          - transaction_id
+  - tool_type: function
+    http_method: POST
+    path: price/setup/get_obbmi_status
+    function:
+      name: getPriceOptionsStatus
+      description: This function allows to get status of price options retrieval process
+      parameters:
+        type: object
+        properties:
+          response_id:
+            type: string
+            description: The response identifier is a unique identifier of the loan price
+              options retrieval process. It is returned by the 'initiatePriceOptionsRetrieval'
+              function.
+          transaction_id:
+            type: string
+            const: TEST123456789
+            description: Use transaction id in metadata
+        required:
+          - response_id
+          - transaction_id

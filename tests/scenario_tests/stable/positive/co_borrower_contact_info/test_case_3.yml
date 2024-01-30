@@ -1,0 +1,29 @@
+conversation_name: coborrower_contact_info_positive_3
+assistant_id: "01HME9BP824XHJZT7SZKRR3NV4"
+prompts:
+  - phone number 555-0-1234
+    email address alex.taylor@example.com,
+    phone number is 56501234,
+    work phone number is 57501234,
+    address  4713 Macejkovic Neck, city name New Sheldon, state code UT,
+    postal code 61425
+expected_function_calls:
+  - name: recordApplicantContactDetails
+    arguments:
+      data:
+        email_address: alex.taylor@example.com
+        phone_number: "55501234"
+        home_phone_number: "56501234"
+        work_phone_number: "57501234"
+        mailing_address_address_line_1: 4713 Macejkovic Neck
+        mailing_address_city_name: New Sheldon
+        mailing_address_state_code: UT
+        mailing_address_postal_code: "61425"
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant_id
+  - assistant

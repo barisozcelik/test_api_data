@@ -1,0 +1,24 @@
+conversation_name: "borrower_contact_info_positive_9"
+assistant_id: 01HJR4G0EQ81DJVRCJCPXQG5YF
+prompts:
+  - 'phone 456-7890, email alex_taylor@example.com, mail address 321 Oak L., V5, Miami FL, 33139, USA'
+expected_function_calls:
+  - name: recordApplicantContactDetails
+    arguments:
+      data:
+        email_address: alex_taylor@example.com
+        phone_number: "4567890"
+        mailing_address_address_line_1: 321 Oak Lane
+        mailing_address_postal_code: "33139"
+        mailing_address_city_name: Miami
+        mailing_address_state_code: FL
+        mailing_address_country_name: US
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant_id
+  - assistant
+  - mailing_address_country_name

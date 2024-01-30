@@ -1,0 +1,45 @@
+{
+    "conversation_name": "market_index_rate_conversation_2",
+    "assistant_id": "01HMRH95EZRN56M2RCV81CAJXS",
+    "prompts": [
+      "Can we start ?",
+      "I'm from the US, with a credit score of 700, a income of $20,000, expenses and liabilities of $5,000. The property I'm looking at has a estimated value of $500,000, I'd like to take a loan of $350,000. The property is vacant, it's a Condo with one story and one unit. It's an investment for retirement, it's located in Sussexx County, 19958, Delaware.",
+      {
+        "type": "sleep",
+        "sleep": 15
+      }
+    ],
+    "expected_function_calls": [
+        {
+            "name": "initiatePriceOptionsRetrieval",
+            "arguments": {
+              "us_citizenship_status": "USCitizen",
+              "credit_score": 700,
+              "total_monthly_income_amount": 20000,
+              "total_monthly_expenses_amount": 5000,
+              "total_monthly_liabilities_amount": 5000,
+              "base_loan_amount": 350000,
+              "property_estimated_value_amount": 500000,
+              "property_current_occupancy_type": "Vacant",
+              "property_type": "Condominium",
+              "stories_count": 1,
+              "number_of_units_type": "One",
+              "property_current_usage_type": "Investment",
+              "postal_code": "19958",
+              "county_name": "Sussexx",
+              "state_code": "DE"
+            }
+        },
+        {
+            "name": "getPriceOptionsStatus",
+            "arguments": {
+              "response_id": "123456789",
+              "amortization_type": "Fixed"
+            }
+        }
+    ],
+    "exclude_regex_paths": [
+        "response_id",
+        "county_name"
+    ]
+}

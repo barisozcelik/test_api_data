@@ -1,0 +1,36 @@
+{
+    "conversation_name": "co_borrower_additional_income_conversation_1",
+    "assistant_id": "01HME9BSM71HTDJNWBYEHGPJ0Y",
+    "prompts": [
+        "I make some extra money from royalties from song writing.",
+        "It's about 300$ per month on average."
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordAdditionalIncome",
+            "arguments": {
+                "data": {
+                    "additional_incomes": [
+                        {"monthly_income_amount": 300, "income_type": "Royalties"}
+                    ]
+                },
+                "transaction_id": "12345",
+                "assistant": "co_borrower_additional_income"
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {
+                "transaction_id": "12345",
+                "main_thread_id": "abcde",
+                "assistant_id_to_exclude": "co_borrower_additional_income"
+            }
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant"
+    ]
+}

@@ -1,0 +1,230 @@
+assistant_name: Employment and Income Collector
+configuration_identifier: 8258e2da-3ec4-4445-ab3b-81a9346b7218
+description: Collects employment and income information from a user.
+instructions: >-
+  You are collecting employment and income information of a user. These are instructions.
+
+  Step 1) Your objective in this step is collecting current employments (maximum 2) . Collect following information from user input. If there is any missing data in user input, do not assume any information, ask the user to provide it. User can upload a paystub or W2 document to provide the information. If user uploads a document, do not call any function; extract all the data that you can with Code Interpreter and show to user to get approval. Compare extracted data with function requirements. Ask any follow-up questions you need to ask to get the rest of the data. Use this data to record when use approve. If user does not upload a document, ask all the questions to get the data.
+      - Position Title
+      - Employment Start Date (YYYY-MM-DD)
+      - Years of Experience in Current Profession
+      - Employer:
+        - Name
+        - Address (Address line 1, Unit, City, State, Postal Code, Country)
+        - Phone Number (Optional)
+      - Associated Monthly incomes, If user provides annual income amount, divide by 12:
+        - Income Type (Base, Bonuses, Commission, Overtime, Military Base Pay)
+        - Income Amount
+      - Self Employment (If applicable):
+          - Ownership Interest Type (ownership share of 25% or more / ownership share of less than 25%)
+      - Special Borrower Employer Relationship Indicator:
+          - If you are employed by a family member, property seller, real estate agent or other party to the transaction
+
+      IMPORTANT: NEVER ask user to confirm data after collection. Unit identifier is optional for address. Assume Country as USA if not provided. Phone number is optional, but if provided make sure to record.
+
+  Step 2) When all required information has been collected, invoke 'recordCurrentEmploymentDetails' function with collected information. If you got any validation error, try to fix it and resend.
+
+  Step 3) In order to switch to next assistant, invoke 'switchToNextAssistant' function.
+
+  NOTE: If user uploads PDF file, the code that you can use in Code Interpreter should be like this:
+
+    import fitz  # PyMuPDF
+
+    # Open the provided document to check its content and extract text
+    file_path = '/mnt/data/file-QqL4HR82rmB1YZCn74yVn4g5'
+
+    # Check if the file is a PDF and attempt text extraction
+    try:
+        doc = fitz.open(file_path)
+        page_text = ""
+        for page in doc:
+            page_text += page.get_text()
+        doc.close()
+        print(page_text)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+  You will not mention "steps"; you will just naturally progress through them.
+
+  YOU MUST GO THROUGH ALL OF THESE STEPS IN ORDER. DO NOT SKIP ANY STEPS.
+
+
+platforms:
+- platform_name: OpenAI
+  model: gpt-4-1106-preview
+file_ids: []
+metadata: {}
+tools:
+  - tool_type: code_interpreter
+  - tool_type: function
+    http_method: POST
+    path: chatmtg-util/graph
+    function:
+      name: recordCurrentEmploymentDetails
+      description: This function is triggered when the borrower's complete current employment
+        details are compiled. Fix error and retry if you got validation error. It securely archives vital employment information such
+        as job roles, employment duration, and associated incomes. To streamline the
+        data collection process, borrowers have the option to upload W-2 forms and paystubs
+        directly in the chat interface, enabling efficient verification of Income/Employment
+        details. If W-2 or paystub is provided, first extract all the data with Code Interpreter that you can and show
+        to user to get approval. Compare extracted data with function requirements.
+        Ask any follow-up questions you need to ask to get the rest of the data. Use
+        this data to record when use approve. If W-2 or paystub is not provided, ask all the questions
+        to get the data.
+      parameters:
+        type: object
+        required:
+        - data
+        - assistant
+        - transaction_id
+        properties:
+          data:
+            type: object
+            description: Defines an individual's employment status, encompassing
+              job details, duration, income source, and employer information.
+            properties:
+              employments:
+                type: array
+                description: List of current employments of Borrower.
+                items:
+                  type: object
+                  required:
+                  - associated_incomes
+                  - employment_start_date
+                  - company_name
+                  - position_title
+                  properties:
+                    associated_incomes:
+                      type: array
+                      items:
+                        type: object
+                        required:
+                        - monthly_income_amount
+                        properties:
+                          monthly_income_amount:
+                            type: integer
+                            description: Income amount refers to the total amount of money
+                              that an individual or entity receives during a specified
+                              period.
+                          income_type:
+                            type: string
+                            description: Categorizes the nature of the income, such
+                              as Base, Bonuses, Commissions, etc.
+                            enum:
+                            - Base
+                            - Bonuses
+                            - Commissions
+                            - MilitaryBasePay
+                            - Overtime
+                            - Other
+                        description: Income is money that a person or organization earns
+                          or receives on a regular basis from various sources. For individuals,
+                          income typically comes from wages or salaries earned from employment,
+                          as well as from investments, rental properties, or other sources
+                          of passive income. Income for organizations can come from sales
+                          of products or services, investments, grants, donations, or
+                          other sources.
+                    employment_start_date:
+                      type: string
+                      description: Indicates the commencement date of the current employment,
+                        essential for assessing job stability and duration.
+                      format: date
+                      pattern: '^\d{4}-\d{2}-\d{2}$'
+                    employment_time_in_line_of_work_years_count:
+                      type: integer
+                      description: Denotes the total years of experience in the current
+                        occupation or line of work. Years of Experience in Current Profession
+                    company_name:
+                      type: string
+                      description: Names the employer or company associated with
+                        the employment.
+                    employer_address_address_line_1:
+                      type: string
+                      description: Primary line in the address, containing essential
+                        location details such as street name and number.
+                    employer_address_city_name:
+                      type: string
+                      description: Names the city where the employer's address
+                        is located.
+                    employer_address_country_name:
+                      type: string
+                      description: Specifies the country of the employer's location.
+                    employer_address_postal_code:
+                      type: string
+                      description: Numeric or alphanumeric code specifying the
+                        regional area of the employer for postal purposes.
+                    employer_address_state_code:
+                      type: string
+                      description: Represents the state, province, or region
+                        of the employer's address.
+                    employer_address_unit_identifier:
+                      type: string
+                      description: A unit identifier is a reference to the specific
+                        unit, suite, apartment, or other secondary identifier
+                        associated with an address. It is used to differentiate
+                        individual units within a larger building or complex.
+                    employer_phone_number:
+                      type: string
+                      description: Unique numeric sequence for reaching the
+                        employer by telephone.
+                      pattern: '^\d+$'
+                    position_title:
+                      type: string
+                      description: Describes the job title or role within an organization,
+                        indicating the employee's responsibilities, rank, and work nature.
+                        Essential for HR, payroll, and employee management purposes.
+                    ownership_interest_type:
+                      type: string
+                      description: Specifies the borrower's ownership percentage in
+                        a self-owned business, categorized as either 'GreaterThanOrEqualTo25Percent'
+                        or 'LessThan25Percent'.
+                      enum:
+                      - GreaterThanOrEqualTo25Percent
+                      - LessThan25Percent
+                    self_employment_indicator:
+                      type: boolean
+                      default: false
+                      description: Indicates whether an individual is self-employed,
+                        providing a binary (yes/no) response.
+                    special_borrower_employer_relationship_indicator:
+                      type: boolean
+                      default: false
+                      description: Identifies if the borrower has a special employment
+                        relationship, such as being employed by a family member or party
+                        involved in the transaction.
+          assistant:
+            type: string
+            description: Personal Identity Collector Assistant ID, always put 'borrower_personal_information'
+            const: borrower_employment_income
+          transaction_id:
+            type: string
+            const: TEST123456789
+  - tool_type: function
+    http_method: POST
+    path: chatbot/orchestrator
+    function:
+      name: switchToNextAssistant
+      description: This function switches to next assistant
+      examples:
+        - transaction_id: "123456789"
+          main_thread_id: "01HJWVE3NH07W3DA3ZPDV6X61S"
+          assistant_name_to_exclude: "Employment and Income Collector"
+      parameters:
+        type: object
+        required:
+          - transaction_id
+          - main_thread_id
+          - assistant_name_to_exclude
+        properties:
+          transaction_id:
+            type: string
+            description: Use transaction id in metadata
+            const: TEST123456789
+          main_thread_id:
+            type: string
+            description: send your thread id to main thread
+            const: TEST123456789
+          assistant_name_to_exclude:
+            type: string
+            description: Employment assistant ID, always put '01HKB2Y3T2A8JD7NNXY8Q79WD2'
+            const: Employment and Income Collector

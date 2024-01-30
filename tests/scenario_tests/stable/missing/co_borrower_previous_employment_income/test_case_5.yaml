@@ -1,0 +1,29 @@
+conversation_name: co_borrower_previous_income_conversation_missing_5
+assistant_id: 01HME9BGX8X7ANW1EKSEGH3K2T
+prompts:
+  - "I served as a Project Manager at Quantum Technologies. My yearly income was $50400."
+  - "My period of employment was from 2008-06-01 to 2020-12-31, located at 550 Innovation Drive, Seattle, WA 98104, United States."
+expected_function_calls:
+  - name: recordPreviousEmploymentDetails
+    arguments:
+      data:
+        associated_incomes:
+          - monthly_income_amount: 4200
+            income_type: Base
+        employment_start_date: "2008-06-01"
+        employment_end_date: "2020-12-31"
+        employer_address_address_line_1: 550 Innovation Drive
+        employer_address_state_code: "WA"
+        employer_address_city_name: "Seattle"
+        employer_address_postal_code: "98104"
+        employer_address_country_name: "United States"
+        company_name: "Quantum Technologies"
+        position_title: Project Manager
+        self_employment_indicator: false
+  - name: switchToNextAssistant
+    arguments: { }
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

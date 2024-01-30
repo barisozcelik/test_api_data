@@ -1,0 +1,12 @@
+version: 1.0
+
+name: loan-officer-gpt
+
+modules:
+  - name: assistants
+
+depends_on:
+  - Account
+
+documentation:
+  path: requirements/README.md

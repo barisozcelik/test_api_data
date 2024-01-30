@@ -1,0 +1,61 @@
+assistant_name: Loan Application Document E-Sign
+configuration_identifier: ddfcf104-f979-4ab5-a8c8-1b2fb0a832b3
+description: Loan Application Document E-Sign
+instructions: |
+    Once conversation is started, call 'initiateLoanApplicationDocumentSign' function to initiate the process of 1003 form signing.
+
+    Don't ask any questions to user.
+
+    Do not reply anything after getting output of 'initiateLoanApplicationDocumentSign' function call
+
+platforms:
+- platform_name: OpenAI
+  model: gpt-3.5-turbo
+file_ids: []
+metadata: {}
+tools:
+- tool_type: function
+  http_method: POST
+  path: chatmtg-util/initiate_1003_sign
+  function:
+    name: initiateLoanApplicationDocumentSign
+    description: This function initates the process of loan application document signing based on the transaction ID
+    parameters:
+      type: object
+      required:
+        - transaction_id
+      properties:
+        transaction_id:
+          type: string
+          description: Use transaction id in metadata
+          const: TEST123456789
+- tool_type: function
+  http_method: POST
+  path: chatbot/orchestrator
+  function:
+    name: switchToNextAssistant
+    description: This function switches to next assistant
+    examples:
+      - transaction_id: "123456789"
+        main_thread_id: "01HJWVE3NH07W3DA3ZPDV6X61S"
+        assistant_name_to_exclude: "01HMEAMNN2NRKYCAQRMRQ0XBDV"
+    parameters:
+      type: object
+      required:
+        - transaction_id
+        - main_thread_id
+        - assistant_name_to_exclude
+      properties:
+        transaction_id:
+          type: string
+          description: Use transaction id in metadata
+          const: TEST123456789
+        main_thread_id:
+          type: string
+          description: send your thread id to main thread
+          const: TEST123456789
+        assistant_name_to_exclude:
+          type: string
+          description: Loan Application Document E-Sign assistant ID, always put '01HMEAMNN2NRKYCAQRMRQ0XBDV'
+          const: Loan Application Document E-Sign
+

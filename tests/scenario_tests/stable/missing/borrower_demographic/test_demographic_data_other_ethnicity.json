@@ -1,0 +1,38 @@
+{
+    "conversation_name": "test_demographic_data_other_ethnicity",
+    "assistant_id": "01HJT3CV0VTQVF3NCMK0MEFCJZ",
+    "prompts": [
+        "I am not Hispanic or Latino.",
+        "My gender is non-binary, and I choose not to disclose my race."
+    ],
+    "expected_function_calls": [
+        {
+            "name": "recordApplicantDemographicDetails",
+            "arguments": {
+                "data": {
+                    "ethnicity_type": "NotHispanicOrLatino",
+                    "ethnicity_origin_type": "",
+                    "ethnicity_origin_type_other_description": "",
+                    "ethnicity_refusal_indicator": false,
+                    "gender_type": "Other",
+                    "gender_refusal_indicator": false,
+                    "race_type": "",
+                    "race_type_additional_description": "",
+                    "race_refusal_indicator": true
+                }
+            }
+        },
+        {
+            "name": "switchToNextAssistant",
+            "arguments": {}
+        }
+    ],
+    "exclude_regex_paths": [
+        "transaction_id",
+        "main_thread_id",
+        "assistant_id_to_exclude",
+        "assistant",
+        "assistant_id",
+        "role"
+    ]
+}

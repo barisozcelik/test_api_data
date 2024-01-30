@@ -1,0 +1,26 @@
+conversation_name: personal_identity_collector_coborrower_conversation_1
+assistant_id: 01HME5GEY8W746S210QHB2EDH4
+prompts:
+  - 'First: Alex; Middle: James; Last: Taylor; Known Aliases: N/A; DOB: 15/07/1985; Marital Status: Single; Social Security #: 123456789; Citizen of United States: Yes; Number of Dependents: None;'
+expected_function_calls:
+  - name: recordPersonalInformation
+    arguments:
+      data:
+        birth_day: "15"
+        birth_month: "07"
+        birth_year: "1985"
+        first_name: Alex
+        middle_name: James
+        last_name: Taylor
+        ssn: "123456789"
+        marital_status_type: Unmarried
+        us_citizenship_status: USCitizen
+        aliases: []
+        dependent_ages: []
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant

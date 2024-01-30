@@ -1,0 +1,38 @@
+{
+  "conversation_name": "liabilities_2_8",
+  "assistant_id": "01HKCSPEY9PQ9HNY0ZBB27FG2S",
+  "prompts": [
+    "I currently hold a revolving credit account, designated with the identifier RC5678. The monthly payment is approximately $y. The creditor in this instance is FinancePlus, and the outstanding balance is $2,200. This account has not been fully paid off."
+    ,"My monthly payment is $120"
+  ],
+  "expected_function_calls": [
+      {
+        "name": "recordLiabilitiesData",
+        "arguments": {
+          "data":{
+            "liabilities": [
+                {
+                  "liability_account_identifier":"RC5678",
+                  "liability_monthly_payment_amount":120,
+                  "liability_payoff_status_indicator": false,
+                  "liability_type":"Revolving",
+                  "owed_to":"FinancePlus",
+                  "liability_unpaid_balance_amount":2200
+                }
+            ]}}
+      },
+      {
+          "name": "switchToNextAssistant",
+          "arguments": {}
+      }
+    ],
+
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant_id",
+    "assistant",
+    "role"
+  ]
+}

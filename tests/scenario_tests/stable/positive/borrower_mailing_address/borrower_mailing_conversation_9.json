@@ -1,0 +1,32 @@
+{
+  "conversation_name": "borrower_mailing_conversation_9",
+  "assistant_id": "01HN2PK38H8JV47SG8S1Y4X2RT",
+  "prompts": [
+    "My mailing house is 6th Street and Pine Avenue, right next to the post office, in the town of Greenville, TX. The postal code is 75402. Please use this for all future mailings."
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordMailingAddressDetails",
+      "arguments": {
+        "data": {
+          "mailing_address_line_1": "6th Street and Pine Avenue",
+          "mailing_address_city_name": "Greenville",
+          "mailing_address_country_name": "US",
+          "mailing_address_postal_code": "75402",
+          "mailing_address_state_code": "TX"
+        }
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

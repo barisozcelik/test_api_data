@@ -1,0 +1,39 @@
+{
+  "conversation_name": "other_liabilities_0_5",
+  "assistant_id": "01HKYH693DNND2Z29G883WDEYQ",
+  "prompts": [
+   
+    "I’m currently paying $250 monthly for child support and $100 for other personal liabilities"
+  ],
+  "expected_function_calls": [
+      {
+        "name": "recordOtherLiabilitiesData",
+        "arguments": {
+          "data":{
+            "other_liabilities": [
+                {
+                  "liability_monthly_payment_amount":100,
+                  "liability_type":"Other"
+                  
+                },
+                {
+                  "liability_monthly_payment_amount":250,
+                  "liability_type":"ChildSupport"
+                }
+            ]}}
+      },
+      {
+          "name": "switchToNextAssistant",
+          "arguments": {}
+      }
+    ],
+
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant_id",
+    "assistant",
+    "role"
+  ]
+}

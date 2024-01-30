@@ -1,0 +1,50 @@
+{
+  "conversation_name": "real_estate_missing_8",
+  "assistant_id": "01HJZH0S5D3X6GE8SEXRJVBQ1P",
+  "prompts": [
+    "Here are the details of my downtown loft:\nAddress:\n  Street: 100 Metro Blvd\n  City: New York\n  State: NY\n  Zip Code: 10001\n Country: US\n  ","Property Value: $750,000\n  Status: Sold\nIntended Occupancy: Investment\nMonthly Maintenance Expenses: $300\nMonthly Rental Income: $2500\nMortgage Loan Details:\n  Lender Name: Big Apple Mortgages\n  Monthly Payment: $4,000\n  Unpaid Balance: $500,000\n  Loan Type: Conventional"
+  ],
+  "expected_function_calls": [
+    {
+      "name": "recordRealEstateInformation",
+      "arguments": {
+        "data": {
+          "property_details": [
+            {
+              "address_line_1": "100 Metro Blvd",
+              "city_name": "New York",
+              "country_name": "US",
+              "postal_code": "10001",
+              "state_code": "NY",
+              "property_estimated_value_amount": 750000,
+              "property_current_usage_type": "Investment",
+              "owned_property_maintenance_expense_amount": 300,
+              "owned_property_disposition_status_type": "Sold",
+              "owned_property_rental_income_gross_amount": 2500,
+              "lender_name": "Big Apple Mortgages",
+              "unpaid_balance_amount": 500000,
+              "monthly_payment": 4000,
+              "loan_type": "Conventional"
+            }
+          ]
+        },
+        "transaction_id": "12345",
+        "assistant": "borrower_real_estate"
+      }
+    },
+    {
+      "name": "switchToNextAssistant",
+      "arguments": {
+        "transaction_id": "12345",
+        "main_thread_id": "abcde",
+        "assistant_id_to_exclude": "borrower_real_estate"
+      }
+    }
+  ],
+  "exclude_regex_paths": [
+    "transaction_id",
+    "main_thread_id",
+    "assistant_id_to_exclude",
+    "assistant"
+  ]
+}

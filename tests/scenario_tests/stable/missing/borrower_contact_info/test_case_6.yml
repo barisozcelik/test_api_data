@@ -1,0 +1,25 @@
+conversation_name: borrower_contact_info_missing_6
+assistant_id: 01HJR4G0EQ81DJVRCJCPXQG5YF
+prompts:
+  - |-
+    Home Phone Number: 56501234
+    Work Phone Number: 57501234
+  - |-
+    Phone Number: 55501234
+    Email Address: alex.taylor@example.com
+expected_function_calls:
+  - name: recordApplicantContactDetails
+    arguments:
+      data:
+        email_address: alex.taylor@example.com
+        phone_number: "55501234"
+        home_phone_number: "56501234"
+        work_phone_number: "57501234"
+  - name: switchToNextAssistant
+    arguments: {}
+exclude_regex_paths:
+  - transaction_id
+  - main_thread_id
+  - assistant_id_to_exclude
+  - assistant_id
+  - assistant

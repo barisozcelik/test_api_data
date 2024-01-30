@@ -1,0 +1,21 @@
+{
+  "conversation_name": "credit_liabilities_5",
+  "assistant_id": "01HMGK7369334691XHSBKAC534",
+  "prompts": [
+     "lets start",
+     "Use Staircase API",
+     "Bill, Testcase ,000000015, 8842 48th Ave, Anthill, MO, 65488",
+     "What is the status"
+ ],
+  "init_collection": {
+   
+  },
+  "exclude_regex_paths": [
+    "@id",
+    "owed_to",
+    "has_liability_timeline"
+  ],
+  "expected_v3": {
+    
+  }
+}
